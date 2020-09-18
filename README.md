@@ -6,7 +6,7 @@ Built and tested in VSCode.
 
 -----
 
-## Prbability calculator for standard discrete distribution
+## Probability calculator for standard discrete distribution
 
 Generates a distribution with the given parameters.
 Distributions currently supported:
