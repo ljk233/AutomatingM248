@@ -301,7 +301,7 @@ class Binomial(Probability):
 
 
 class Geometric(Probability):
-    '''Add docstring'''
+    '''Generates a geometric distribution G(p).'''
 
     def __init__(self, probability: float):
         '''Add docstring'''
@@ -347,7 +347,7 @@ class Geometric(Probability):
 
 
 class Poisson(Probability):
-    '''Add docstring'''
+    '''Generates a Poisson distribution Poisson(lambda)'''
 
     def __init__(self, mu: float) -> None:
         '''Add docstring'''
@@ -405,8 +405,8 @@ class Poisson(Probability):
         self.stdDev = sqrt(self.var)
 
 
-class discreteUniform(Probability):
-    '''Add docstring'''
+class DiscreteUniform(Probability):
+    '''Generates a discrete uniform distribution with range m to n'''
 
     def __init__(self, m: int, n: int) -> None:
         '''Add docstring'''
