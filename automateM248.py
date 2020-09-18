@@ -245,7 +245,11 @@ class Probability:
 
 
 class Binomial(Probability):
-    '''Generates a binomial distribution B(n, p).'''
+    '''Generates a binomial distribution B(n, p).
+    arguments:
+      n, sample size, integer
+      p, probability, float
+    '''
 
     def __init__(self, sampleSize: int, probability: float):
         '''Add docstring'''
@@ -301,7 +305,9 @@ class Binomial(Probability):
 
 
 class Geometric(Probability):
-    '''Generates a geometric distribution G(p).'''
+    '''Generates a geometric distribution G(p).
+    arguments:
+      p, probability, float'''
 
     def __init__(self, probability: float):
         '''Add docstring'''
@@ -347,7 +353,9 @@ class Geometric(Probability):
 
 
 class Poisson(Probability):
-    '''Generates a Poisson distribution Poisson(lambda)'''
+    '''Generates a Poisson distribution Poisson(lambda)
+    arguments:
+      lambda, float'''
 
     def __init__(self, mu: float) -> None:
         '''Add docstring'''
@@ -406,7 +414,11 @@ class Poisson(Probability):
 
 
 class DiscreteUniform(Probability):
-    '''Generates a discrete uniform distribution with range m to n'''
+    '''Generates a discrete uniform distribution with range m to n
+    arguments:
+      m, lower bound, integer
+      n, upper bound, integer
+    '''
 
     def __init__(self, m: int, n: int) -> None:
         '''Add docstring'''
