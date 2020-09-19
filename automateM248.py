@@ -32,7 +32,7 @@ class Probability:
     def displayMean(self) -> None:
         '''Prints the E(X) of the distribution to 4dp'''
 
-        print('E(X) =', self.mean)
+        print('E(X) =', round(self.mean, 4))
 
     def displayVariance(self) -> None:
         '''Prints the V(X) of the distribution to 4dp'''
@@ -251,7 +251,7 @@ class Binomial(Probability):
       p, probability, float
     '''
 
-    def __init__(self, sampleSize: int, probability: float):
+    def __init__(self, sampleSize: int, probability: float) -> None:
         '''Add docstring'''
 
         self.n: int = sampleSize
@@ -282,24 +282,24 @@ class Binomial(Probability):
         F_x: float = 0
 
         while i <= x:
-            p_i = self._calculateP(i)
+            p_i: float = self._calculateP(i)
             F_x = F_x + p_i
             i = i + 1
 
         return F_x
 
-    def _calculateMean(self) -> float:
+    def _calculateMean(self) -> None:
         '''Calculate the E(X) of the binomial distribution'''
 
         self.mean = self.n * self.p
 
-    def _calculateVariance(self) -> float:
+    def _calculateVariance(self) -> None:
         '''Calculate the V(X) of the binomial distribution'''
 
         self.var = self.n * self.p * self.q
 
     def _calculateStdDev(self) -> None:
-        '''Calculate the V(X) of the binomial distribution to 4dp'''
+        '''Calculate the S(X) of the binomial distribution to 4dp'''
 
         self.stdDev = sqrt(self.var)
 
@@ -309,7 +309,7 @@ class Geometric(Probability):
     arguments:
       p, probability, float'''
 
-    def __init__(self, probability: float):
+    def __init__(self, probability: float) -> None:
         '''Add docstring'''
 
         self.p: float = probability
@@ -336,12 +336,12 @@ class Geometric(Probability):
 
         return F_x
 
-    def _calculateMean(self) -> float:
+    def _calculateMean(self) -> None:
         '''Calculate the E(X) of the geometric distribution'''
 
         self.mean = self.p ** (-1)
 
-    def _calculateVariance(self) -> float:
+    def _calculateVariance(self) -> None:
         '''Calculate the V(X) of the geometric distribution'''
 
         self.var = self.q / (self.p ** 2)
@@ -353,7 +353,7 @@ class Geometric(Probability):
 
 
 class Poisson(Probability):
-    '''Generates a Poisson distribution Poisson(lambda)
+    '''Generates a Poisson distribution Poisson(mu)
     arguments:
       lambda, float'''
 
@@ -397,12 +397,12 @@ class Poisson(Probability):
 
         return F_x
 
-    def _calculateMean(self) -> float:
+    def _calculateMean(self) -> None:
         '''Calculate the E(X) of the geometric distribution'''
 
         self.mean = self.mu
 
-    def _calculateVariance(self) -> float:
+    def _calculateVariance(self) -> None:
         '''Calculate the V(X) of the geometric distribution'''
 
         self.var = self.mu
