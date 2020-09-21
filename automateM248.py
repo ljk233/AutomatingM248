@@ -235,14 +235,6 @@ class Probability:
                 # do someting
                 print('Command not recongised')
 
-    def toString(x: int, p: float) -> dict:
-        '''Returns a dict of strings'''
-
-        dictString: dict = dict()
-
-        dictString[x] = str(x)
-        dictString[p] = str(round(p, 6))
-
 
 class Binomial(Probability):
     '''Generates a binomial distribution B(n, p).
@@ -260,6 +252,7 @@ class Binomial(Probability):
         self._calculateMean()
         self._calculateVariance()
         self._calculateStdDev()
+        self.displaySummary()
 
     def _calculateP(self, x: int) -> float:
         '''Calculates P(X)'''
@@ -317,6 +310,7 @@ class Geometric(Probability):
         self._calculateMean()
         self._calculateVariance()
         self._calculateStdDev()
+        self.displaySummary()
 
     def _calculateP(self, x: int) -> float:
         '''Calculates P(X)'''
@@ -366,6 +360,7 @@ class Poisson(Probability):
         self._calculateMean()
         self._calculateVariance()
         self._calculateStdDev()
+        self.displaySummary()
 
     def _calculateP(self, x: int) -> float:
         '''Calculates P(X)'''
@@ -428,6 +423,7 @@ class DiscreteUniform(Probability):
         self._calculateMean()
         self._calculateVariance()
         self._calculateStdDev()
+        self.displaySummary()
 
     def _calculateP(self, x: int) -> float:
         '''Calculates P(X)'''
