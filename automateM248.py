@@ -1,4 +1,4 @@
-from math import comb, exp, sqrt, factorial
+from math import comb, e, exp, sqrt, factorial
 
 
 class Probability:
@@ -467,3 +467,50 @@ class DiscreteUniform(Probability):
         '''Calculate the S(X) of the distribution'''
 
         self.stdDev = sqrt(self.var)
+
+
+class Exponential(Probability):
+    '''Generates an exponential distribution with parameter 'lambda' as L.
+    '''
+
+    def __init__(self, L: float) -> None:
+        '''Add docstring'''
+
+        self.L = L
+        self._calculateMean()
+        self._calculateVariance()
+        self._calculateStdDev()
+        self.displaySummary()
+
+    def _calculateP(self, x: int) -> float:
+        '''Calculates P(X)'''
+
+        probability: float = 0
+
+        probability = self.L * e ** (-1 * self.L * x)
+
+        return probability
+
+    def _calculateF(self, x: float) -> float:
+        '''Calculates F(X)'''
+
+        F_x: float = 0
+
+        F_x = 1 - e ** (-1 * self.L * x)
+
+        return F_x
+
+    def _calculateMean(self) -> None:
+        '''Calculate the E(X) of the geometric distribution'''
+
+        self.mean = 1 / self.L
+
+    def _calculateVariance(self) -> None:
+        '''Calculate the V(X) of the geometric distribution'''
+
+        self.var = 1 / (self.L ** 2)
+
+    def _calculateStdDev(self) -> None:
+        '''Calculate the S(X) of the distribution'''
+
+        self.stdDev = 1 / self.L
