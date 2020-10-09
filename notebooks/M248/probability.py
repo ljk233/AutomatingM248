@@ -43,10 +43,11 @@ def simulateDieRolls(n: int) -> None:
 
 
 class Discrete:
-    '''Add docstring'''
+    '''Superclass for pscrete distribitions.'''
 
     def displaySummary(self) -> None:
-        '''Display the summary statistics for a distribution'''
+        '''Display the summary statistics for a distribution.
+        E(X), V(X), and S(X)'''
 
         print('Summary statistics of the distribution')
         print('--------------------------------------')
@@ -56,12 +57,18 @@ class Discrete:
 
     def calculateProbability(self, x1: int, x2: int = None) -> None:
         '''Calculates the probability in a range.
-        x1 must be defined. x2 is optional.
-        If just x1:
-          return =, <=, <, >=, >=
-        Else:
-          return x1 <= X <= x2, x1 <= X < x2, x1 < X <= x2, x1 < X < x2
+        If x1 >= x2, then return error
+        x1 must be defined.
+        x2 is optional, default to None.
+
         '''
+
+        # check that the probability range is sensible
+        # provides an early return
+        if x1 >= x2:
+            print("x1 must be less than x2.")
+            print("Please define a sensible range.")
+            return
 
         strX1: str = str(x1)
         p1: float = 0.0
@@ -115,22 +122,22 @@ class Discrete:
             print('P(' + strX1 + ' < X < ' + strX2 + ') = ' + strP4)
 
     def displayMean(self) -> None:
-        '''Prints the E(X) of the distribution to 4dp'''
+        '''Prints the E(X) of the distribution to 6dp'''
 
-        print('E(X) =', round(self.mean, 4))
+        print('E(X) =', round(self.mean, 6))
 
     def displayVariance(self) -> None:
-        '''Prints the V(X) of the distribution to 4dp'''
+        '''Prints the V(X) of the distribution to 6dp'''
 
-        print('V(X) =', round(self.var, 4))
+        print('V(X) =', round(self.var, 6))
 
     def displayStdDev(self) -> None:
-        '''Prints the S(X) of the binomial distribution to 4dp'''
+        '''Prints the S(X) of the binomial distribution to 6dp'''
 
         print('S(X) =', round(self.stdDev, 4))
 
     def calculateF(self, x: int) -> float:
-        '''Calculates F(X)'''
+        '''Calculates F(x)'''
 
         i: int = 0
         F: float = 0
@@ -142,12 +149,12 @@ class Discrete:
         return F
 
 
-class Binomial(Discrete):
+class B(Discrete):
     '''Generates a binomial distribution B(n, p).
     '''
 
     def __init__(self, sampleSize: int, probability: float) -> None:
-        '''Add docstring'''
+        '''Constructor for B'''
 
         self.__n: int = sampleSize
         self.__p: float = probability
@@ -172,27 +179,27 @@ class Binomial(Discrete):
         return probability
 
     def calculateMean(self) -> None:
-        '''Calculate the E(X) of the binomial distribution'''
+        '''Calculate the E(X)'''
 
         self.mean = self.__n * self.__p
 
     def calculateVariance(self) -> None:
-        '''Calculate the V(X) of the binomial distribution'''
+        '''Calculate the V(X)'''
 
         self.var = self.__n * self.__p * self.__q
 
     def calculateStdDev(self) -> None:
-        '''Calculate the S(X) of the binomial distribution to 4dp'''
+        '''Calculate the S(X)'''
 
         self.stdDev = sqrt(self.var)
 
 
-class Geometric(Discrete):
+class G(Discrete):
     '''Generates a geometric distribution G(p).
     '''
 
     def __init__(self, probability: float) -> None:
-        '''Add docstring'''
+        '''Constructor for the G'''
 
         self.__p: float = probability
         self.__q: float = 1 - probability
@@ -209,23 +216,23 @@ class Geometric(Discrete):
     def calculateF(self, x: int) -> float:
         '''Calculates F(X).
         Override function due to class CalculateF not working.
-        PDF fails when X=0.
+        (PDF fails when X=0).
         '''
 
         return 1 - (1 - self.__p) ** x
 
     def calculateMean(self) -> None:
-        '''Calculate the E(X) of the geometric distribution'''
+        '''Calculate the E(X)'''
 
         self.mean = self.__p ** (-1)
 
     def calculateVariance(self) -> None:
-        '''Calculate the V(X) of the geometric distribution'''
+        '''Calculate the V(X)'''
 
         self.var = self.__q / (self.__p ** 2)
 
     def calculateStdDev(self) -> None:
-        '''Calculate the S(X) of the geometric distribution'''
+        '''Calculate the S(X)'''
 
         self.stdDev = sqrt(self.var)
 
@@ -235,7 +242,7 @@ class Poisson(Discrete):
     '''
 
     def __init__(self, mu: float) -> None:
-        '''Add docstring'''
+        '''Constructor for the Poisson'''
 
         self.__mu: float = mu
         self.__negMu: float = -1 * mu
@@ -255,30 +262,27 @@ class Poisson(Discrete):
         return probability
 
     def calculateMean(self) -> None:
-        '''Calculate the E(X) of the geometric distribution'''
+        '''Calculate the E(X)'''
 
         self.mean = self.__mu
 
     def calculateVariance(self) -> None:
-        '''Calculate the V(X) of the geometric distribution'''
+        '''Calculate the V(X)'''
 
         self.var = self.__mu
 
     def calculateStdDev(self) -> None:
-        '''Calculate the S(X) of the geometric distribution'''
+        '''Calculate the S(X)'''
 
         self.stdDev = sqrt(self.var)
 
 
 class DiscreteUniform(Discrete):
     '''Generates a discrete uniform distribution with range m to n
-    arguments:
-      m, lower bound, integer
-      n, upper bound, integer
     '''
 
     def __init__(self, m: int, n: int) -> None:
-        '''Add docstring'''
+        '''Constructor for DiscreteUniform'''
 
         self.__m: int = m
         self.__n: int = n
@@ -293,23 +297,23 @@ class DiscreteUniform(Discrete):
         return 1 / (self.__n - self.__m + 1)
 
     def calculateMean(self) -> None:
-        '''Calculate the E(X) of the geometric distribution'''
+        '''Calculate the E(X)'''
 
         self.mean = 0.5 * (self.__m + self.__n)
 
     def calculateVariance(self) -> None:
-        '''Calculate the V(X) of the geometric distribution'''
+        '''Calculate the V(X)'''
 
         self.var = ((1 / 12)
                     * ((self.__n - self.__m) * (self.__n - self.__m + 2)))
 
     def calculateStdDev(self) -> None:
-        '''Calculate the S(X) of the distribution'''
+        '''Calculate the S(X)'''
 
         self.stdDev = sqrt(self.var)
 
 
-class Exponential():
+class M():
     '''
     Generates an exponential distribution with parameter 'lambda' as L.
     '''
