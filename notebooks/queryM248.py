@@ -5,25 +5,18 @@ import pandas as pd
 
 class Database():
     """
-    Creates a connection to an sqlite3 data, and executes a SELECT * FROM tbl
-    query.
+    Creates a connection to an sqlite3 database.
     """
 
-    def __init__(self, db: str, tbl: str) -> None:
+    def __init__(self, db: str) -> None:
         '''
         add docstring
         '''
 
         # initiate paramters
         self.db: str = "./data/" + db + ".db3"
-        self.tbl: str = tbl
 
         self.createConnection()
-        self.setCursor()
-        self.setData()
-        self.setTitles()
-
-        self.dataframe = pd.DataFrame(self.data, columns=self.titles)
 
     def createConnection(self) -> None:
         """
@@ -41,16 +34,39 @@ class Database():
         except Error as e:
             print(e)
 
-    def table(self, table: str) -> object:
+    def listTables(self) -> None:
         '''
-        Creates a cursor object for db.tbl
+        Lists all the tables in the target database
         '''
 
+        cursor = self.conn.cursor()
+
+        cursor.execute('SELECT name from sqlite_master where type= "table"')
+
+        print("Table list")
+        print("----------")
+
+        for table in cursor.fetchall():
+            tblName = table[0]
+            print(tblName)
+
+
+class Table():
+    '''
+    Retrieve a table of data from a database.
+    '''
+
+    def __init__(self, tbl: str, db: object) -> None:
+
+        self.db = db
+        self.tbl = tbl
+        self.setCursorFetchAll()
         self.setData()
         self.setTitles()
+        self.setDF()
 
-    def setCursor(self) -> None:
-        self.cur = self.conn.cursor()  # creates the cursor object
+    def setCursorFetchAll(self) -> None:
+        self.cur = self.db.conn.cursor()  # creates the cursor object
         str_query: str = "SELECT * FROM " + self.tbl  # query to exe
         self.cur.execute(str_query)  # executes the query
 
@@ -71,7 +87,14 @@ class Database():
 
         self.data = self.cur.fetchall()
 
-    def getDF(self) -> object:
+    def setDF(self) -> None:
+        '''
+        Creates the DataFrame object
+        '''
+
+        self.dataframe = pd.DataFrame(self.data, columns=self.titles)
+
+    def toDF(self) -> object:
         '''
         Returns the dataframe attribute
         '''
