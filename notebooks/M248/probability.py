@@ -43,7 +43,7 @@ def simulateDieRolls(n: int) -> None:
 
 
 class Discrete:
-    '''Superclass for pscrete distribitions.'''
+    '''Superclass for discrete distribitions.'''
 
     def displaySummary(self) -> None:
         '''Display the summary statistics for a distribution.
@@ -55,7 +55,7 @@ class Discrete:
         self.displayVariance()
         self.displayStdDev()
 
-    def calculateProbability(self, x1: int, x2: int = None) -> None:
+    def calculateP(self, x1: int, x2: int = None) -> None:
         '''Calculates the probability in a range.
         If x1 >= x2, then return error
         x1 must be defined.
@@ -65,7 +65,7 @@ class Discrete:
 
         # check that the probability range is sensible
         # provides an early return
-        if x1 >= x2:
+        if x2 is not None and x1 >= x2:
             print("x1 must be less than x2.")
             print("Please define a sensible range.")
             return
@@ -81,7 +81,7 @@ class Discrete:
         print('---------------------------------------')
 
         if x2 is None:
-            p1 = self.calculateP(x1)
+            p1 = self.p(x1)
             strP1: str = str(round(p1, 6))
             print('P(X = ' + strX1 + ') = ' + strP1)
 
@@ -143,7 +143,7 @@ class Discrete:
         F: float = 0
 
         while i <= x:
-            F = F + self.calculateP(i)
+            F = F + self.p(i)
             i = i + 1
 
         return F
@@ -164,7 +164,7 @@ class B(Discrete):
         self.calculateStdDev()
         self.displaySummary()
 
-    def calculateP(self, x: int) -> float:
+    def p(self, x: int) -> float:
         '''Calculates P(X)'''
 
         # calculate the number of combinations
@@ -208,7 +208,7 @@ class G(Discrete):
         self.calculateStdDev()
         self.displaySummary()
 
-    def calculateP(self, x: int) -> float:
+    def p(self, x: int) -> float:
         '''Calculates P(X)'''
 
         return self.__q ** (x - 1) * self.__p
@@ -252,7 +252,7 @@ class Poisson(Discrete):
         self.calculateStdDev()
         self.displaySummary()
 
-    def calculateP(self, x: int) -> float:
+    def p(self, x: int) -> float:
         '''Calculates P(X)'''
 
         probability: float = 0
@@ -291,7 +291,7 @@ class DiscreteUniform(Discrete):
         self.calculateStdDev()
         self.displaySummary()
 
-    def calculateP(self, x: int) -> float:
+    def p(self, x: int) -> float:
         '''Calculates P(X)'''
 
         return 1 / (self.__n - self.__m + 1)
@@ -336,7 +336,7 @@ class M():
         self.displayVariance()
         self.displayStdDev()
 
-    def calculateProbability(self, x1: float, x2: float = None) -> None:
+    def calculateP(self, x1: float, x2: float = None) -> None:
         '''Calculates the probability in a range.
         x1 must be defined. x2 is optional.
         If just x1:
@@ -345,7 +345,7 @@ class M():
           return x1 <= X <= x2, x1 <= X < x2, x1 < X <= x2, x1 < X < x2
         '''
 
-        strX1: str = str(round(x1, 4))
+        strX1: str = str(round(x1, 6))
         p1: float = 0.0
         p2: float = 0.0
 
@@ -362,7 +362,7 @@ class M():
             print('P(X >= ' + strX1 + ') = ' + strP2)
 
         else:
-            strX2: str = str(round(x2, 4))
+            strX2: str = str(round(x2, 6))
 
             p1 = self.calculateF(x2) - self.calculateF(x1)
             strP1: str = str(round(p1, 6))
@@ -383,7 +383,7 @@ class M():
 
         print('S(X) =', round(self.stdDev, 4))
 
-    def calculateP(self, x: int) -> float:
+    def p(self, x: int) -> float:
         '''Calculates P(X)'''
 
         probability: float = 0
