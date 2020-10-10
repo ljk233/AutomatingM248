@@ -92,7 +92,7 @@ class Table():
 
     def setDF(self) -> None:
         '''
-        Creates the DataFrame 
+        Creates the DataFrame
         '''
 
         self.dataframe = pd.DataFrame(self.data, columns=self.titles)
