@@ -56,15 +56,13 @@ class Discrete:
         self.displayStdDev()
 
     def calculateP(self, x1: int, x2: int = None) -> None:
-        '''Calculates the probability in a range.
-        If x1 >= x2, then return error
-        x1 must be defined.
+        '''Calculates the probability in a range.x1 must be defined.
         x2 is optional, default to None.
-
+        If x1 >= x2, then return error.
         '''
 
         # check that the probability range is sensible
-        # provides an early return
+        # Provides an early return
         if x2 is not None and x1 >= x2:
             print("x1 must be less than x2.")
             print("Please define a sensible range.")
@@ -81,44 +79,45 @@ class Discrete:
         print('---------------------------------------')
 
         if x2 is None:
+            # Calculate P
             p1 = self.p(x1)
-            strP1: str = str(round(p1, 6))
-            print('P(X = ' + strX1 + ') = ' + strP1)
-
             p2 = self.calculateF(x1)
-            strP2: str = str(round(p2, 6))
-            print('P(X <= ' + strX1 + ') = ' + strP2)
-
             p3 = self.calculateF(x1 - 1)
-            strP3: str = str(round(p3, 6))
-            print('P(X < ' + strX1 + ') = ' + strP3)
-
             p4 = 1 - self.calculateF(x1 - 1)
-            strP4: str = str(round(p4, 6))
-            print('P(X >= ' + strX1 + ') = ' + strP4)
-
             p5 = 1 - self.calculateF(x1)
+
+            # Cast to strings, round to 6dp
+            strP1: str = str(round(p1, 6))
+            strP2: str = str(round(p2, 6))
+            strP3: str = str(round(p3, 6))
+            strP4: str = str(round(p4, 6))
             strP5: str = str(round(p5, 6))
+
+            # Print the probabilities
+            print('P(X = ' + strX1 + ') = ' + strP1)
+            print('P(X <= ' + strX1 + ') = ' + strP2)
+            print('P(X < ' + strX1 + ') = ' + strP3)
+            print('P(X >= ' + strX1 + ') = ' + strP4)
             print('P(X > ' + strX1 + ') = ' + strP5)
 
-            # 6. P(x1 <= X <= x2)
         else:
-            strX2: str = str(x2)
-
+            # Calculate P
             p1 = self.calculateF(x2) - self.calculateF(x1 - 1)
-            strP1: str = str(round(p1, 6))
-            print('P(' + strX1 + ' <= X <= ' + strX2 + ') = ' + strP1)
-
             p2 = self.calculateF(x2) - self.calculateF(x1)
-            strP2: str = str(round(p2, 6))
-            print('P(' + strX1 + ' < X <= ' + strX2 + ') = ' + strP2)
-
             p3 = self.calculateF(x2-1) - self.calculateF(x1-1)
-            strP3: str = str(round(p3, 6))
-            print('P(' + strX1 + ' <= X < ' + strX2 + ') = ' + strP3)
+            p4 = self.calculateF(x2-1) - self.calculateF(x1)
 
-            p4: float = self.calculateF(x2-1) - self.calculateF(x1)
+            # Cast to strings, round to 6dp
+            strX2: str = str(x2)
+            strP1: str = str(round(p1, 6))
+            strP2: str = str(round(p2, 6))
+            strP3: str = str(round(p3, 6))
             strP4: str = str(round(p4, 6))
+
+            # Print the probabilities
+            print('P(' + strX1 + ' <= X <= ' + strX2 + ') = ' + strP1)
+            print('P(' + strX1 + ' < X <= ' + strX2 + ') = ' + strP2)
+            print('P(' + strX1 + ' <= X < ' + strX2 + ') = ' + strP3)
             print('P(' + strX1 + ' < X < ' + strX2 + ') = ' + strP4)
 
     def displayMean(self) -> None:
@@ -134,7 +133,7 @@ class Discrete:
     def displayStdDev(self) -> None:
         '''Prints the S(X) of the binomial distribution to 6dp'''
 
-        print('S(X) =', round(self.stdDev, 4))
+        print('S(X) =', round(self.stdDev, 6))
 
     def calculateF(self, x: int) -> float:
         '''Calculates F(x)'''
@@ -198,11 +197,11 @@ class G(Discrete):
     '''Generates a geometric distribution G(p).
     '''
 
-    def __init__(self, probability: float) -> None:
+    def __init__(self, p: float) -> None:
         '''Constructor for the G'''
 
-        self.__p: float = probability
-        self.__q: float = 1 - probability
+        self.__p: float = p
+        self.__q: float = 1 - p
         self.calculateMean()
         self.calculateVariance()
         self.calculateStdDev()
@@ -215,7 +214,7 @@ class G(Discrete):
 
     def calculateF(self, x: int) -> float:
         '''Calculates F(X).
-        Override function due to class CalculateF not working.
+        Override method due to Discrete CalculateF not working.
         (PDF fails when X=0).
         '''
 
@@ -242,7 +241,7 @@ class Poisson(Discrete):
     '''
 
     def __init__(self, mu: float) -> None:
-        '''Constructor for the Poisson'''
+        '''Constructor for Poisson'''
 
         self.__mu: float = mu
         self.__negMu: float = -1 * mu
@@ -255,11 +254,11 @@ class Poisson(Discrete):
     def p(self, x: int) -> float:
         '''Calculates P(X)'''
 
-        probability: float = 0
+        p: float = 0
 
-        probability = self.__constant * ((self.__mu ** x) / factorial(x))
+        p = self.__constant * ((self.__mu ** x) / factorial(x))
 
-        return probability
+        return p
 
     def calculateMean(self) -> None:
         '''Calculate the E(X)'''
@@ -294,7 +293,7 @@ class DiscreteUniform(Discrete):
     def p(self, x: int) -> float:
         '''Calculates P(X)'''
 
-        return 1 / (self.__n - self.__m + 1)
+        return (self.__n - self.__m + 1) ** (-1)
 
     def calculateMean(self) -> None:
         '''Calculate the E(X)'''
@@ -305,7 +304,8 @@ class DiscreteUniform(Discrete):
         '''Calculate the V(X)'''
 
         self.var = ((1 / 12)
-                    * ((self.__n - self.__m) * (self.__n - self.__m + 2)))
+                    * ((self.__n - self.__m)
+                    * (self.__n - self.__m + 2)))
 
     def calculateStdDev(self) -> None:
         '''Calculate the S(X)'''
@@ -321,7 +321,7 @@ class M():
     def __init__(self, L: float) -> None:
         '''Constructor for the Exponential class'''
 
-        self.L = L
+        self.__L = L
         self.calculateMean()
         self.calculateVariance()
         self.calculateStdDev()
@@ -340,9 +340,9 @@ class M():
         '''Calculates the probability in a range.
         x1 must be defined. x2 is optional.
         If just x1:
-          return =, <=, <, >=, >=
+          return <=,>=
         Else:
-          return x1 <= X <= x2, x1 <= X < x2, x1 < X <= x2, x1 < X < x2
+          return x1 <= X <= x2
         '''
 
         strX1: str = str(round(x1, 6))
@@ -369,49 +369,49 @@ class M():
             print('P(' + strX1 + ' <= X <= ' + strX2 + ') = ' + strP1)
 
     def displayMean(self) -> None:
-        '''Prints the E(X) of the distribution to 4dp'''
+        '''Prints the E(X) of the distribution to 6dp'''
 
-        print('E(X) =', round(self.mean, 4))
+        print('E(X) =', round(self.mean, 6))
 
     def displayVariance(self) -> None:
-        '''Prints the V(X) of the distribution to 4dp'''
+        '''Prints the V(X) of the distribution to 6dp'''
 
-        print('V(X) =', round(self.var, 4))
+        print('V(X) =', round(self.var, 6))
 
     def displayStdDev(self) -> None:
-        '''Prints the S(X) of the binomial distribution to 4dp'''
+        '''Prints the S(X) of the distribution to 6dp'''
 
-        print('S(X) =', round(self.stdDev, 4))
+        print('S(X) =', round(self.stdDev, 6))
 
     def p(self, x: int) -> float:
         '''Calculates P(X)'''
 
-        probability: float = 0
+        p: float = 0
 
-        probability = self.L * e ** (-1 * self.L * x)
+        p = self.__L * e ** (-1 * self.__L * x)
 
-        return probability
+        return p
 
     def calculateF(self, x: float) -> float:
         '''Calculates F(X)'''
 
         F: float = 0
 
-        F = 1 - e ** (-1 * self.L * x)
+        F = 1 - e ** (-1 * self.__L * x)
 
         return F
 
     def calculateMean(self) -> None:
         '''Calculate the E(X)'''
 
-        self.mean = 1 / self.L
+        self.mean = 1 / self.__L
 
     def calculateVariance(self) -> None:
         '''Calculate the V(X)'''
 
-        self.var = 1 / (self.L ** 2)
+        self.var = 1 / (self.__L ** 2)
 
     def calculateStdDev(self) -> None:
         '''Calculate the S(X) of the distribution'''
 
-        self.stdDev = 1 / self.L
+        self.stdDev = 1 / self.__L
