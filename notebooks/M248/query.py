@@ -8,9 +8,9 @@ class Database():
     Creates a connection to an sqlite3 database.
     """
 
-    def __init__(self, db: str) -> None:
+    def __init__(self, db: str = 'sets') -> None:
         '''
-        add docstring
+        Constructor for the Database class
         '''
 
         # initiate paramters
@@ -20,11 +20,7 @@ class Database():
 
     def createConnection(self) -> None:
         """
-        Create a database connection to the SQLite database
-        specified by the db_file
-
-        :param db_file: database file
-        :return: Connection object or None
+        Create a database connection to the SQLite database.
         """
 
         self.conn = None
@@ -57,6 +53,9 @@ class Table():
     '''
 
     def __init__(self, tbl: str, db: object) -> None:
+        '''
+        Constructor for the Table class
+        '''
 
         self.db = db
         self.tbl = tbl
@@ -66,13 +65,17 @@ class Table():
         self.setDF()
 
     def setCursorFetchAll(self) -> None:
+        '''
+        Default cursor object to retrieve all the data
+        '''
+
         self.cur = self.db.conn.cursor()  # creates the cursor object
         str_query: str = "SELECT * FROM " + self.tbl  # query to exe
         self.cur.execute(str_query)  # executes the query
 
     def setTitles(self) -> None:
         '''
-        sets the column title
+        Sets the column title for the DataFrame
         '''
 
         self.titles: list = list()
@@ -82,21 +85,21 @@ class Table():
 
     def setData(self) -> None:
         '''
-        sets the data
+        Sets the data for the DataFrame
         '''
 
         self.data = self.cur.fetchall()
 
     def setDF(self) -> None:
         '''
-        Creates the DataFrame object
+        Creates the DataFrame 
         '''
 
         self.dataframe = pd.DataFrame(self.data, columns=self.titles)
 
     def toDF(self) -> object:
         '''
-        Returns the dataframe attribute
+        Returns the DataFrame
         '''
 
         return self.dataframe
