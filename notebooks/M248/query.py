@@ -8,19 +8,20 @@ class Database():
     Creates a connection to an sqlite3 database.
     """
 
-    def __init__(self, db: str = 'sets') -> None:
+    def __init__(self, db: str = './data/sets.db3') -> None:
         '''
-        Constructor for the Database class
+        Constructor for the Database class.
+        arg db is the relative path to the sqlite3 database.
         '''
 
         # initiate paramters
-        self.db: str = "./data/" + db + ".db3"
+        self.db: str = db
 
         self.createConnection()
 
     def createConnection(self) -> None:
         """
-        Create a database connection to the SQLite database.
+        Create a database connection to the sqlite database.
         """
 
         self.conn = None
@@ -52,13 +53,13 @@ class Table():
     Retrieve a table of data from a database.
     '''
 
-    def __init__(self, tbl: str, db: object) -> None:
+    def __init__(self, table: str, db: object) -> None:
         '''
-        Constructor for the Table class
+        Constructor for the Table class.
         '''
 
         self.db = db
-        self.tbl = tbl
+        self.tbl = table
         self.setCursorFetchAll()
         self.setData()
         self.setTitles()
@@ -66,7 +67,7 @@ class Table():
 
     def setCursorFetchAll(self) -> None:
         '''
-        Default cursor object to retrieve all the data
+        Creates a default cursor object that retrieves all the data.
         '''
 
         self.cur = self.db.conn.cursor()  # creates the cursor object
@@ -75,7 +76,7 @@ class Table():
 
     def setTitles(self) -> None:
         '''
-        Sets the column title for the DataFrame
+        Sets the column title for the DataFrame.
         '''
 
         self.titles: list = list()
