@@ -10,14 +10,17 @@ class Account():
     @version 1.0
     '''
 
-    def __init__(self) -> None:
+    def __init__(self,
+                 holderName: str = None,
+                 accountNumber: str = None,
+                 anAmmount: float = 0.0) -> None:
         '''
         Constructor for objects of class Account.
         '''
 
-        self.holder: str = ""
-        self.number: str = ""
-        self.balance: float = 0.0
+        self.holder: str = holderName
+        self.number: str = accountNumber
+        self.balance: float = anAmmount
 
     def getBalance(self) -> float:
         '''
@@ -70,7 +73,7 @@ class Account():
         Example of object sending message to itself.
         '''
 
-        self.setBalance(self.getBalance + anAmmount)
+        self.setBalance(self.getBalance() + anAmmount)
 
     def debit(self, anAmmount: float) -> bool:
         '''
@@ -86,8 +89,8 @@ class Account():
         '''
 
         # if the account balance greater or equal to ammount
-        if self.getBalance >= anAmmount:
-            self.setBalance(self.getBalance - anAmmount)
+        if self.getBalance() >= anAmmount:
+            self.setBalance(self.getBalance() - anAmmount)
             return True
 
         else:
@@ -102,6 +105,8 @@ class Account():
 
         If the balance of the receiver is not equal to or greater than the
         argument anAmount, the method simply returns false.
+
+        Example of object collaboration.
         '''
 
         if self.debit(anAmmount):
