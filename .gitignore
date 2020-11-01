@@ -4,3 +4,8 @@ notebooks/M248/__pycache__/query.cpython-38.pyc
 notebooks/M248/__pycache__/probability.cpython-38.pyc
 AUTOM238.code-workspace
 *.pyc
+AUTOM248.code-workspace
+CompBookA/.ipynb_checkpoints/*.ipynb
+CompBookA/.ipynb_checkpoints/*.Rmd
+CompBookA/M248/.ipynb_checkpoints/query-checkpoint.py
+CompBookA/M248/.ipynb_checkpoints/support-checkpoint.py
