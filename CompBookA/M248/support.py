@@ -1,22 +1,54 @@
-
-import seaborn as sns
+from scipy.stats import poisson, expon
+import matplotlib.pyplot as plt
 import numpy as np
+import pandas as pd
 
 
-def plotProbDist(x: object, title: str) -> None:
-    '''
-    Plots the probability distribution
-    '''
+def samplePoisson(N: int) -> None:
+    '''Generates a random sample from the Poisson(10) distribution, and
+    plots the distribution'''
 
-    # generated array of x 0:30
-    X = np.arange(30)
+    fig, ax = plt.subplots(1, 1)
 
-    p = list()
-    # for each x in X
-    for i in X:
-        # calculate p(x), append to list
-        p.append(x.pmf(i))
+    mu = 10
+    x = np.arange(poisson.ppf(0.01, mu),
+                  poisson.ppf(0.99, mu))
+    ax.plot(x, poisson.pmf(x, mu), 'bo', ms=8, label='poisson pmf')
+    ax.vlines(x, 0, poisson.pmf(x, mu), colors='r', lw=5, alpha=0.5)
 
-    # plot p(x)
-    ax1 = sns.barplot(x=X, y=p, palette="Blues_d")
-    ax1.set(xlabel='x', ylabel='p(x)', title=title)
+    r = poisson.rvs(10, size=N)
+    df = pd.DataFrame(data=x, columns={'x'})
+
+    a_list = list()
+
+    for i in x:
+        count = 0
+        for j in r:
+            if i == j:
+                count = count+1
+        a_list.append(count/N)
+
+    df = pd.DataFrame(data=x, columns={'x'})
+    df['rel freq'] = a_list
+    ax.bar(x=df['x'], height=df['rel freq'], alpha=0.3)
+    ax.legend(loc='best', frameon=False)
+    plt.show()
+
+
+def sampleExponential(N: int) -> None:
+    '''Generates a random sample from the M(2) distribution, and
+    plots the distribution.'''
+
+    fig, ax = plt.subplots(1, 1)
+
+    x = np.linspace(expon.ppf(q=0.01, scale=0.5),
+                    expon.ppf(q=0.99, scale=0.5), 100)
+    ax.plot(x, expon.pdf(x, scale=0.5),
+            'r-', lw=5, alpha=0.6, label='exponential pdf')
+
+    r = expon.rvs(scale=0.5, size=N)
+    ax.hist(r, bins=50, density=True, histtype='stepfilled', alpha=0.3)
+    ax.legend(loc='best', frameon=False)
+    plt.show()
+
+
