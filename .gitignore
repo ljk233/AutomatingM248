@@ -5,4 +5,6 @@ CompBookA/.ipynb_checkpoints/*.Rmd
 CompBookA/M248/.ipynb_checkpoints/query-checkpoint.py
 CompBookA/M248/.ipynb_checkpoints/support-checkpoint.py
 CompBookA/*
+notebooks/*
 Notebooks/*
+Examples/.ipynb_checkpoints/*.ipynb
