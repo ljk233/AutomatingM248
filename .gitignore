@@ -1,7 +1,8 @@
 AUTOM238.code-workspace
 *.pyc
-*.ipynb
 AUTOM248.code-workspace
 CompBookA/.ipynb_checkpoints/*.Rmd
 CompBookA/M248/.ipynb_checkpoints/query-checkpoint.py
 CompBookA/M248/.ipynb_checkpoints/support-checkpoint.py
+CompBookA/*
+Notebooks/*
