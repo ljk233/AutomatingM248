@@ -4,6 +4,9 @@ date: 2020-12-28
 ref: 
 ---
 
+This note was made in response to a post on the M248 forum:
+[Unit 5 Section 3.1](https://learn2.open.ac.uk/mod/forumng/discuss.php?d=3495996)
+
 ## Method 1
 
 The definition of the c.d.f. of a continuous distribution[^1] is

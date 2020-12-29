@@ -4,6 +4,9 @@ date: 2020-12-28
 ref: 
 ---
 
+This note was made in response to a post on the M248 forum:
+[Covid19 tests and statistics](https://learn2.open.ac.uk/mod/forumng/discuss.php?d=3496734)
+
 ## Statement of Bayes' Theorem
 
 > Bayes' theorem is stated mathematically as the following equation:
