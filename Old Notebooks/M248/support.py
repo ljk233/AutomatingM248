@@ -99,7 +99,9 @@ def generatePlotSampleDist(dist: object,
                            k: int,
                            N: int) -> None:
     '''
-    Returns: None
+    Returns: None.
+    Arg k is the number of observations within the sample.
+    Arg N is the number of samples of size k to generate.
     '''
 
     # declare the list of sample means
