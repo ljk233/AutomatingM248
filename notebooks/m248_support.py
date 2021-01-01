@@ -208,7 +208,7 @@ class Normal():
         Returns the value of the alpha-quantile q_(alpha) of the
         normal distribution N(mu, sigma^2), rounded to arg dp.
         """
-        return round(self.get_dist().ppf(q=a), 4)
+        return round(self.get_dist().ppf(q=a), dp)
 
     def is_distributed(self) -> None:
         """
@@ -246,7 +246,7 @@ class Normal():
 
         Note
         - the distribution must be first be declared before
-        the sample total can be modelled.
+        the sample mean can be modelled.
         - the original distribution is lost.
         """
 
@@ -255,6 +255,17 @@ class Normal():
         self.__dist__ = stats.norm(loc=self.__mu__, scale=self.__sigma__)
 
         return self
+
+    def has_ci(self, a: float) -> list:
+        """
+        Returns the 100(1-a)% CI.
+        Arg a should be (0,1).
+        """
+        a_list: list = list()
+
+        a_list.append(self.has_quantile(a/2 + 0.5))
+
+        return a_list
 
 
 class ConfidenceInterval():
