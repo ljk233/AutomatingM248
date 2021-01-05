@@ -47,7 +47,7 @@ def bootstrap(a_dist, n) -> None:
                  bins=10,
                  alpha=0.3)
     ax.legend(loc='best', frameon=False)
-    # ax.axes.yaxis.set_visible(False)
+    ax.axes.yaxis.set_visible(False)
 
     plt.show()
 
