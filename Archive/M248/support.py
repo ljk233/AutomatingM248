@@ -95,41 +95,33 @@ def generateSampleDist(dist: object,
     return a_list
 
 
-def generatePlotSampleDist(dist: object,
-                           k: int,
-                           N: int) -> None:
+def plot_sample_distribution_of_mean(a_dist: object,
+                                     k: int,
+                                     N: int) -> None:
     '''
-    Returns: None.
+    Plots a histogram of the sample mean.
+
+    Generates a N random sample of size k from the distribution.
+    Each ranom sample's mean is calculated and appended to a list.
+    A histogram of the list is then plotted.
+
     Arg k is the number of observations within the sample.
     Arg N is the number of samples of size k to generate.
     '''
 
-    # declare the list of sample means
     sample_means: list = list()
 
     i: int = 1  # counter variable
 
-    # while the counter is less than or equal to the total samples
     while i <= N:
-        # generate a sample
-        a_sample: list = dist.rvs(size=k)
+        sample_means.append(a_dist.rvs(size=k).mean())
+        i += 1
 
-        a_total: int = 0
+    sns.histplot(x=sample_means,
+                 stat="density",
+                 binwidth=0.01)
 
-        # calculate the sample total
-        for an_obs in a_sample:
-            a_total = a_total + an_obs
-
-        # calculate the sample mean
-        a_mean: float = a_total/k
-
-        # append the sample mean to the sample mean list
-        sample_means.append(a_mean)
-
-        # increment the counter
-        i = i + 1
-
-    # plot the histogram
-    sns.histplot(x=sample_means, binwidth=1)
+    plt.title("Sample size N=" + str(N))
+    plt.show()
 
     return None
