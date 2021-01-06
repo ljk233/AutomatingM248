@@ -4,10 +4,21 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 
-def bootstrap(a_dist, n) -> None:
+def bootstrap(a_dist: object,
+              n: int,
+              plot_normal: bool = False,
+              bins: int = 50) -> None:
     '''
     A quick and dirty function to run a bootstrap method
     for the sampling distribution of the mean.
+
+    If plot_normal=true, also outputs the CLT approximation of
+    the sampling distribution of the mean.
+
+    The parameter `bins` controls the number of bins used in the
+    histogram.
+    Changing this parameter will make the histogram less accurate,
+    but improves the plot's fidelity for discrete distributions.
 
     The algorithm is
     BEGIN
@@ -24,13 +35,15 @@ def bootstrap(a_dist, n) -> None:
 
     fig, ax = plt.subplots(1, 1)
 
-    mu = a_dist.mean()
-    std = a_dist.std()
+    # shall we plot the normal pdf as well?
+    if plot_normal:
+        mu = a_dist.mean()
+        ste = a_dist.std()/(n**0.5)
 
-    x = np.linspace(norm.ppf(q=0.01, loc=mu, scale=std),
-                    norm.ppf(q=0.99, loc=mu, scale=std), 100)
-    ax.plot(x, norm.pdf(x, loc=mu, scale=std),
-            'r-', lw=5, alpha=0.6, label='normal pdf')
+        x = np.linspace(norm.ppf(q=0.01, loc=mu, scale=ste),
+                        norm.ppf(q=0.99, loc=mu, scale=ste), 100)
+        ax.plot(x, norm.pdf(x, loc=mu, scale=ste),
+                'r-', lw=5, alpha=0.6, label='CLT')
 
     # generate a sample of the distribution
     a_sample = a_dist.rvs(size=n)
@@ -43,11 +56,11 @@ def bootstrap(a_dist, n) -> None:
         means.append(np.array(a_resample).mean())
 
     sns.histplot(means,
-                 stat="probability",
-                 bins=10,
+                 stat="density",
+                 bins=bins,
                  alpha=0.3)
     ax.legend(loc='best', frameon=False)
-    ax.axes.yaxis.set_visible(False)
+    # ax.axes.yaxis.set_visible(False)
 
     plt.show()
 
