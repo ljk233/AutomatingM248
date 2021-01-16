@@ -1,5 +1,4 @@
 import numpy as np
-from scipy.stats import poisson
 import pandas as pd
 
 
@@ -29,8 +28,13 @@ def get_samples(a_dist, n: int, N: int) -> dict:
     return samples
 
 
-def get_table1():
+def get_table1(a_dist, n: int, N: int):
     """
+    Generates five collections of N samples of size n from
+    a_dist, and calculates the sample mean, samples variance, and
+    population variance.
+
+    Return the result is a pd.DataFrame.
     """
 
     """-----------------------------------------------------------------------
@@ -41,9 +45,9 @@ def get_table1():
     collection: list = list()
 
     for i in range(0, 5):
-        collection.append(get_samples(a_dist=poisson(mu=1),
-                                      n=10,
-                                      N=1000))
+        collection.append(get_samples(a_dist=a_dist,
+                                      n=n,
+                                      N=N))
 
     """-----------------------------------------------------------------------
     Let us further aggregate the data by finding the mean of each sample's
