@@ -1,6 +1,7 @@
 ---
-Title: A worked example of the Poisson process
-Created: 2020-12-29
+title: A worked example of the Poisson process
+created: 2020-12-29
+date: 2021-01-11
 ---
 
 ## 1. Defining the terms
@@ -130,9 +131,9 @@ We also calculated the 95% confidence interval for estimate.
 
 [^1]: M248 HB pp.10.
 [^2]: M248 Computer book A10, specifically subsection 1.
-[^3]: See [3. Rate of emails remains constant](https://nbviewer.jupyter.org/github/ljk233/AutomatingM248/blob/master/projects/poisson_process/notebooks/2a_poisson_process.ipynb#3.-Rate-of-emails-remains-constant) for how the plot was constructed (Jupyter).
+[^3]: See [3. Rate of emails remains constant](https://nbviewer.jupyter.org/github/ljk233/AutomatingM248/blob/master/projects/poisson_process/notebooks/2_poisson_process.ipynb#3.-Rate-of-emails-remains-constant) for how the plot was constructed (Jupyter).
 [^4]: See [2. Number of emails per hour](https://nbviewer.jupyter.org/github/ljk233/AutomatingM248/blob/master/projects/poisson_process/notebooks/2a_poisson_process.ipynb#2.-Number-of-emails-per-hour) for how the plot was constructed (Jupyter).
-[^5]: See [4. Waiting time between emails](https://nbviewer.jupyter.org/github/ljk233/AutomatingM248/blob/master/projects/poisson_process/notebooks/2a_poisson_process.ipynb#4.-Waiting-time-between-emails) for how the plot was constructed (Jupyter).
+[^5]: See [4. Waiting time between emails](https://nbviewer.jupyter.org/github/ljk233/AutomatingM248/blob/master/projects/poisson_process/notebooks/2_poisson_process.ipynb#4.-Waiting-time-between-emails) for how the plot was constructed (Jupyter).
 [^6]: M248 HB pp.26-27.
 [^7]: M248 HB pp.15.
-[^8]: See [6. Confidence interval for $\lambda$](https://nbviewer.jupyter.org/github/ljk233/AutomatingM248/blob/master/projects/poisson_process/notebooks/2a_poisson_process.ipynb#6.-Confidence-interval-for-$\lambda$) for these calculations (Jupyter).
+[^8]: See [6. Confidence interval for $\lambda$](https://nbviewer.jupyter.org/github/ljk233/AutomatingM248/blob/master/projects/poisson_process/notebooks/2_poisson_process.ipynb#6.-Confidence-interval-for-$\lambda$) for these calculations (Jupyter).
