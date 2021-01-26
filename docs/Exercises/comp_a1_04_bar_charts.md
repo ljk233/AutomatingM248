@@ -41,4 +41,5 @@ plt.show()
 
 - Activity 4 (Computer Book A) ([Jupyter nb](https://github.com/ljk233/AutomatingM248/blob/master/comp_book/A-01-04_bar_charts.ipynb))
 - Bar charts (Unit 1.3.1)
-- M248 Handbook pp.5
+- M248 HB pp.5
+- [seaborn.countplot()](https://seaborn.pydata.org/generated/seaborn.countplot.html#seaborn.countplot) (Seaborn)
