@@ -1,33 +1,34 @@
 
-"""----------------------------------------------------------------------------
-References
-==========
-
-Computer activity 4
-
-- Bar chart (HB.pp5; U1.3.1; CA1.2).
-
-Plot a bar chart of raw data.
-----------------------------------------------------------------------------"""
+# =============================================================================
+# References
+# ==========
+#
+# - Computer activity 4
+# - Bar chart (HB.pp5; U1.3.1; CA1.2).
+# - Plot a bar chart of raw data.
+# =============================================================================
 
 import pandas as pd
-import seaborn as sns
-import matplotlib.pyplot as plt
+import plotly.express as px
 
 # import the data
 tattoos = pd.read_csv("./data/tattoos.csv")
 
+# =============================================================================
+# aggregate the data
+# =============================================================================
+
+score_count = tattoos.groupby("Score").count()  # Count frequency of each Score
+score_count.reset_index(inplace=True)  # reset the index, good practice
+score_count.drop_duplicates("Score", inplace=True)  # drop duplicate
+score_count.rename(columns={"Size": 'Frequency'}, inplace=True)  # rename col
+score_count[["Score", "Frequency"]].head()  # preview the dataframe
+
+# =============================================================================
 # plot the bar chart
-sns.set_theme(style="whitegrid")        # set theme of sns
-f, ax = plt.subplots()                  # setup the figure, axis
+# =============================================================================
 
-ax = sns.countplot(data=tattoos,        # sets the dataframe
-                   x="Score",           # set the x-axis
-                   color="royalblue")   # set the colour scheme
-
-# set y-axis and title
-ax.set(ylabel="Frequency",
-       title="Frequency of Score")
-
-# display the plot
-plt.show()
+fig = px.bar(score_count,
+             x="Score",
+             y="Frequency")
+fig.show()

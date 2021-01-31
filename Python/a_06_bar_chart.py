@@ -1,18 +1,15 @@
 
-"""----------------------------------------------------------------------------
-References
-==========
-
-Computer actitity 6
-
-- Bar chart (HB.pp5; U1.3.1; CA1.2).
-
-Plot a bar chart of aggregated data.
-----------------------------------------------------------------------------"""
+# =============================================================================
+# References
+# ==========
+#
+# - Computer actitity 6
+# - Bar charts (HB.p5. U1.3.1. CA1.2.)
+# - Plot a bar chart of aggregated data.
+# =============================================================================
 
 import pandas as pd
-import seaborn as sns
-import matplotlib.pyplot as plt
+import plotly.express as px
 
 # import the data
 df = pd.read_csv("./data/workforce.csv")
@@ -20,48 +17,23 @@ df = pd.read_csv("./data/workforce.csv")
 # preview data
 df.head()
 
-"""----------------------------------------------------------------------------
-Plot a default barplot
-----------------------------------------------------------------------------"""
+# =============================================================================
+# Plot a default barplot
+# =============================================================================
 
-# plot the bar chart
-sns.set_theme(style="darkgrid")         # set theme of sns
-f, ax = plt.subplots()                  # setup the figure, axis
+fig = px.bar(df,
+             x="Occupation type",
+             y="Total")
+fig.show()
 
-ax = sns.barplot(data=df,               # sets the dataframe
-                 x="Occupation type",   # set the x-axis
-                 y="Total",             # set the y-axis
-                 color="royalblue")     # set the colour scheme
-
-# set y-axis and title
-ax.set(xlabel="",                       # suppress the x label
-       ylabel="Frequency",
-       title="Total number of workers by occupation type")
-
-plt.xticks(rotation=70)                 # rotate the x axis labels
-plt.show()
-
-"""----------------------------------------------------------------------------
-Change the order of the bars in the plot
-----------------------------------------------------------------------------"""
-
-# plot the bar chart
-sns.set_theme(style="darkgrid")         # set theme of sns
-f, ax = plt.subplots()                  # setup the figure, axis
+# =============================================================================
+# Change the order of the bars
+# =============================================================================
 
 # order bar chart in descending order by total
-an_order = df.sort_values(by="Total", ascending=False)["Occupation type"]
+ordered_df = df.sort_values("Total", ascending=False)
 
-ax = sns.barplot(data=df,               # sets the dataframe
-                 x="Occupation type",   # set the x-axis
-                 y="Total",             # set the y-axis
-                 color="royalblue",     # set the colour scheme
-                 order=an_order)
-
-# set y-axis and title
-ax.set(xlabel="",                       # suppress the x label
-       ylabel="Frequency",
-       title="Total number of workers by occupation type")
-
-plt.xticks(rotation=70)                 # rotate the x axis labels
-plt.show()
+fig = px.bar(ordered_df,
+             x="Occupation type",
+             y="Total")
+fig.show()

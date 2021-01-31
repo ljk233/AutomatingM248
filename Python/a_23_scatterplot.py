@@ -10,9 +10,17 @@ Scatterplots
 Plot a scatterplot of some linked data.
 ----------------------------------------------------------------------------"""
 
+# =============================================================================
+# References
+# ==========
+#
+# - Computer activity A.23
+# - Scatterplots (HB.p6; U1.5.4; CA4.4).
+# - Plot a scatterplot of linked data
+# =============================================================================
+
 import pandas as pd
-import seaborn as sns
-import matplotlib.pyplot as plt
+import plotly.express as px
 
 # import the data
 df = pd.read_csv("./data/distance.csv")
@@ -20,22 +28,12 @@ df = pd.read_csv("./data/distance.csv")
 # preview the DataFrame
 df.head()
 
-# check dtypes
-df.dtypes
+# =============================================================================
+# Plot the scatterplot
+# =============================================================================
 
-"""----------------------------------------------------------------------------
-Output a scatterplot of Road distance vs Map distance.
-----------------------------------------------------------------------------"""
+fig = px.scatter(data_frame=df,
+                 x="Distance by road",
+                 y="Distance by map")
 
-sns.set_theme(style="darkgrid")     # set theme of sns
-f, ax = plt.subplots()              # setup the figure, axis
-
-sns.scatterplot(data=df,    # data
-                x="Map",    # x-axis
-                y="Road")   # y-axis
-
-ax.set(xlabel="Distance by map",
-       ylabel="Distance by road",
-       title="Road distance against map distance")
-
-plt.show()
+fig.show()

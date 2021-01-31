@@ -1,19 +1,18 @@
 
-"""----------------------------------------------------------------------------
-References
-==========
-
-Computer activity 8
-Computer activity 9
-
-- Frequency histogram (HB.pp5; U1.3.2; CA2.1).
-
-Plot a frequency histogram
-----------------------------------------------------------------------------"""
+# =============================================================================
+# References
+# ==========
+#
+# - Computer activity 8 and Computer activity 9
+# - Frequency histograms (HB.p5. U1.3.2. CA2.1.)
+# - Plot a frequency histogram.
+# =============================================================================
 
 import pandas as pd
-import seaborn as sns
-import matplotlib.pyplot as plt
+import plotly.express as px
+
+# set theme of sns
+sns.set_theme(style="dark")
 
 # import the data
 df = pd.read_csv("./data/membership.csv")
@@ -21,41 +20,24 @@ df = pd.read_csv("./data/membership.csv")
 # preview data
 df.head()
 
-"""----------------------------------------------------------------------------
-Plot a frequency histogram
-----------------------------------------------------------------------------"""
+# =============================================================================
+# Plot a frequency histogram
+# =============================================================================
 
-# plot the bar chart
-sns.set_theme(style="white")         # set theme of sns
-f, ax = plt.subplots()                  # setup the figure, axis
+fig = px.histogram(df, x="Percentage")
+fig.show()
 
-ax = sns.histplot(data=df,              # sets the dataframe
-                  x="Percentage",       # set the x-axis
-                  color="royalblue")    # set the colour scheme
+# =============================================================================
+# Modify the binwidth.
+# =============================================================================
 
-# set y-axis and title
-ax.set(xlabel="Percentage",
-       ylabel="Frequency",
-       title="Frequency histogram of percentage")
+fig = px.histogram(df, x="Percentage")
 
-plt.show()
+# Check the min, max. Set the size to desired width
+df["Percentage"].min()
+df["Percentage"].max()
+set_bins = dict(start=16.0, end=28.0, size=1)
 
-"""----------------------------------------------------------------------------
-Modify the binwidth.
-----------------------------------------------------------------------------"""
+fig.update_traces(xbins=set_bins)
 
-# plot the bar chart
-sns.set_theme(style="white")            # set theme of sns
-f, ax = plt.subplots()                  # setup the figure, axis
-
-ax = sns.histplot(data=df,              # sets the dataframe
-                  x="Percentage",       # set the x-axis
-                  binwidth=1,           # set bin width to 1
-                  color="royalblue")    # set the colour scheme
-
-# set y-axis and title
-ax.set(xlabel="Percentage",
-       ylabel="Frequency",
-       title="Frequency histogram of percentage")
-
-plt.show()
+fig.show()

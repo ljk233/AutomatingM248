@@ -1,18 +1,15 @@
 
-"""----------------------------------------------------------------------------
-References
-==========
-
-Computer activity 16
-
-- Side-by-side bar chart
-
-Plot a side-by-side bar chart of some data.
-----------------------------------------------------------------------------"""
+# =============================================================================
+# References
+# ==========
+#
+# - Computer activity 16
+# - Side-by-side bar charts (HB.p5. U1.5.1. CA4.1.)
+# - Plot a side-by-side bar chart of some data.
+# =============================================================================
 
 import pandas as pd
-import seaborn as sns
-import matplotlib.pyplot as plt
+import plotly.express as px
 
 # import the data
 df = pd.read_csv("./data/tattoos.csv")
@@ -20,22 +17,23 @@ df = pd.read_csv("./data/tattoos.csv")
 # preview the data
 df.head()
 
-"""----------------------------------------------------------------------------
-Split the data into subcategories by setting the "hue" parameter.
-----------------------------------------------------------------------------"""
+# =============================================================================
+# aggregate the data
+# =============================================================================
 
-sns.set_theme(style="whitegrid")        # set theme of sns
-f, ax = plt.subplots()                  # setup the figure, axis
+score_count = df.groupby(["Depth", "Score"]).count()  # Count frequency of each Score
+score_count.reset_index(inplace=True)  # reset the index, good practice
+score_count.drop_duplicates(["Depth", "Score"], inplace=True)  # drop duplicate
+score_count.rename(columns={"Size": 'Frequency'}, inplace=True)  # rename col
+score_count.head()  # preview the dataframe
 
-ax = sns.countplot(data=df,         # sets the dataframe
-                   x="Score",       # set the x-axis
-                   hue="Depth")     # separate the subcategories
+# =============================================================================
+# Plot the side-by-side bar chart by declaring color and barmode.
+# =============================================================================
 
-# set y-axis and title
-ax.set(ylabel="Frequency",
-       title="Frequency of score by depth")
-
-# move the legend outside the axes
-plt.legend(bbox_to_anchor=(1, 1))
-# display the plot
-plt.show()
+fig = px.bar(score_count,
+             x="Score",
+             y="Frequency",
+             color="Depth",
+             barmode='group')
+fig.show()
