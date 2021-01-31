@@ -1,4 +1,4 @@
-# AutomatingM248
+# Automating M248
 
 The purpose of this note is to provide a list of references for my study of **M248: Analysing data**.
 There would be little utility is reproducing the notes, given that the Open University already provides a fantastic source of notes in the Handbook and the study text.
