@@ -4,3 +4,4 @@ AUTOM248.code-workspace
 Examples/.ipynb_checkpoints/*.ipynb
 dev/.ipynb_checkpoints/*.ipynb
 comp_book/.ipynb_checkpoints/*.ipynb
+.Rproj.user
