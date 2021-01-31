@@ -31,7 +31,7 @@ and
 ### Visualising data
 
 **Bar charts** (HB.pp5; U1.3.1; CA1.2).
-[Computer Activity A04](https://github.com/ljk233/AutomatingM248/blob/master/Python/a_04_bar_chart.py) 
+[Computer Activity A04](https://github.com/ljk233/AutomatingM248/blob/master/Python/a_04_bar_chart.py)
 and
 [Computer Activity A06](https://github.com/ljk233/AutomatingM248/blob/master/Python/a_06_bar_chart.py)
 
@@ -76,4 +76,3 @@ and
 ### Interval estimation
 
 ## Hypothesis testing
-
