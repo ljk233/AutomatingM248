@@ -66,7 +66,7 @@ See
 
 ?> This section is served by one example.
 See
-[Additional example: Discrete random variables](https://github.com/ljk233/AutomatingM248/blob/master/Python/x_01_discrete.py)
+[Additional example: Discrete random variables](https://github.com/ljk233/AutomatingM248/blob/master/Python/x_01_discrete_rv.py)
 
 **Definition of discrete random variables (rvs)** (HB.p7. U2.2.1.)
 
@@ -85,7 +85,8 @@ See
 ### Continuous random variables
 
 ?> This section is served by one example.
-<!--Add example-->
+See
+[Additional example: Discrete random variables](https://github.com/ljk233/AutomatingM248/blob/master/Python/x_02_continuous_rv.py)
 
 **Definition of a continuous rvs** (HB.p7. U2.2.1.)
 
