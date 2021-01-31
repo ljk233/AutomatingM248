@@ -22,7 +22,7 @@ They could also be used with some other IDE, such as Spyder.
 
 **Sample standard deviation** (HB.pp6; U1.4.1; CA3).
 
-This section is illustrated by two examples from Computer Book A.
+!> This section is illustrated by two examples from Computer Book A.
 See
 [Computer activity A14]([href](https://github.com/ljk233/AutomatingM248/blob/master/Python/a_14_summarising_data.py))
 and
