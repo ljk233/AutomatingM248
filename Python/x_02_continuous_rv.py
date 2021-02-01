@@ -6,7 +6,7 @@
 # - No corresponding activity
 # -
 #
-# Suppose that a continuous variable X can only take values in the range 0 to 2.
+# Suppose that a continuous variable X can only take values in the range 0:2.
 # It has a p.d.f.
 #
 # f(x) = (5-x)/8
@@ -27,11 +27,14 @@ import plotly.express as px
 # Declare functions
 # =============================================================================
 
+
 def f(x: float):
     return (5-x)/8
 
+
 def xf(x: float):
     return x * f(x)
+
 
 def x2f(x: float):
     return x**2 * f(x)
@@ -46,7 +49,7 @@ b = 2  # upper
 
 pdf = pd.DataFrame()
 pdf["X"] = np.linspace(start=0, stop=2, num=1000)
-pdf["f"] = pdf["X"].apply(x)
+pdf["f"] = pdf["X"].apply(f)
 pdf.head()
 
 # =============================================================================
@@ -55,7 +58,7 @@ pdf.head()
 # =============================================================================
 
 # Integrates to 1 over range
-quad(func=x, a=a, b=b)[0] == 1
+quad(func=f, a=a, b=b)[0] == 1
 
 # All Pr > 0. Count rows where Pr <= 0
 pdf.query('f <= 0')["f"].count() == 0

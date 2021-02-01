@@ -5,7 +5,7 @@ There would be little utility is reproducing the notes, given that the Open Univ
 
 The example links direct to a computer activity completed in `Python`.
 They provide little use to the study of **M248** (given that the module uses **Minitab**), and is so mainly for interest and colour.
-They were carried out using **Atom + Hydrogen**, as I found Jupyter notebook irritating to version control in GitHub.
+They were written using **Atom + Hydrogen**, as I found Jupyter notebook irritating to version control in GitHub.
 They could also be used with some other IDE, such as Spyder.
 
 ## Data
@@ -86,7 +86,7 @@ See
 
 ?> This section is served by one example.
 See
-[Additional example: Discrete random variables](https://github.com/ljk233/AutomatingM248/blob/master/Python/x_02_continuous_rv.py)
+[Additional example: Continuous random variables](https://github.com/ljk233/AutomatingM248/blob/master/Python/x_02_continuous_rv.py)
 
 **Definition of a continuous rvs** (HB.p7. U2.2.1.)
 
@@ -104,21 +104,30 @@ See
 
 ### Standard probability models
 
-**Bernoulli distributions** (*About*: HB.p7. U3.1.1; *Mean and variance*: U4.1.2. and U4.3.2)
+?> See HB.p26 for table of formulas for the standard distributions.
 
-**Binomial distributions** (*About*: HB.p8. U3.2.1; *Mean and variance*: U4.1.2. and U4.3.2)
+**Bernoulli distributions** (*About*: HB.p7. U3.1.1; *Mean and variance*: U4.1.2. and U4.3.2).
 
-**Exponential distributions** (*About*: HB.p10. U5.2.1)
+**Binomial distributions** (*About*: HB.p8. U3.2.1; *Mean and variance*: U4.1.2. and U4.3.2).
+See [Example: Binomial distribution](https://github.com/ljk233/AutomatingM248/blob/master/Python/x_03_binomial.py)
 
-**Geometric distributions** (*About*: HB.p8. U3.3.1; *Mean and variance*: U4.1.2. and U4.3.2)
+**Exponential distributions** (*About*: HB.p10. U5.2.1).
+See [Example: Exponential distribution](https://github.com/ljk233/AutomatingM248/blob/master/Python/x_04_expon.py)
 
-**Poisson distributions** (*About*: HB.p8. U3.4; *Mean and variance*: U4.1.2. and U4.3.2)
+**Geometric distributions** (*About*: HB.p8. U3.3.1; *Mean and variance*: U4.1.2. and U4.3.2).
+See [Example: Geometric distribution](https://github.com/ljk233/AutomatingM248/blob/master/Python/x_05_geom.py)
 
-**Uniform (continuous) distributions** (*About*: HB.p8. U3.5.2; *Mean and variance*: HB.p7. U2.2.1.)
+**Poisson distributions** (*About*: HB.p8. U3.4; *Mean and variance*: U4.1.2. and U4.3.2).
+See [Example: Poisson distribution](https://github.com/ljk233/AutomatingM248/blob/master/Python/x_06_poiss.py)
 
-**Uniform (discrete) distributions** (*About*: HB.p8. U3.5.1)
+**Uniform (continuous) distributions** (*About*: HB.p8. U3.5.2).
+See [Example: Continuous uniform distribution](https://github.com/ljk233/AutomatingM248/blob/master/Python/x_07_cont_unif.py)
 
-**Uniform (standard) distributions** (*About*: U3.5.3)
+**Uniform (discrete) distributions** (*About*: HB.p8. U3.5.1; *Mean and variance*: U4.1.2. and U4.3.2).
+See [Example: Discrete uniform distribution](https://github.com/ljk233/AutomatingM248/blob/master/Python/x_08_disc_unif.py)
+
+**Uniform (standard) distributions** (*About*: U3.5.3).
+*See uniform (continuous).*
 
 ### Linear transformations of random variables
 

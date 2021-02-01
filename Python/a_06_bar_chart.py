@@ -6,6 +6,9 @@
 # - Computer actitity 6
 # - Bar charts (HB.p5. U1.3.1. CA1.2.)
 # - Plot a bar chart of aggregated data.
+#
+# Note same can be done sns.countplot, plus without the need to
+# aggregate the data first.
 # =============================================================================
 
 import pandas as pd

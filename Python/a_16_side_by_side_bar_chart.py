@@ -21,11 +21,12 @@ df.head()
 # aggregate the data
 # =============================================================================
 
-score_count = df.groupby(["Depth", "Score"]).count()  # Count frequency of each Score
-score_count.reset_index(inplace=True)  # reset the index, good practice
-score_count.drop_duplicates(["Depth", "Score"], inplace=True)  # drop duplicate
-score_count.rename(columns={"Size": 'Frequency'}, inplace=True)  # rename col
-score_count.head()  # preview the dataframe
+# Count frequency of each Score and Score
+score_count = df.groupby(["Depth", "Score"]).count()
+score_count.reset_index(inplace=True)
+score_count.drop_duplicates(["Depth", "Score"], inplace=True)
+score_count.rename(columns={"Size": 'Frequency'}, inplace=True)
+score_count.head()
 
 # =============================================================================
 # Plot the side-by-side bar chart by declaring color and barmode.

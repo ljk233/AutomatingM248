@@ -11,9 +11,6 @@
 import pandas as pd
 import plotly.express as px
 
-# set theme of sns
-sns.set_theme(style="dark")
-
 # import the data
 df = pd.read_csv("./data/membership.csv")
 
