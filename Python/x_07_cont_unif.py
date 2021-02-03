@@ -19,9 +19,9 @@
 # =============================================================================
 
 from scipy.stats import uniform
-import pandas as pd
 import numpy as np
-import plotly.express as px
+import seaborn as sns
+import matplotlib.pyplot as plt
 
 u = uniform(0, 1)
 
@@ -41,12 +41,12 @@ u.var()
 # Plot the p.d.f.
 # =============================================================================
 
-pdf = pd.DataFrame()
-pdf["x"] = np.linspace(start=0, stop=1, num=1000)
-pdf["f(x)"] = pdf["x"].apply(u.pdf)
+x = np.linspace(u.ppf(0.01), u.ppf(0.99), 100)  # generate sensible range for X
 
-fig = px.line(pdf,
-              x="x",
-              y="f(x)")
+f, ax = plt.subplots()
 
-fig.show()
+sns.lineplot(x=x,
+             y=np.array(u.pdf(x)),  # calaculate Pr(X)
+             color="royalblue")
+
+plt.show()

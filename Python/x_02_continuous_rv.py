@@ -21,7 +21,8 @@
 from scipy.integrate import quad
 import pandas as pd
 import numpy as np
-import plotly.express as px
+import seaborn as sns
+import matplotlib.pyplot as plt
 
 # =============================================================================
 # Declare functions
@@ -48,7 +49,7 @@ b = 2  # upper
 # =============================================================================
 
 pdf = pd.DataFrame()
-pdf["X"] = np.linspace(start=0, stop=2, num=1000)
+pdf["X"] = np.linspace(start=0, stop=2, num=100)
 pdf["f"] = pdf["X"].apply(f)
 pdf.head()
 
@@ -87,7 +88,12 @@ var
 # Plot the p.d.f.
 # =============================================================================
 
-fig = px.line(pdf,
-              x="X",
-              y="f")
-fig.show()
+fig, ax = plt.subplots()
+
+x = np.linspace(start=0, stop=2, num=10000)  # declare the range of X
+
+sns.lineplot(x=x,  # x-axis
+             y=np.array(f(x)),  # calaculate Pr(X)
+             color="royalblue")
+
+plt.show()

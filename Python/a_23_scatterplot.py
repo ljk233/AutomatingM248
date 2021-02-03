@@ -9,7 +9,8 @@
 # =============================================================================
 
 import pandas as pd
-import plotly.express as px
+import seaborn as sns
+import matplotlib.pyplot as plt
 
 # import the data
 df = pd.read_csv("./data/distance.csv")
@@ -21,8 +22,10 @@ df.head()
 # Plot the scatterplot
 # =============================================================================
 
-fig = px.scatter(data_frame=df,
-                 x="Road",
-                 y="Map")
+f, ax = plt.subplots()
 
-fig.show()
+sns.scatterplot(data=df,
+                x="Road",
+                y="Map")
+
+plt.show()

@@ -19,9 +19,9 @@
 # =============================================================================
 
 from scipy.stats import binom
-import pandas as pd
 import numpy as np
-import plotly.express as px
+import seaborn as sns
+import matplotlib.pyplot as plt
 
 b = binom(n=10, p=0.5)
 
@@ -42,11 +42,12 @@ b.var()
 # Plot the p.m.f.
 # =============================================================================
 
-pmf = pd.DataFrame()
-pmf["X"] = np.arange(0, 11)
-pmf["Pr"] = pmf["X"].apply(b.pmf)
+x = np.arange(b.ppf(0.01), b.ppf(0.99))  # generate sensible range for X
 
-fig = px.bar(pmf,
-             x="X",
-             y="Pr")
-fig.show()
+f, ax = plt.subplots()
+
+sns.barplot(x=x,
+            y=np.array(b.pmf(x)),  # calaculate Pr(X)
+            color="royalblue")
+
+plt.show()

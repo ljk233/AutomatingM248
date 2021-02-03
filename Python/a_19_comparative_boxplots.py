@@ -9,16 +9,14 @@
 # =============================================================================
 
 import pandas as pd
-import plotly.express as px
+import seaborn as sns
+import matplotlib.pyplot as plt
 
 # import the data
 df = pd.read_csv("./data/response-inhibition.csv")
 
 # preview the DataFrame
 df.head()
-
-# check dtypes
-df.dtypes
 
 # =============================================================================
 # Light data transformation to recast the categorical data
@@ -33,21 +31,25 @@ df['Group'].replace({0: 'Control', 1: 'Treatment'}, inplace=True)
 df.head()
 
 # =============================================================================
-# Output multiple horizontal boxplots
+# Output multiple horizontal boxplots by specifying y as the grouping
 # =============================================================================
 
-fig = px.box(df,
-             x="Weight change",
-             y="Group",
-             color="Group")    # declare the categories
-fig.show()
+f, ax = plt.subplots()
+
+sns.boxplot(data=df,
+            x="Weight change",
+            y="Group")
+
+plt.show()
 
 # =============================================================================
-# Output multiple vertical boxplots, simply seap x for y
+# Output multiple vertical boxplots, simply swap x for y
 # =============================================================================
 
-fig = px.box(df,
-             x="Group",
-             y="Weight change",
-             color="Group")    # declare the categories
-fig.show()
+f, ax = plt.subplots()
+
+sns.boxplot(data=df,
+            y="Weight change",
+            x="Group")
+
+plt.show()

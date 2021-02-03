@@ -17,9 +17,9 @@
 # =============================================================================
 
 from scipy.stats import expon
-import pandas as pd
 import numpy as np
-import plotly.express as px
+import seaborn as sns
+import matplotlib.pyplot as plt
 
 lm = 2
 
@@ -42,12 +42,12 @@ m.var()
 # Plot the p.d.f.
 # =============================================================================
 
-pdf = pd.DataFrame()
-pdf["x"] = np.linspace(start=0, stop=2, num=1000)
-pdf["f(x)"] = pdf["x"].apply(m.pdf)
+x = np.linspace(m.ppf(0.01), m.ppf(0.99), 100)  # generate sensible range for X
 
-fig = px.line(pdf,
-              x="x",
-              y="f(x)")
+f, ax = plt.subplots()
 
-fig.show()
+sns.lineplot(x=x,
+             y=np.array(m.pdf(x)),  # calaculate Pr(X)
+             color="royalblue")
+
+plt.show()

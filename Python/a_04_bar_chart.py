@@ -9,26 +9,20 @@
 # =============================================================================
 
 import pandas as pd
-import plotly.express as px
+import seaborn as sns
+import matplotlib.pyplot as plt
 
 # import the data
 tattoos = pd.read_csv("./data/tattoos.csv")
 
 # =============================================================================
-# aggregate the data
+# plot the bar chart using countplot
 # =============================================================================
 
-score_count = tattoos.groupby("Score").count()  # Count frequency of each Score
-score_count.reset_index(inplace=True)  # reset the index, good practice
-score_count.drop_duplicates("Score", inplace=True)  # drop duplicate
-score_count.rename(columns={"Size": 'Frequency'}, inplace=True)  # rename col
-score_count[["Score", "Frequency"]].head()  # preview the dataframe
+f, ax = plt.subplots()
 
-# =============================================================================
-# plot the bar chart
-# =============================================================================
+sns.countplot(data=tattoos,
+              x="Score",
+              color="royalblue")
 
-fig = px.bar(score_count,
-             x="Score",
-             y="Frequency")
-fig.show()
+plt.show()

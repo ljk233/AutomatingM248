@@ -19,9 +19,9 @@
 # =============================================================================
 
 from scipy.stats import geom
-import pandas as pd
 import numpy as np
-import plotly.express as px
+import seaborn as sns
+import matplotlib.pyplot as plt
 
 g = geom(p=0.5)
 
@@ -42,11 +42,12 @@ g.var()
 # Plot the p.m.f.
 # =============================================================================
 
-pmf = pd.DataFrame()
-pmf["X"] = np.arange(0, 11)
-pmf["Pr"] = pmf["X"].apply(g.pmf)
+x = np.arange(g.ppf(0.01), g.ppf(0.99))  # generate sensible range for X
 
-fig = px.bar(pmf,
-             x="X",
-             y="Pr")
-fig.show()
+f, ax = plt.subplots()
+
+sns.barplot(x=x,
+            y=np.array(g.pmf(x)),  # calaculate Pr(X)
+            color="royalblue")
+
+plt.show()

@@ -19,9 +19,9 @@
 # =============================================================================
 
 from scipy.stats import randint
-import pandas as pd
 import numpy as np
-import plotly.express as px
+import seaborn as sns
+import matplotlib.pyplot as plt
 
 # declare high to n+1
 u = randint(low=1, high=7)
@@ -43,11 +43,12 @@ u.var()
 # Plot the p.m.f.
 # =============================================================================
 
-pmf = pd.DataFrame()
-pmf["X"] = np.arange(1, 7)
-pmf["Pr"] = pmf["X"].apply(u.pmf)
+x = np.arange(u.ppf(0.01), u.ppf(0.99))  # generate sensible range for X
 
-fig = px.bar(pmf,
-             x="X",
-             y="Pr")
-fig.show()
+f, ax = plt.subplots()
+
+sns.barplot(x=x,
+            y=np.array(u.pmf(x)),  # calaculate Pr(X)
+            color="royalblue")
+
+plt.show()

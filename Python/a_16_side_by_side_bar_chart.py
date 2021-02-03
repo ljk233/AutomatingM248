@@ -9,7 +9,8 @@
 # =============================================================================
 
 import pandas as pd
-import plotly.express as px
+import seaborn as sns
+import matplotlib.pyplot as plt
 
 # import the data
 df = pd.read_csv("./data/tattoos.csv")
@@ -18,23 +19,13 @@ df = pd.read_csv("./data/tattoos.csv")
 df.head()
 
 # =============================================================================
-# aggregate the data
+# Plot the side-by-side bar chart by declaring hue
 # =============================================================================
 
-# Count frequency of each Score and Score
-score_count = df.groupby(["Depth", "Score"]).count()
-score_count.reset_index(inplace=True)
-score_count.drop_duplicates(["Depth", "Score"], inplace=True)
-score_count.rename(columns={"Size": 'Frequency'}, inplace=True)
-score_count.head()
+f, ax = plt.subplots()
 
-# =============================================================================
-# Plot the side-by-side bar chart by declaring color and barmode.
-# =============================================================================
+sns.countplot(data=df,
+              x="Score",
+              hue="Depth")
 
-fig = px.bar(score_count,
-             x="Score",
-             y="Frequency",
-             color="Depth",
-             barmode='group')
-fig.show()
+plt.show()

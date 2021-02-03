@@ -9,7 +9,8 @@
 # =============================================================================
 
 import pandas as pd
-import plotly.express as px
+import seaborn as sns
+import matplotlib.pyplot as plt
 
 # import the data
 df = pd.read_csv("./data/membership.csv")
@@ -21,12 +22,22 @@ df.head()
 # Plot a horizontal boxplot
 # =============================================================================
 
-fig = px.box(df, x="Percentage")
-fig.show()
+f, ax = plt.subplots()
+
+sns.boxplot(data=df,
+            x="Percentage",
+            color="royalblue")
+
+plt.show()
 
 # =============================================================================
-# Plot a vertical boxplot
+# Plot a vertical boxplot by changing why parameter references the data
 # =============================================================================
 
-fig = px.box(df, y="Percentage")
-fig.show()
+f, ax = plt.subplots()
+
+sns.boxplot(data=df,
+            y="Percentage",
+            color="royalblue")
+
+plt.show()

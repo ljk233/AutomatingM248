@@ -19,35 +19,36 @@
 # =============================================================================
 
 from scipy.stats import poisson
-import pandas as pd
 import numpy as np
-import plotly.express as px
+import seaborn as sns
+import matplotlib.pyplot as plt
 
-p = poisson(mu=3)
+pois = poisson(mu=3)
 
 # calculate p(3)
-p.pmf(k=3)
+pois.pmf(k=3)
 
 # calculate F(3)
-p.cdf(x=3)
+pois.cdf(x=3)
 
 # Calculate P(X>1)
-p.sf(x=1)
+pois.sf(x=1)
 
 # calculate E(X), V(X)
 # redundant, as this is the parameter, but nevermind
-p.mean()
-p.var()
+pois.mean()
+pois.var()
 
 # =============================================================================
 # Plot the p.m.f.
 # =============================================================================
 
-pmf = pd.DataFrame()
-pmf["X"] = np.arange(0, 11)
-pmf["Pr"] = pmf["X"].apply(p.pmf)
+x = np.arange(pois.ppf(0.01), pois.ppf(0.99))  # generate sensible range for X
 
-fig = px.bar(pmf,
-             x="X",
-             y="Pr")
-fig.show()
+f, ax = plt.subplots()
+
+sns.barplot(x=x,
+            y=np.array(pois.pmf(x)),  # calaculate Pr(X)
+            color="royalblue")
+
+plt.show()

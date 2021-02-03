@@ -17,10 +17,12 @@
 # - Calculate E(X)
 # - Calculate V(X)
 # - Plot the p.m.f.
+#
 # =============================================================================
 
 import pandas as pd
-import plotly.express as px
+import seaborn as sns
+import matplotlib.pyplot as plt
 
 # =============================================================================
 # Declare the DataFrame
@@ -77,7 +79,11 @@ var
 # Plot the p.m.f.
 # =============================================================================
 
-fig = px.bar(pmf,
-             x="X",
-             y="Pr")
-fig.show()
+f, ax = plt.subplots()
+
+sns.barplot(data=pmf,
+            x="X",
+            y="Pr",  # calaculate Pr(X)
+            color="royalblue")
+
+plt.show()

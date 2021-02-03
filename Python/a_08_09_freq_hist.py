@@ -9,7 +9,8 @@
 # =============================================================================
 
 import pandas as pd
-import plotly.express as px
+import seaborn as sns
+import matplotlib.pyplot as plt
 
 # import the data
 df = pd.read_csv("./data/membership.csv")
@@ -21,20 +22,25 @@ df.head()
 # Plot a frequency histogram
 # =============================================================================
 
-fig = px.histogram(df, x="Percentage")
-fig.show()
+f, ax = plt.subplots()
+
+sns.histplot(data=df,
+             x="Percentage",
+             edgecolor="none",  # remove the borders
+             color="royalblue")
+
+plt.show()
 
 # =============================================================================
 # Modify the binwidth.
 # =============================================================================
 
-fig = px.histogram(df, x="Percentage")
+f, ax = plt.subplots()
 
-# Check the min, max. Set the size to desired width
-df["Percentage"].min()
-df["Percentage"].max()
-set_bins = dict(start=16.0, end=28.0, size=1)
+sns.histplot(data=df,
+             x="Percentage",
+             binwidth=1,        # set bins to width 1
+             edgecolor="none",  # remove the borders
+             color="royalblue")
 
-fig.update_traces(xbins=set_bins)
-
-fig.show()
+plt.show()
