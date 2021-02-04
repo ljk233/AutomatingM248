@@ -238,15 +238,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#using-standard-probability-models" class="md-nav__link">
-    Using standard probability models
+  <a href="#calculating-a-normalising-constant" class="md-nav__link">
+    Calculating a normalising constant
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#calculating-population-quantiles-in-the-continuous-case" class="md-nav__link">
-    Calculating population quantiles in the continuous case
+  <a href="#calculating-quantiles-in-the-continuous-case" class="md-nav__link">
+    Calculating quantiles in the continuous case
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-standard-probability-models" class="md-nav__link">
+    Using standard probability models
   </a>
   
 </li>
@@ -274,9 +281,7 @@
   
   
     
-      
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
         <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" >
@@ -451,15 +456,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#using-standard-probability-models" class="md-nav__link">
-    Using standard probability models
+  <a href="#calculating-a-normalising-constant" class="md-nav__link">
+    Calculating a normalising constant
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#calculating-population-quantiles-in-the-continuous-case" class="md-nav__link">
-    Calculating population quantiles in the continuous case
+  <a href="#calculating-quantiles-in-the-continuous-case" class="md-nav__link">
+    Calculating quantiles in the continuous case
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-standard-probability-models" class="md-nav__link">
+    Using standard probability models
   </a>
   
 </li>
@@ -500,33 +512,53 @@ Check if the properties hold true.</p>
 <li><span class="arithmatex">\(\int f(x) = 1\)</span>, over the range of <span class="arithmatex">\(x\)</span></li>
 <li><span class="arithmatex">\(f(x) \in (0,1)\)</span></li>
 </ol>
+<h2 id="calculating-a-normalising-constant">Calculating a normalising constant</h2>
+<p><strong>Use case</strong>: We are given a c.d.f. <span class="arithmatex">\(F(x)\)</span>, and asked to calculate the normalising constant <span class="arithmatex">\(k\)</span> so the c.d.f. sums to 1.</p>
+<p><strong>Workflow:</strong></p>
+<ol>
+<li>Solve <span class="arithmatex">\(k = \int_{a}^{b} f(x) \&gt; dx\)</span>.</li>
+</ol>
+<p><strong>Rationale:</strong></p>
+<p>We know by the definition of the c.d.f. that</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    1 = \int_{a}^{b} f(x) \&gt; dx.
+\end{aligned}
+\]</div>
+<p>Therefore, if the p.d.f. is <span class="arithmatex">\(\frac{1}{k} f(x)\)</span>, then it must be that</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    1 = \int_{a}^{b} \frac{1}{k} f(x) \&gt; dx &amp;= \frac{1}{k} \int_{a}^{b} f(x) \&gt; dx \\
+    k &amp;= \int_{a}^{b} f(x).
+\end{aligned}
+\]</div>
+<h2 id="calculating-quantiles-in-the-continuous-case">Calculating quantiles in the continuous case</h2>
+<p><strong>Use case</strong>: We are given a p.d.f. <span class="arithmatex">\(f(x)\)</span> or c.d.f. <span class="arithmatex">\(F(x)\)</span>, and asked to calculate some <span class="arithmatex">\(\alpha-\)</span>quantile of the distribution.</p>
+<p><strong>Workflow</strong>:</p>
+<ol>
+<li><strong>Find the c.d.f.</strong> It maybe given in the question, but it may not be.</li>
+<li><strong>Identify</strong> <span class="arithmatex">\(\alpha \in (0,1)\)</span>.</li>
+<li><strong>Solve</strong> <span class="arithmatex">\(q_{\alpha} = F^{-1}(\alpha)\)</span>. Rearrange <span class="arithmatex">\(F(q_{\alpha}) = \alpha\)</span>, so <span class="arithmatex">\(q_{\alpha}\)</span> is the subject of the equation.</li>
+</ol>
 <h2 id="using-standard-probability-models">Using standard probability models</h2>
 <p><strong>Use case</strong>: We are given a scenario, and asked to calculate the probability of some event.</p>
 <p><strong>Workflow:</strong></p>
 <ol>
-<li>Identify the distribution</li>
-<li>Map the parameters</li>
-<li>Parse the probabilities</li>
-<li>Solve the equation(s)</li>
-<li>State the solution, and the level of any approximation</li>
+<li><strong>Identify the distribution.</strong> It may be explicitly given in the question.</li>
+<li><strong>Map the information to the parameters.</strong></li>
+<li><strong>Parse the probabilities.</strong></li>
+<li><strong>Solve the equation(s).</strong></li>
 </ol>
-<h2 id="calculating-population-quantiles-in-the-continuous-case">Calculating population quantiles in the continuous case</h2>
-<p><strong>Use case</strong>: We are given a p.d.f. <span class="arithmatex">\(f(x)\)</span> or c.d.f. <span class="arithmatex">\(F(x)\)</span>, and asked to calculate some <span class="arithmatex">\(\alpha-\)</span>quantile of the distribution.</p>
-<p><strong>Workflow</strong>:</p>
-<ol>
-<li>Find the c.d.f. by integrating <span class="arithmatex">\(F(x) = \int_{a}^{x} f(y) dy\)</span>, if it is not gien in the question.</li>
-<li>Identify the needed quantile in terms of a <span class="arithmatex">\(\alpha \in (0,1)\)</span>.</li>
-<li>Solve <span class="arithmatex">\(q_{\alpha} = F^{-1}(\alpha)\)</span>.</li>
-</ol>
+<p>Note, do not forget to state any approximation in the final statement.</p>
 <h2 id="poisson-process">Poisson process</h2>
 <p><strong>Use case</strong>: We are given some process that occurs in real time with a rate <span class="arithmatex">\(\lambda\)</span>, and asked to identify the probability of some event occuring within some time interval.</p>
 <p><strong>Workflow</strong>:</p>
 <ol>
-<li><strong>Formalise the rate <span class="arithmatex">\(\lambda\)</span>.</strong> Pay attention to the unit of time.</li>
-<li><strong>Determine the rate <span class="arithmatex">\(\lambda t\)</span> of the scenario.</strong> It will be <span class="arithmatex">\(\lambda\)</span> if the events are being modelled over the <em>same</em> time interval to the given rate in the question, and <span class="arithmatex">\(\lambda t\)</span> if it is a <em>different</em> time interval to that given in the scenario.</li>
+<li><strong>Formalise the rate.</strong> Pay attention to the unit of time.</li>
+<li><strong>Determine the rate <span class="arithmatex">\(\lambda t\)</span> of the question.</strong> Is the time interval in question the same as that of that for the rate <span class="arithmatex">\(\lambda\)</span>? If <em>not</em>, then <em>scale</em> <span class="arithmatex">\(\lambda\)</span> by using <span class="arithmatex">\(\lambda t\)</span></li>
 <li><strong>Parse the probability.</strong></li>
-<li><strong>Number of events <span class="arithmatex">\(X\)</span>.</strong> Use <span class="arithmatex">\(X \sim \text{Poisson}(\lambda t)\)</span></li>
-<li><strong>Waiting time <span class="arithmatex">\(T\)</span> between events.</strong> Use <span class="arithmatex">\(T \sim M(\lambda)\)</span>., do not use the scaled <span class="arithmatex">\(\lambda t\)</span>.</li>
+<li><strong>For the number of events <span class="arithmatex">\(X\)</span>.</strong> Use <span class="arithmatex">\(X \sim \text{Poisson}(\lambda t)\)</span></li>
+<li><strong>For the waiting time between events <span class="arithmatex">\(T\)</span>.</strong> Use <span class="arithmatex">\(T \sim M(\lambda)\)</span> (do not use <span class="arithmatex">\(\lambda t\)</span>)</li>
 </ol>
                 
               
@@ -600,7 +632,7 @@ Check if the properties hold true.</p>
       <script>
         app = initialize({
           base: "..",
-          features: ['navigation.sections'],
+          features: [],
           search: Object.assign({
             worker: "../assets/javascripts/worker/search.9c0e82ba.min.js"
           }, typeof search !== "undefined" && search)
