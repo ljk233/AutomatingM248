@@ -24,6 +24,7 @@ df.head()
 # =============================================================================
 
 f, ax = plt.subplots()
+sns.set_theme(style="darkgrid")
 
 sns.countplot(data=df,              # set the data
               x="Score",            # set the x-axis
@@ -43,13 +44,13 @@ plt.show()
 df["Count"] = 0
 
 # aggregate the DataFrame
-df_count = df.groupby(["Score"]).agg("count")
-df_count.reset_index(inplace=True)              # reset the index
+df_count = df.groupby(["Score"]).agg("count")    # group the data
+df_count.reset_index(inplace=True)               # reset the index
 
-f = px.bar(data_frame=df_count,                 # the DataFrame
-           x="Score",                           # x-axis
-           y="Count",                           # y-axis
-           title="Frequency of Score",          # set the title
-           labels={"Count": "Frequency"})       # relabel the y-axis
+f = px.bar(data_frame=df_count,                  # the DataFrame
+           x="Score",                            # x-axis
+           y="Count",                            # y-axis
+           title="Frequency of Score",           # set the title
+           labels={"Count": "Frequency"})        # relabel the y-axis
 
 f.show()

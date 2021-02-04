@@ -23,9 +23,16 @@ df.head()
 # =============================================================================
 
 f, ax = plt.subplots()
+sns.set_theme(style="darkgrid")
 
 sns.countplot(data=df,
               x="Score",
-              hue="Depth")
+              hue="Depth")                  # set hue= to grouping
+
+ax.set(title="Frequency of Score by Depth",
+       xlabel="Score",
+       ylabel="Frequency")
+
+plt.legend(bbox_to_anchor=(1.05, 1))    # move legend
 
 plt.show()

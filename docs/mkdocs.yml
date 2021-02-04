@@ -1,6 +1,8 @@
-site_name: My Docs
+site_name: "M248: Analysing data"
 theme:
   name: material
+  features:
+    - navigation.sections
 
 markdown_extensions:
   - pymdownx.arithmatex:

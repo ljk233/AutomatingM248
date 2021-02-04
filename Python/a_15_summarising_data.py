@@ -13,9 +13,8 @@
 # - Sample standard deviation (HB.pp6; U1.4.1; CA3).
 #
 # Use Pandas to calculate numerical summaries of some data.
-# Output comparative boxplots of the data.
 #
-# This differs to Computer Activity 14 (a_14.py) because here we wish to
+# This differs to Computer Activity 14 because here we need to
 # subcategorise the data.
 # =============================================================================
 
@@ -65,12 +64,13 @@ df_grouped.mean()
 # sample median
 df_grouped.median()
 
-# sample quartiles
-df_grouped.quantile(0.25)  # lower sample quartile
+# lower sample quartile
+df_grouped.quantile(0.25)
 
-df_grouped.quantile(0.75)  # upper sample quartile
+# upper sample quartile
+df_grouped.quantile(0.75)
 
-# Sample IQR
+# Sample iqr
 df_grouped.quantile(0.75) - df_grouped.quantile(0.25)
 
 # sample standard deviation

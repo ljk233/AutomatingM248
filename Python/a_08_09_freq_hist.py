@@ -23,11 +23,16 @@ df.head()
 # =============================================================================
 
 f, ax = plt.subplots()
+sns.set_theme(style="darkgrid")
 
 sns.histplot(data=df,
              x="Percentage",
              edgecolor="none",  # remove the borders
              color="royalblue")
+
+ax.set(title="Frequency histogram of Percentage",
+       xlabel="Percentage",
+       ylabel="Frequency")
 
 plt.show()
 
@@ -42,5 +47,9 @@ sns.histplot(data=df,
              binwidth=1,        # set bins to width 1
              edgecolor="none",  # remove the borders
              color="royalblue")
+
+ax.set(title="Frequency histogram of Percentage",
+       xlabel="Percentage",
+       ylabel="Frequency")
 
 plt.show()

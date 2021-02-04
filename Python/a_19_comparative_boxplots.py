@@ -40,6 +40,8 @@ sns.boxplot(data=df,
             x="Weight change",
             y="Group")
 
+ax.set(title="Comparative boxplots of Weight Change by Group")
+
 plt.show()
 
 # =============================================================================
@@ -51,5 +53,7 @@ f, ax = plt.subplots()
 sns.boxplot(data=df,
             y="Weight change",
             x="Group")
+
+ax.set(title="Comparative boxplots of Weight Change by Group")
 
 plt.show()

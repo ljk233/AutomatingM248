@@ -23,15 +23,18 @@ df.head()
 # =============================================================================
 
 f, ax = plt.subplots()
+sns.set_theme(style="darkgrid")
 
 sns.boxplot(data=df,
             x="Percentage",
             color="royalblue")
 
+ax.set(title="Horizontal Boxplot of Percentage")
+
 plt.show()
 
 # =============================================================================
-# Plot a vertical boxplot by changing why parameter references the data
+# Plot a vertical boxplot
 # =============================================================================
 
 f, ax = plt.subplots()
@@ -39,5 +42,7 @@ f, ax = plt.subplots()
 sns.boxplot(data=df,
             y="Percentage",
             color="royalblue")
+
+ax.set(title="Vertical Boxplot of Percentage")
 
 plt.show()

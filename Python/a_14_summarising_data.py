@@ -3,7 +3,7 @@
 # References
 # ==========
 #
-# Computer activity A.14
+# Computer activity A14
 #
 # Summarising data
 # - Sample mean (HB.pp6; U1.4.1; CA3).
@@ -11,14 +11,12 @@
 # - Sample quartiles (HB.pp6; U1.4.1; CA3).
 # - Sample IQR (HB.pp6; U1.4.1; CA3).
 # - Sample standard deviation (HB.pp6; U1.4.1; CA3).
-# - Boxplots (HB.p5. U1.3.3. CA2.2).
 #
 # Use Pandas to calculate numerical summaries of some data.
 # Output comparative boxplots of the data.
 # =============================================================================
 
 import pandas as pd
-import plotly.express as px
 
 # import the data
 df = pd.read_csv("./data/response-inhibition.csv")
@@ -52,15 +50,8 @@ df["Weight change"].quantile(0.25)
 # upper sample quartile
 df["Weight change"].quantile(0.75)
 
-# Sample IQR
+# sample IQR
 df["Weight change"].quantile(0.75) - df["Weight change"].quantile(0.25)
 
 # sample standard deviation
 df["Weight change"].std()
-
-# =============================================================================
-# Plot a horizontal boxplot
-# =============================================================================
-
-fig = px.box(df, x="Weight change")
-fig.show()

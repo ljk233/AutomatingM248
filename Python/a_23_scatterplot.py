@@ -23,9 +23,14 @@ df.head()
 # =============================================================================
 
 f, ax = plt.subplots()
+sns.set_theme(style="darkgrid")
 
 sns.scatterplot(data=df,
                 x="Road",
                 y="Map")
+
+ax.set(title="Road Distance against Map Distance",
+       xlabel="Distance by Road (mi)",
+       ylabel="Distance by Map (mi)")
 
 plt.show()

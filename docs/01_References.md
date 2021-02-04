@@ -134,4 +134,3 @@ See
 ### Interval estimation
 
 ## Hypothesis testing
-

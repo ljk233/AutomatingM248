@@ -23,12 +23,15 @@ df.head()
 # =============================================================================
 
 f, ax = plt.subplots()
+sns.set_theme(style="darkgrid")
 
 sns.histplot(data=df,
              x="Percentage",
              binwidth=1,            # set bins to width 1
-             edgecolor="none",    # remove the borders
-             stat="density",
+             edgecolor="none",      # remove the borders
+             stat="density",        # set density
              color="royalblue")
+
+ax.set(title="Unit-area Histogram of Percentage")
 
 plt.show()
