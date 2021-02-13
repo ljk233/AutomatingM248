@@ -1,7 +1,8 @@
-AUTOM238.code-workspace
+AUTOM248.code-workspace
 *.pyc
 Examples/.ipynb_checkpoints/*.ipynb
 dev/.ipynb_checkpoints/*.ipynb
 comp_book/.ipynb_checkpoints/*.ipynb
+nb/py/.ipynb_checkpoints/*.ipynb
 .Rproj.user
 site/*
