@@ -6,3 +6,4 @@ comp_book/.ipynb_checkpoints/*.ipynb
 nb/py/.ipynb_checkpoints/*.ipynb
 .Rproj.user
 site/*
+python/.ipynb_checkpoints/*.py
