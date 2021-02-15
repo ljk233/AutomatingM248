@@ -11,10 +11,8 @@
 # - Sample quartiles (HB.pp6; U1.4.1; CA3).
 # - Sample IQR (HB.pp6; U1.4.1; CA3).
 # - Sample standard deviation (HB.pp6; U1.4.1; CA3).
-# - Boxplots (HB.p5. U1.3.3. CA2.2).
 #
 # Use Pandas to calculate numerical summaries of some data.
-# Output comparative boxplots of the data.
 #
 # =============================================================================
 
@@ -28,41 +26,49 @@ head(x)
 
 # =============================================================================
 # output a simple table of summary measures
+# Two methods to compile a summary table.
 # =============================================================================
 
-# output a simple table of summary measures
+# Method 1
+summary(x["Weight.change"])
+
+# Method 2, using dplyr
 data <- as_tibble(x)
 
-q1 <- quantile(x = x$Weight.change, na.rm = TRUE, prob = 0.25, type = 1)
-q3 <- quantile(x = x$Weight.change, na.rm = TRUE, prob = 0.75, type = 1)
-i.q.r <- quantile(x = x$Weight.change, na.rm = TRUE, prob = 0.75, type = 1) -
-  quantile(x = x$Weight.change, na.rm = TRUE, prob = 0.25, type = 1)
-i.q.r
-
 x %>%
-  summarise(
-          count = n() - sum(is.na(Weight.change)),
-          count.na = sum(is.na(Weight.change)),
-          mean = mean(x = Weight.change, na.rm = TRUE),
-          q1 = quantile(x = Weight.change, na.rm = TRUE, prob = 0.25),
-          median = median(x = Weight.change, na.rm = TRUE),
-          q3 = quantile(x = Weight.change, na.rm = TRUE, prob = 0.75),
-          iqr = IQR(x = Weight.change, na.rm = TRUE),
-          std = stats::sd(x = Weight.change, na.rm = TRUE),
-          )
+  summarise(count = n() - sum(is.na(Weight.change)),
+            count.na = sum(is.na(Weight.change)),
+            mean = mean(x = Weight.change, na.rm = TRUE),
+            q1 = quantile(x = Weight.change, na.rm = TRUE, prob = 0.25),
+            median = median(x = Weight.change, na.rm = TRUE),
+            q3 = quantile(x = Weight.change, na.rm = TRUE, prob = 0.75),
+            iqr = IQR(x = Weight.change, na.rm = TRUE),
+            std = sd(x = Weight.change, na.rm = TRUE))
 
 # =============================================================================
 # Return individual summary measures.
 # =============================================================================
 
+# Assign the field as a local var
+w <- x$Weight.change
+
+# sample size
+sum(complete.cases(w))
+
 # sample mean
+mean(x = w, na.rm = TRUE)
 
 # sample median
+median(x = w, na.rm = TRUE)
 
 # lower sample quartile
+quantile(x = w, na.rm = TRUE, prob = 0.25)
 
 # upper sample quartile
+quantile(x = w, na.rm = TRUE, prob = 0.75)
 
-# Sample IQR
+# sample IQR
+IQR(x = w, na.rm = TRUE)
 
 # sample standard deviation
+sd(x = w, na.rm = TRUE)

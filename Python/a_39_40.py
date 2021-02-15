@@ -3,10 +3,10 @@
 # References
 # ==========
 #
-# - Computer activity A39 and A40
+# - Computer activities A39 and A40
 # - Confirming the Poisson process (HB.p10. U5.3.2. CA10).
 # - Investigate the rate of occurrence and does the distribution look
-#     like a Poisson pmf?
+#   like a Poisson pmf?
 # =============================================================================
 
 import pandas as pd
@@ -34,6 +34,8 @@ sns.scatterplot(data=review,
                 x="Week",
                 y="Total number of requests")
 
+ax.set(title="Rate of Occurrences")
+
 plt.show()
 
 # =============================================================================
@@ -57,5 +59,9 @@ ax.plot(x, poisson.pmf(x, mu) * review["Requests"].size+1,
         'bo', ms=8, label='poisson model')
 ax.vlines(x, 0, poisson.pmf(x, mu) * review["Requests"].size+1,
           colors='r', lw=3, alpha=0.5)
+
+ax.set(title="Frequency of the Number of Events",
+       xlabel="Requests per week",
+       ylabel="Frequency")
 
 plt.show()
