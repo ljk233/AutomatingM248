@@ -9,3 +9,4 @@ nb/r/.ipynb_checkpoints/*.ipynb
 site/*
 python/.ipynb_checkpoints/*.py
 r/.ipynb_checkpoints/*.r
+dustbin.zip
