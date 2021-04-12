@@ -3,12 +3,14 @@ AUTOM248.code-workspace
 .Rproj.user
 site/*
 _archive/
+nb/r/
+nb/py/
+nb/data/
+notebooks-r/
 
 */.ipynb_checkpoints/
 python/.ipynb_checkpoints/
 r/.ipynb_checkpoints/
-
+comp_book/util/.ipynb_checkpoints/
 comp_book/.ipynb_checkpoints/
-nb/py/.ipynb_checkpoints/
-nb/r/.ipynb_checkpoints/
 projects/prem_league/notebooks/.ipynb_checkpoints/
