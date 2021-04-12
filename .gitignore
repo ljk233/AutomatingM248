@@ -2,6 +2,7 @@ AUTOM248.code-workspace
 *.pyc
 .Rproj.user
 site/*
+<<<<<<< HEAD
 _archive/
 nb/r/
 nb/py/
@@ -14,3 +15,8 @@ r/.ipynb_checkpoints/
 comp_book/util/.ipynb_checkpoints/
 comp_book/.ipynb_checkpoints/
 projects/prem_league/notebooks/.ipynb_checkpoints/
+=======
+python/.ipynb_checkpoints/*.py
+r/.ipynb_checkpoints/*.r
+dustbin.zip
+>>>>>>> b00d1d4dff757d2fab76ad34e16fcdd90f9abefc
