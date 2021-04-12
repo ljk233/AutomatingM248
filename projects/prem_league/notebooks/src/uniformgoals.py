@@ -68,4 +68,4 @@ class UniformGoals():
         distribution. Returns no value.
         """
 
-        print(f"p = {chi2(df).cdf(chi_sq)}")
+        print(f"{1 - chi2(df).cdf(chi_sq)}")

@@ -73,7 +73,7 @@ class PoissonProcess():
         poiss = poisson(mu)
 
         # get the range and Pr
-        r = np.arange(start=poiss.ppf(0.01), stop=poiss.ppf(0.99))
+        r = np.arange(start=0, stop=9)
         rv = poiss.pmf(r)
 
         ax = sns.barplot(x=r, y=rv, color="cornflowerblue")
@@ -109,7 +109,7 @@ class PoissonProcess():
             y=y
         )
 
-        ax.set(xlabel="Goal time (mins)", y="Goal ID")
+        ax.set(xlabel="Goal time (mins)", ylabel="Goal ID")
         ax.set_title("Rate of goals scored over the observation period")
         plt.show()
 
@@ -126,4 +126,4 @@ class PoissonProcess():
         distribution. Returns no value.
         """
 
-        print(f"p = {chi2(df).cdf(chi_sq)}")
+        print(f"{1 - chi2(df).cdf(chi_sq)}")
