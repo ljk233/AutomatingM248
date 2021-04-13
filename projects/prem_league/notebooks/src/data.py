@@ -88,3 +88,10 @@ class Data():
         """
 
         return Data.load_out("uniform_goals_chi_sq")
+
+    def load_home_advantage() -> pd.DataFrame:
+        """
+        Returns home_advantage.csv as a pd DataFrame
+        """
+
+        return Data.load_out("home_advantage")

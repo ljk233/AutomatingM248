@@ -7,10 +7,10 @@ class ListComprehension():
 
     ILLEGAL_CHARS: list = [",", "'"]
 
-    def comma_separated_strings_to_list(a_list: list) -> list:
+    def transform_str_to_list_str(a_list: list) -> list:
         """
-        Returns a list of strings, where each string represents the
-        match time a goal was scored.
+        For each str in the list, if the string is not nan
+        then separate the comma separated str to a list of strings.
 
         @param, a_list: list(str)
             a list of strings, where each string contains a comma
@@ -22,22 +22,25 @@ class ListComprehension():
             Example: [["3", "10", "85"], ["5", "64"], ["23"]]
         """
 
+        ILLEGAL_CHARS: list = [",", "'"]
+
         lists: list = list()
         k: int = 0  # counter variable
 
         for a_str in a_list:
-            a_str_list: list = list()
+            a_str_list: list = list()  # initiate a new list
 
             if (a_str != "NaN"):
                 k = 0  # initiate the counter
-                a_time_str = ""
+                a_time_str = ""  # initiate a new string
 
                 while (k < len(a_str)):
                     a_char = a_str[k]
 
-                    if a_char not in ListComprehension.ILLEGAL_CHARS:
+                    if a_char not in ILLEGAL_CHARS:  # continue building str
                         a_time_str = a_time_str + a_char
-                    else:
+
+                    else:  # string is built
                         a_str_list.append(a_time_str)
                         a_time_str = ""  # reset the time
 
@@ -91,19 +94,18 @@ class ListComprehension():
 
         return lists
 
-    def list_str_to_list_int(lists: list) -> list:
+    def recast_numeral_to_int(lists: list) -> list:
         """
-        Returns a list of integers, where each string represents the
-        match time a goal was scored.
+        For each list in lists, and then for each numeral in the list,
+        if the string is not NaN, then recast the numeral to an int.
 
         @param, list_strings, list(list(str))
             list of lists(str), where each element of the sub-list is
-            a string representing the match time when a goal was
+            a numeral representing the match time when a goal was
             scored.
             Example: [["3", "10", "85"], ["5", "64"], ["23"]]
 
         @returns, list(list(int))
-            list of lists of ints.
             Example: [[3, 10, 85], [5, 64], [23]]
         """
 
@@ -174,14 +176,14 @@ class ListComprehension():
             Example: [[25], [79]]
 
         @returns, list(list(int))
-            a list of lists of ints
+            a combined list of lists of ints
             Example: [[3, 10, 85, 25], [5, 64, 79]]
         """
 
         ret_list: list = list()
         k: int = 0
 
-        while (k < len(first_lists)):
+        for k in range(0, len(first_lists)):
             a_merged_list: list = list()
             a_first_list = first_lists[k]
             a_second_list = second_lists[k]
@@ -193,7 +195,6 @@ class ListComprehension():
                 a_merged_list.append(an_int)
 
             ret_list.append(a_merged_list)
-            k += 1
 
         return ret_list
 
@@ -219,8 +220,7 @@ class ListComprehension():
     def create_linked_lists(lists: list) -> tuple:
         """
         Returns a tuple of linked lists. They are linked in the sense
-        that elem `i` in both lists
-        are related.
+        that elem `i` in both lists are related.
 
         @param, lists, list(list(int))
             a list of lists of sorted ints

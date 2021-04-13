@@ -59,7 +59,7 @@ class PoissonProcess():
         ax = sns.histplot(
             x=w,
             color="cornflowerblue",
-            bins=15
+            binwidth=10
         )
         ax.set(xlabel="W")
         ax.set_title("Waiting time between goals (mins)")
