@@ -20,7 +20,6 @@ Notebooks in the top-levels `notebooks/` folder contain finished reports.
 
 **1_setup**
 : contains a series of notebooks that will recreate the  processed data sets in out, so long as the source file is saved in the **data/in** sub-folder.
-They may not be independent, so the series of notebooks that eed to be run prior to the running of a particular notebook will be noted at the top.
 
 **2_exploration**
 : contains a series of notebooks that are concerned with exploring the data set.
