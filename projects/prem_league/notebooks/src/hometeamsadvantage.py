@@ -29,15 +29,27 @@ class HomeAdvantage():
 
         return HomeAdvantage.SAMPLE["away"].mean()
 
+    def get_home_std() -> float:
+
+        return HomeAdvantage.SAMPLE["home"].std()
+
     def get_away_std() -> float:
 
         return HomeAdvantage.SAMPLE["away"].std()
 
     def get_ese() -> float:
 
-        return (
-            HomeAdvantage.get_away_std()/sqrt(HomeAdvantage.get_sample_size())
+        frac1: float = (
+            HomeAdvantage.get_home_std()**2 /
+            HomeAdvantage.get_sample_size()
         )
+
+        frac2: float = (
+            HomeAdvantage.get_away_std()**2 /
+            HomeAdvantage.get_sample_size()
+        )
+
+        return sqrt(frac1 + frac2)
 
     def get_z() -> float:
 
