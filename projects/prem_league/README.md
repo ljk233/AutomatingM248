@@ -22,3 +22,8 @@ This project includes a series of visualisation and hypotheses testing about the
 - Covid and loss of the home of the home team advantage
   - Proportion Home wins (201819) = Proportion Home wins (2020/21)
   - Missing data 2020/21
+
+## Future
+
+- Plans to spin this off into part of a larger **Statistical Analysis** GH-repo.
+- Think about how you would refactor the folder structure to make it more sensible.
