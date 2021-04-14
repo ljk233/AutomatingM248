@@ -74,10 +74,3 @@ class Data():
         """
 
         return Data.load("goals")
-
-    def load_epl1819() -> pd.DataFrame:
-        """
-        Returns the data in goals.csv as a pandas DataFrame.
-        """
-
-        return Data.load("epl_1819")
