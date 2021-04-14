@@ -3,15 +3,33 @@
 
 This project includes a series of visualisation and hypotheses testing about the English Premier League.
 
+I think I'm too focused on recreating the data.
+I should instead focus on just processing the data!
+
+## TO-DO
+
+- [ ] Add doc explaining source data
+- [ ] Refactor notebooks/setup
+  - There could be an argument to remove them completely?
+
+## NOTEBOOKS
+
+The notebooks folder contains two sub-folders, each dealing with a different area of concern.
+
+Notebooks in the top-levels `notebooks/` folder contain finished reports.
+
+**1_setup**
+: contains a series of notebooks that will recreate the  processed data sets in out, so long as the source file is saved in the **data/in** sub-folder.
+They may not be independent, so the series of notebooks that eed to be run prior to the running of a particular notebook will be noted at the top.
+
+**2_exploration**
+: contains a series of notebooks that are concerned with exploring the data set.
+These act as staging grounds for the building of the support classes in **src** which are used in the **3_final** notebooks.
+*They should be considered to be unstable.*
+
 ## References
 
 --**Add source**
-
-## Notebooks
-
-- Poisson process (WIP)
-- Goals are uniformly scored over the 90 minute period (WIP)
-- Home teams score more goals than away teams
 
 ## Ideas
 
