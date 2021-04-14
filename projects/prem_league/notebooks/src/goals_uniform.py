@@ -1,5 +1,6 @@
 
 from __future__ import annotations
+from .data import Data
 import seaborn as sns
 import matplotlib.pyplot as plt
 from scipy.stats import chi2
@@ -12,40 +13,17 @@ class UniformGoals():
     are scored evenly across a game.
     """
 
-    def get_banding(x: int) -> str:
-        """
-        Returns banding of X, defined as the nearest multiple of 10.
+    SAMPLE = Data.load_uniform_goal_chi_sq()
 
-        -  If x is 0, then set x to 10.
-        -  Otherwise, while the remainder of x/10 is not 0, increment
-        x by 1.
-
-        @param, x, int
-            an integer representing the waiting time before a goal is
-            scored.
-
-        @return, int
-            the nearest greater multiple of 10
-        """
-
-        if (x == 0):
-            x = "10"
-        else:
-            while (x % 10 != 0):
-                x += 1
-            x = str(x)
-
-        return x
-
-    def plot_distribution(x, y) -> None:
+    def plot_distribution() -> None:
         """
         Plots the number of goals in a ten mnute window as a seaborn
         barplot. Returns no value
         """
 
         ax = sns.barplot(
-            x=x,
-            y=y,
+            x=UniformGoals.SAMPLE["banding"],
+            y=UniformGoals.SAMPLE["observed"],
             color="cornflowerblue"
         )
 
@@ -55,12 +33,12 @@ class UniformGoals():
 
         plt.show()
 
-    def get_chi2(contributions) -> float:
+    def get_chi2() -> float:
         """
         Returns the sum of a column of data as a float.
         """
 
-        return contributions.sum()
+        return UniformGoals.SAMPLE["chi-sq contribution"].sum()
 
     def get_p_from_chi2(chi_sq, df) -> None:
         """
