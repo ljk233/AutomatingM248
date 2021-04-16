@@ -74,3 +74,17 @@ class Data():
         """
 
         return Data.load("goals")
+
+    def load_glass_fibres() -> pd.DataFrame:
+        """
+        Returns the data in glass_fibres.csv as a pandas DataFrame.
+        """
+
+        return Data.load("glass-fibres")
+
+    def load_accidents() -> pd.DataFrame:
+        """
+        Returns the data in accidents.csv as a pandas DataFrame.
+        """
+
+        return Data.load("accidents")
