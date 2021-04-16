@@ -95,3 +95,10 @@ class Data():
         """
 
         return Data.load_out("home_advantage")
+
+    def load_ft_goals_17_18() -> pd.DataFrame:
+        """
+        Returns ft_goals_17_18.csv as a pd DataFrame
+        """
+
+        return Data.load_out("ft_goals_17_18")
