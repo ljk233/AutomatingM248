@@ -88,3 +88,73 @@ class Data():
         """
 
         return Data.load("accidents")
+
+    def load_snoring() -> pd.DataFrame:
+        """
+        Returns the data in snoring.csv as a pandas DataFrame.
+        """
+
+        return Data.load("snoring")
+
+    def load_skulls() -> pd.DataFrame:
+        """
+        Returns the data in skulls.csv as a pandas DataFrame.
+        """
+
+        return Data.load("skulls")
+
+    def load_sewer() -> pd.DataFrame:
+        """
+        Returns the data in sewer.csv as a pandas DataFrame.
+        """
+
+        return Data.load("sewer")
+
+    def load_schoolgirls() -> pd.DataFrame:
+        """
+        Returns the data in schoolgirls.csv as a pandas DataFrame.
+        """
+
+        return Data.load("schoolgirls")
+
+    def load_practical_test() -> pd.DataFrame:
+        """
+        Returns the data in practical-test.csv as a pandas DataFrame.
+        """
+
+        return Data.load("practical-test")
+
+    def load_darwin() -> pd.DataFrame:
+        """
+        Returns the data in darwin.csv as a pandas DataFrame.
+        """
+
+        return Data.load("darwin")
+
+    def load_movements() -> pd.DataFrame:
+        """
+        Returns the data in movements.csv as a pandas DataFrame.
+        """
+
+        return Data.load("movements")
+
+    def load_lesions() -> pd.DataFrame:
+        """
+        Returns the data in lesions.csv as a pandas DataFrame.
+        """
+
+        return Data.load("lesions")
+
+    def load_dopamine() -> pd.DataFrame:
+        """
+        Returns the data in dopamine.csv as a pandas DataFrame.
+        """
+
+        return Data.load("dopamine")
+
+    def load_osa() -> pd.DataFrame:
+        """
+        Returns the data in osa.csv as a pandas DataFrame.
+        """
+
+        return Data.load("osa")
