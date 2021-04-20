@@ -70,6 +70,14 @@ def practical_test() -> pd.DataFrame:
     return _load("practical-test")
 
 
+def darwin() -> pd.DataFrame:
+    """
+    Returns the data in darwin.csv as a pandas DataFrame.
+    """
+
+    return _load("darwin")
+
+
 class Data():
     """
     A class of static methods that returns a specific CSV data file in
@@ -142,13 +150,6 @@ class Data():
         """
 
         return Data.load("snoring")
-
-    def load_darwin() -> pd.DataFrame:
-        """
-        Returns the data in darwin.csv as a pandas DataFrame.
-        """
-
-        return Data.load("darwin")
 
     def load_movements() -> pd.DataFrame:
         """
