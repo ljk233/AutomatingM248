@@ -2,6 +2,74 @@
 import pandas as pd
 
 
+PATH: str = "../data/"
+
+
+def _load(a_csv: str) -> pd.DataFrame:
+    """
+    Returns arg a_csv as a pandas DataFrame. There is no need to
+    state the file type.
+    """
+
+    return pd.read_csv(Data.PATH + a_csv + ".csv")
+
+
+def plasma() -> pd.DataFrame:
+    """
+    Returns the data in plasma.csv as a pandas DataFrame.
+    """
+
+    return _load("plasma")
+
+
+def glass_fibres() -> pd.DataFrame:
+    """
+    Returns the data in glass_fibres.csv as a pandas DataFrame.
+    """
+
+    return _load("glass-fibres")
+
+
+def accidents() -> pd.DataFrame:
+    """
+    Returns the data in accidents.csv as a pandas DataFrame.
+    """
+
+    return _load("accidents")
+
+
+def sewer() -> pd.DataFrame:
+    """
+    Returns the data in sewer.csv as a pandas DataFrame.
+    """
+
+    return _load("sewer")
+
+
+def schoolgirls() -> pd.DataFrame:
+    """
+    Returns the data in schoolgirls.csv as a pandas DataFrame.
+    """
+
+    return _load("schoolgirls")
+
+
+def skulls() -> pd.DataFrame:
+    """
+    Returns the data in skulls.csv as a pandas DataFrame.
+    """
+
+    return _load("skulls")
+
+
+def practical_test() -> pd.DataFrame:
+    """
+    Returns the data in practical-test.csv as a pandas DataFrame.
+    """
+
+    return _load("practical-test")
+
+
 class Data():
     """
     A class of static methods that returns a specific CSV data file in
@@ -61,13 +129,6 @@ class Data():
 
         return Data.load("coal")
 
-    def load_plasma() -> pd.DataFrame:
-        """
-        Returns the data in plasma.csv as a pandas DataFrame.
-        """
-
-        return Data.load("plasma")
-
     def load_goals() -> pd.DataFrame:
         """
         Returns the data in goals.csv as a pandas DataFrame.
@@ -75,54 +136,12 @@ class Data():
 
         return Data.load("goals")
 
-    def load_glass_fibres() -> pd.DataFrame:
-        """
-        Returns the data in glass_fibres.csv as a pandas DataFrame.
-        """
-
-        return Data.load("glass-fibres")
-
-    def load_accidents() -> pd.DataFrame:
-        """
-        Returns the data in accidents.csv as a pandas DataFrame.
-        """
-
-        return Data.load("accidents")
-
     def load_snoring() -> pd.DataFrame:
         """
         Returns the data in snoring.csv as a pandas DataFrame.
         """
 
         return Data.load("snoring")
-
-    def load_skulls() -> pd.DataFrame:
-        """
-        Returns the data in skulls.csv as a pandas DataFrame.
-        """
-
-        return Data.load("skulls")
-
-    def load_sewer() -> pd.DataFrame:
-        """
-        Returns the data in sewer.csv as a pandas DataFrame.
-        """
-
-        return Data.load("sewer")
-
-    def load_schoolgirls() -> pd.DataFrame:
-        """
-        Returns the data in schoolgirls.csv as a pandas DataFrame.
-        """
-
-        return Data.load("schoolgirls")
-
-    def load_practical_test() -> pd.DataFrame:
-        """
-        Returns the data in practical-test.csv as a pandas DataFrame.
-        """
-
-        return Data.load("practical-test")
 
     def load_darwin() -> pd.DataFrame:
         """
@@ -158,3 +177,17 @@ class Data():
         """
 
         return Data.load("osa")
+
+    def load_uniform_goals() -> pd.DataFrame:
+        """
+        Returns the data in uniform_goals.csv as a pandas DataFrame.
+        """
+
+        return Data.load("uniform_goals")
+
+    def load_cholesterol() -> pd.DataFrame:
+        """
+        Returns the data in cholesterol.csv as a pandas DataFrame.
+        """
+
+        return Data.load("cholesterol")
