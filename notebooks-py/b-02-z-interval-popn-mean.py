@@ -24,6 +24,7 @@ data
 from setup import load
 from statsmodels.stats.weightstats import zconfint
 import seaborn as sns
+import matplotlib,pyplot as plt
 
 # import the data and assign local var
 fibres = load.glass_fibres()
