@@ -1,0 +1,60 @@
+---
+title: ""
+date: 
+output: rmarkdown::github_document
+---
+
+**aim**
+: 
+
+**source**
+: 
+
+**description**
+:
+
+**reference**
+: 
+
+## Setup
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+# source("../src/r/load.r")
+# source("../src/r/confint.r")
+```
+
+```{r}
+
+```
+
+Assign local variables for easier access to the columns
+
+```{r}
+
+```
+
+## About
+
+### Preview
+
+```{r}
+# head()
+```
+
+### Summary
+
+### Visualise
+
+```{r}
+
+```
+
+### Function
+
+
+
+## Analysis
+
+
+
+## Discussion
