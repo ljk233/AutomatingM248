@@ -9,6 +9,33 @@ This is a test with the main focus being on the **separation of concerns**.
 
 - [ ] Add doc explaining source data
 
+## QUESTIONS
+
+- [X] **z-test** Comparing average casual users 2011 v 2012
+  - fields: `casual`
+- [ ] **Mann-whitney** median casual 2011 v median casual 2012?
+  - fields: `casual`
+- [ ] **SLR** temperature and casual user count
+  - fields: `atemp` `casual`
+- [ ] **SLR** temperature and registered user count
+  - fields: `atemp` `registered`
+- [ ] **MLR** temp AND humidity and casual user count
+  - fields: `atemp` `hum` `registered`
+
+## DATA
+
+fields
+: `dteday` `yr` `season` `workingday` `atemp` `hum` `casual` `registered` `dailycount`
+
+filters
+: `season=[2,3]` `workingday=[0]`
+
+additional filter
+: **2011** `yr=[0]` // **2012** `yr=[1]`
+
+- [X] SPRING-SUMMER 2011
+- [X] SPRING-SUMMER 2012
+
 ## NOTEBOOKS
 
 The notebooks folder contains 3 sub-folders, each dealing with a different area of concern.
