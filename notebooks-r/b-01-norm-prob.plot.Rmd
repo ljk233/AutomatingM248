@@ -1,0 +1,64 @@
+---
+title: "Normal probability plot"
+output: rmarkdown::github_document
+date: 2021-04-21
+---
+
+**goal**
+: Plot a **normal probability plot** of a sample.
+
+**source**
+: `plasma.csv`
+
+**description**
+: **-**
+
+**ref**
+: Computer book B, Activity 8
+
+## Setup
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+source("../src/r/load.r")
+library(summarytools)
+```
+
+```{r}
+plasma <- load_plasma()
+```
+
+## About
+
+### Preview
+
+```{r}
+head(plasma)
+```
+
+### Summary
+
+```{r}
+summarytools::descr(plasma)
+```
+
+### Visualise
+
+```{r}
+hist(plasma$Level)
+```
+
+### Functions
+
+**-**
+
+## Analysis
+
+Output a normal probability plot.
+
+```{r}
+qqnorm(plasma$Level); qqline(plasma$Level)
+```
+
+## Discussion
+
+**-**

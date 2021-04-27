@@ -1,0 +1,74 @@
+---
+title: "One-sided z-test for a proportion"
+date: 2021-04-22
+---
+
+**aim:** Perform a two-sided **z-test** with one sample of data.
+
+**reference:** Computer book B, Activity 26
+
+**data:** **N/A**
+
+## Setup
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+source("../src/r/load.r")
+library(summarytools)
+library(BSDA)
+```
+
+```{r}
+# import the sample
+prac_test <- load_practical_test()
+
+# assign local var to total
+rt <- prac_test$Total
+```
+
+## Hypotheses
+
+The Labour Force Survey (ONS, 2014) of 254 young people aged between 20 and 34 years living in Wales found that 68 were still living at home with their parents.
+Previous surveys had found the same proportion to be one in every four young adults.
+
+Let the hypotheses be
+
+$$
+H_{0} : p_{W} = 0.25, \> p_{W} \neq 0.25
+$$
+
+where the variable $p_{W}$ is the proportion of young adults between 20 and 34 years living with their parents in Wales in 2014.
+
+## Method
+
+We will use the function `stats::prop.test()` to preform the hypothesis test.
+See the [documentation](https://www.rdocumentation.org/packages/stats/versions/3.6.2/topics/prop.test).
+
+## Results
+
+```{r}
+(ztest <- prop.test(
+  x = 68,    # successes
+  n = 254,   # trials
+  p = 0.25,  # p0
+  correct = FALSE,
+))
+```
+
+## Discussion
+
+The $p$-value is 0.514 > 0.1.
+There is little to no evidence against the null hypothesis that $p_{W}=0.25$.
+
+## Notes
+
+The test statistic given in the output is `X-squared`.
+This is *not* the same as $Z_{P}$, the test statistic used in **M248.**
+We can return $Z_{P}$* by calculating `sqrt(X-squared)`
+
+```{r}
+sqrt(ztest$statistic)
+```
+
+This now matches the value expected by **M248,** but be aware that this will always return a positive value for $Z_{P}$.
+Be warned that this will always result in a positive $Z_{P}$.
+Just add a negative signed $p < p_{0}$.

@@ -1,0 +1,86 @@
+---
+title: "One-sided t-test"
+date: 2021-04-22
+---
+
+**aim:**: Perform a one-sided **t-test** with one sample of data.
+
+**reference:** Computer book B, Exercise 5 *(amended)*
+
+**data:** `practical-test.csv`
+
+**description:** Pass rates for 316 UK driving practical test centres over the period April 2014 to March 2015.
+
+**note**
+: This is repeat of **(b-08)** one-side **z**-test, but instead uses `stats.t.test()` (rather than `BSDA::z.test()`) and testing the sample of **Males** rather than **Females.**
+
+## Setup
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+source("../src/r/load.r")
+library(summarytools)
+```
+
+```{r}
+# import the sample
+prac_test <- load_practical_test()
+
+# assign local var to ttoal
+rm <- prac_test$Male
+```
+
+## Hypotheses
+
+The sample contains the pass rates for 316 UK driving practical test centres over the period April 2014 to March 2015.
+During the period April 2013 to March 2014, the national driving practical test pass rate for males was 50.7%.
+
+Let the hypotheses be:
+
+$$
+H_{0} : \mu_{M} = 50.7 \%, \> \mu_{F} > 50.7 \%
+$$
+
+where the $\mu_{M}$ is the mean male pass rate for the driving practical test nationally across all UK test centres during the period April 2014 to March 2015.
+
+## Method
+
+We will use the base function `stats::t.test()` to preform the hypothesis test.
+See the [documentation](https://www.rdocumentation.org/packages/stats/versions/3.6.2/topics/t.test).
+
+## Results
+
+### Summarise the data
+
+```{r}
+descr(rm, stats = "common")
+```
+
+### Visualise the data
+
+```{r}
+hist(rm)
+```
+
+### Check the assumption
+
+We will use a normal probability plot to confirm the normality of the sample and so justify using a **t-test.**
+
+```{r}
+qqnorm(rm); qqline(rm)
+```
+
+### Calculations
+
+```{r}
+t.test(
+  x = rm,
+  mu = 50.7,
+  sigma.x = sd(rm),
+  alternative = "greater"
+)
+```
+
+## Discussion
+
+Since $p <$ 0.01, there is strong evidence against the null hypothesis that the mean pass rate of females for the driving practical test nationally from April 2014 to March 2015 is the same as the national pass rate over the same period in the previous year.
+We conclude that there is strong evidence that the mean pass rate for males between April 2014 and March 2015 was greater than that for the same period in the previous year.

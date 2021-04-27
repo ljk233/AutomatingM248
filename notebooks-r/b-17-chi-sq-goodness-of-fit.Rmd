@@ -1,0 +1,104 @@
+---
+title: "Chi-squared goodness-of-fit test"
+date: 2021-04-23
+---
+
+**aim:** Perform a **chi-squared goodness-of-fit test.**
+
+**reference:** **N/A**
+
+**data:** `uniform_goal.csv`
+
+**description:** (See *hypotheses*)
+
+## Setup
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+source("../src/r/load.r")
+library(summarytools)
+library(ggplot2)
+library(reshape)
+```
+
+```{r}
+goals <- load_uniform_goals()
+
+# assign local vars for easier access
+group <- goals$group
+obs <- goals$obs
+```
+
+## Hypotheses
+
+Data has been provided showing the total number of goals scored per ten minute period in an English Premier League football season in normal time.
+It has been proposed that a discrete uniform distribution would be a good model for the data.
+We will perform a chi-squared goodness-of-fit test to confirm the proposal.
+
+## Method
+
+We will use the function `stats::chisq.test()` to preform the hypothesis test.
+See the [documentation](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/wilcox.test.html).
+See also [Basic R Guide for NSC Statistics](https://bookdown.org/dli/rguide/chi-square-test.html) (Li, 2020).
+
+## Results
+
+### Preview the data
+
+```{r}
+goals
+```
+
+### Summarise the data
+
+```{r}
+summarytools::descr(
+  goals,
+  stats = "common"
+)
+```
+
+### Visualise the data
+
+```{r}
+ggplot(goals, aes(group, obs)) +
+  geom_col(fill="cornflowerblue") +
+  ylab("Frequency")
+```
+
+### Calculations
+
+We need to find the probability of an event (i.e., a goal being scored) in each grouping.
+As the proposed distribution is a **discrete uniform,** then each grouping should have the same probability of an event.
+There are nine groups, so the **Pr** will be
+
+```{r}
+# vector of length 9, each element 1/9
+pr <- rep(x = 1/9, length.out = 9)
+```
+
+Return the results of a **chi-squared goodness-of-fit test.**
+
+```{r}
+chisq.test(x = obs, p = pr)
+```
+
+Let us compare the **observed** number of goals with the **expected** number of goals.
+
+```{r}
+# add expected number of goals
+goals$exp <- sum(obs) * pr
+# melt columns in long format
+mgoals <-melt(goals, id=c("group"))
+
+ggplot(mgoals, aes(group, value, fill = variable)) +
+  geom_col(position="dodge") +
+  ylab("Frequency") +
+  scale_fill_discrete() +
+  theme_classic()
+```
+
+## Discussion
+
+The $p$-value is 0.03.
+This means there is moderate to strong evidence against the null hypothesis.
+The data suggests that goals are not uniformly distributed across the 90 minutes of a football match, with them being least likely in the opening ten minutes and most likely between the 60-70 minutes mark.

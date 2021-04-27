@@ -1,20 +1,21 @@
 ---
 title: "Large-sample confidence intervals: population means"
 date: 2021-04-21
-output: html_document
 ---
 
 **aim:** Calculate a **100(1-a)% approximate confidence interval** for a population mean.
 
-**sample:** `glass-fibres.csv`
+**reference:** M248 Computer book B, Activity 15
 
-**reference:** Computer book B, Activity 15
+**data:** `glass-fibres.csv`
+
+**description:** Strengths of glass-fibres of length 1.5cm.
 
 ## Setup
 
 ```{r echo=TRUE, message=FALSE, warning=FALSE}
-source("../R/load.r")
-source("../R/confint.r")
+source("../src/r/load.r")
+source("../src/r/confint.r")
 library(summarytools)
 ```
 
@@ -26,25 +27,27 @@ strength <- fibres$Strength
 
 ## About
 
-### Preview
+### Preview the data
 
 ```{r}
 head(fibres)
 ```
 
-### Summary
+### Summarise the data
 
 ```{r}
 summarytools::descr(fibres, stat = "common")
 ```
 
-### Visualise
+### Visualise the data
 
 ```{r}
 hist(strength)
 ```
 
 ## Results
+
+Calculate a 90% confidence interval for the population mean strength of glass fibres.
 
 ```{r}
 zconfint_mean(0.9, mean(strength), sd(strength), length(strength))

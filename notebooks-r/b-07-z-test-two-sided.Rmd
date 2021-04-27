@@ -1,0 +1,102 @@
+---
+title: "Two-sided z-test"
+date: 2021-04-22
+jupyter:
+  jupytext:
+    formats: ipynb,Rmd
+    text_representation:
+      extension: .Rmd
+      format_name: rmarkdown
+      format_version: '1.2'
+      jupytext_version: 1.11.1
+  kernelspec:
+    display_name: R
+    language: R
+    name: ir
+---
+
+**aim:** Perform a two-sided **z-test** with one sample of data.
+
+**reference:** Computer book B, Activity 23
+
+**data:** `practical-test.csv`
+
+**description:** Pass rates for 316 UK driving practical test centres over the period April 2014 to March 2015.
+
+## Setup
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+source("../src/r/load.r")
+library(summarytools)
+library(BSDA)
+```
+
+```{r}
+# import the sample
+prac_test <- load_practical_test()
+
+# assign local var to total
+rt <- prac_test$Total
+```
+
+## Hypotheses
+
+During the period April 2013 to March 2014, the national driving practical test pass rate for all people was 47.1%.
+
+Let the hypotheses be:
+
+$$
+H_{0} : \mu_{2015} = 47.1 \%, \> \mu_{2015} \neq 47.1 \%
+$$
+
+where $\mu_{2015}$ is the mean total pass rate for the driving practical test nationally across all UK test centres during the period April 2014 to March 2015.
+
+## Method
+
+We will use the function `BSDA::z.test()` to preform the hypothesis test.
+See the [documentation](https://www.rdocumentation.org/packages/BSDA/versions/1.2.0/topics/z.test).
+
+## Results
+
+### Preview the data
+
+```{r}
+head(rt)
+```
+
+### Summarise the data
+
+```{r}
+# descritive stats for total
+descr(rt, stats = "common")
+```
+
+### Visualise the data
+
+```{r}
+hist(rt)
+```
+
+Note, we are using a **z-test** because that is what the text suggests.
+But looking at the normal probability plot below, it seems like a **t-test** would also be appropriate!
+This is most probably due to the large sample size and the **Central Limit Theorem.**
+
+```{r}
+# normal prob plot
+qqnorm(rt); qqline(rt)
+```
+
+### Calculations
+
+```{r}
+BSDA::z.test(
+  x = rt,
+  mu = 47.1,
+  sigma.x = sd(rt) 
+)
+```
+
+## Discussion
+
+Since $p <$ 0.01, there is strong evidence against the null hypothesis that the mean pass rate for the driving practical test nationally from April 2014 to March 2015 is the same as the national pass rate over the same period in the previous year.
+Given that the test statistic $Z$ is positive, it would indicate the pass rate in 2015 was greater than 2014.

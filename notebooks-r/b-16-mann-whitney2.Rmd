@@ -1,0 +1,92 @@
+---
+title: "Mann-Whitney Test"
+date: 2021-04-23
+---
+
+**aim:** Perform a **Mann-Whitney Test** using data with two independent variables.
+
+**reference:** Computer book B, Activity 40
+
+**data:** `osa.csv`
+
+**description:** (See *hypotheses*)
+
+## Setup
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+source("../src/r/load.r")
+library(summarytools)
+```
+
+```{r}
+osa <- load_osa()
+
+# assign local vars
+abs <- osa$Absent
+pres <- osa$Present
+```
+
+
+## Hypotheses
+
+A study was carried out of the relationship between customs related to illness and child-rearing practices in 39 non-literate societies.
+On the basis of ethnographical reports, each of the societies was given a numerical rating for the degree of something called **oral socialisation anxiety (OSA),** which is a concept derived from psychoanalytic theory relating to child-rearing practice.
+(Socialisation refers to the acquiring of social skills.)
+Each society was also placed into one of two groups.
+
+The data therefore comprise one sample of **OSA** values for, as it turned out, 23 societies where oral explanations of illness were present, and a second sample of OSA values for 16 societies where oral explanations of illness were absent.
+
+These data were collected to investigate a hypothesis that oral explanations of illness are more likely to be present in societies with high levels of OSA than in societies with low levels of **OSA.**
+
+Let the hypotheses be
+
+$$
+H_{0} : \ell_{A} = \ell_{P}, \> \ell_{A} < \ell_{A}
+$$
+
+where $\ell_{A} = \ell_{P}$ represent the underlying locations of the populations where the samples were drawn.
+(**P**=Present, **A**=Absent.)
+
+## Method
+
+We will use the function `stats::wilcox()` to preform the hypothesis test.
+There is no need to `na.omit()` to remove `NaN` results.
+See the [documentation](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/wilcox.test.html).
+See also [Unpaired Two-Samples Wilcoxon Test in R](http://www.sthda.com/english/wiki/unpaired-two-samples-wilcoxon-test-in-r) (STDHA).
+
+## Results
+
+### Preview the data
+
+```{r}
+head(osa)
+```
+
+### Summary
+
+```{r}
+descr(osa, stats = "common")
+```
+
+### Visualise the data
+
+```{r}
+boxplot(
+  abs, pres,
+  horizontal = TRUE,
+  names = c('Absent', 'Present'))
+```
+
+### Results
+
+Return the results of a **Mann-Whitney test.**
+
+```{r}
+wilcox.test(x = abs, y = pres, alternative = "less")
+```
+
+## Discussion
+
+The $p$-value is 0.000.
+The conclusion is that there is strong evidence against the null hypothesis.
+There is strong evidence that societies where oral explanations of illness are present tend to have higher oral socialisation anxiety scores than societies where oral explanations of illness are absent.

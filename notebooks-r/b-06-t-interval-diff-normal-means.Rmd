@@ -1,0 +1,95 @@
+---
+title: "Exact confidence intervals for the difference between two normal means"
+date: 2021-04-21
+---
+
+**aim:** Calculate a **100(1-a)%** exact confidence interval for the difference between two normal means.
+
+**reference:** Computer book B, Activity 22
+
+**data:** `skulls.csv`
+
+**description:** Maximum skull breadth (in mm) of 84 skulls of Etruscan males and 70 skulls of modern Italian males.
+
+## Setup
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+source("../src/r/load.r")
+source("../src/r/confint.r")
+library(summarytools)
+```
+
+```{r}
+# import the sample
+skulls <- load_skulls()
+
+# assign local vars
+etr <- na.omit(skulls$Etruscans)
+ita <- na.omit(skulls$Italians)
+```
+
+## Describe
+
+### Preview the data
+
+```{r}
+head(skulls)
+```
+
+### Summary
+
+```{r}
+descr(skulls, stat = "common")
+```
+
+### Visualise the data
+
+```{r}
+boxplot(
+  etr,
+  ita,
+  horizontal=TRUE,
+  names=c("Etruscans", "Italians")
+)
+```
+
+## Results
+
+### Check assumptions
+
+```{r}
+# normal prob plot: Etruscan
+qqnorm(etr, datax = TRUE); qqline(etr, datax = TRUE)
+```
+
+```{r}
+# normal prob plot: Italians
+qqnorm(ita, datax = TRUE); qqline(ita, datax = TRUE)
+```
+
+```{r}
+# check for common variance
+# note the selection to choose largest variance
+if (var(etr) > var(ita)) {
+  var(etr)/var(ita)
+} else {
+  var(etr)/var(ita)
+}
+```
+
+### Calculations
+
+Return a 95% confidence interval for the difference between the mean skull dimensions.
+
+```{r}
+# apologies for the parameter heavy function!
+tconfint_diff_means(
+  a = 0.95,
+  x1 = mean(etr),
+  sd1 = sd(etr),
+  n1 = length(etr),
+  x2 = mean(ita),
+  sd2 = sd(ita),
+  n2 = length(ita)
+)
+```

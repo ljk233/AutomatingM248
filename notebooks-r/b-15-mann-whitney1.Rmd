@@ -1,0 +1,90 @@
+---
+title: "Mann-Whitney Test"
+date: 2021-04-23
+---
+
+**aim:** Perform a **Mann-Whitney Test** using data with two independent variables.
+
+**reference:** M248 Computer book B, Activity 37 (*amended*)
+
+**data:** `dopamine.csv`
+
+**description:** (See *hypotheses*)
+
+## Setup
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+source("../src/r/load.r")
+library(summarytools)
+```
+
+```{r}
+dopamine <- load_dopamine()
+
+# assign local var
+non_psy <- dopamine$Non.psychotic
+psy <- dopamine$Psychotic
+```
+
+## Hypotheses
+
+In a study into the causes of schizophrenia, 25 hospitalised patients with schizophrenia were treated with antipsychotic medication, and after a period of time were classified as psychotic or non-psychotic by hospital staff.
+A sample of cerebro-spinal fluid was taken from each patient and tested for dopamine $\beta$-hydroxylase enzyme activity.
+The measurements are in unit **nmol/(ml)(h)/mg** of protein.
+
+Let the hypotheses be
+
+$$
+H_{0} : \ell = 0, \> \ell \neq 0
+$$
+
+where $\ell$ is the underlying difference between the locations the populations where the samples were drawn.
+
+## Method
+
+We will use the function `stats::wilcox()` to preform the hypothesis test.
+There is no need to `na.omit()` to remove `NaN` results, as this is by the function.
+See the [documentation](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/wilcox.test.html).
+See also [Unpaired Two-Samples Wilcoxon Test in R](http://www.sthda.com/english/wiki/unpaired-two-samples-wilcoxon-test-in-r) (STDHA).
+
+## Results
+
+### Preview the data
+
+```{r}
+head(dopamine)
+```
+
+### Summarise the data
+
+```{r}
+descr(dopamine, stats = "common", round.digits = 4)
+```
+
+### Visualise the data
+
+```{r}
+boxplot(
+  non_psy, psy,
+  horizontal = TRUE,
+  names = c('Non Psychotic', 'Psychotic')
+)
+```
+
+### Results
+
+Return the results of a **Mann-Whitney test.**
+
+```{r}
+wilcox.test(
+  x = psy,
+  y = non_psy,
+  alternative = "two.sided",
+  correct = FALSE   # adjust for ties
+)
+```
+
+## Discussion
+
+As the $p$-value is 0.002, there is strong evidence against the null hypothesis.
+Looking at the boxplot above, the data suggests that the median $\beta$-hydroxylase enzyme activity in those classed as psychotic is greater than the same measure for non-psychotic patients.

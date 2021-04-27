@@ -1,0 +1,76 @@
+---
+title: "Wilcoxon signed rank test (one sample of the differences)"
+date: 2021-04-23
+---
+
+**aim:** Perform a **Wilcoxon signed rank test** using a sample of the differences.
+
+**reference:** M248 Computer book B, Activity 36
+
+**data:** `movements.csv`
+
+**description:** Differences in the percentage time a foetus moves before a test procedure was performed and the percentage of time it was moving afterwards.
+
+## Setup
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+source("../src/r/load.r")
+library(summarytools)
+```
+
+```{r}
+# import the data
+movements <- load_movements()
+
+# assign local vars
+diff <- movements$Diff
+```
+
+## Hypotheses
+
+The sample contains data on the differences between the percentage of time a foetus was moving before a test procedure and the percentage of time it was moving afterwards.
+
+Let the hypotheses be
+
+$$
+H_{0} : m = 0, \> m \neq 0
+$$
+
+where $m$ is the underlying population median difference between pre-test and post-test movement.
+
+## Method
+
+We will use the function `stats::wilcox.test()` to preform the hypothesis test.
+See the [documentation](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/wilcox.test.html).
+
+## Results
+
+### Preview the data
+
+```{r}
+head(movements)
+```
+
+### Summarise the data
+
+```{r}
+descr(diff, stats = "common")
+```
+
+### Visualise the data
+
+```{r}
+boxplot(diff, horizontal = TRUE)
+```
+
+### Calculation
+
+```{r}
+wilcox.test(
+  x = movements$Diff
+)
+```
+
+## Discussion
+
+Given $p >$ 0.1, there is little to no evidence against the hypothesis that the population median difference between percentages of time a foetus spends moving pre- and post-test are zero.

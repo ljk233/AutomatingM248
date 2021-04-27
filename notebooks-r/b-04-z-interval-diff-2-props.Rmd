@@ -1,0 +1,69 @@
+---
+title: "Large-sample confidence intervals: difference between two proportions"
+date: 2021-04-21
+---
+
+**aim:** Calculate a **100(1-a)%** approximate confidence interval for the difference between two proportions.
+
+**reference:** M248 Computer book B, Activity 20
+
+**data**: `sewer.csv`
+
+**description**: Occupational risk to sewerage workers of hepatitis A infection though contact with raw sewage.
+Relevant fields for this example:
+
+- *Immunity* `0=no immunity, 1=immunity`
+
+- *Children* `1=no children, 2=children`
+
+**note**: A contingency table is constructed to help calculate the relevant proportions.
+(And I found this example scenario and data difficult to follow!)
+
+## Setup
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+source("../src/r/load.r")
+source("../src/r/confint.r")
+library(summarytools)
+library(reshape)
+```
+
+```{r}
+sewer <- load_sewer()
+```
+
+## Describe
+
+### Preview the data
+
+```{r}
+head(sewer)
+```
+
+## Results
+
+```{r}
+# contingency table: children and immunity
+(contingency <- table(
+  sewer$Children,
+  sewer$Immunity,
+  dnn = list("children", "immunity")
+))
+```
+
+```{r}
+# marginal totals:  children
+rowSums(contingency)
+```
+
+Calculate a 95% confidence interval for the difference in the proportions of those infected among sewerage workers with no children and the proportion infected among sewerage workers with children.
+
+```{r}
+zconfint_diff_props(
+  a = 0.95, # alpha
+  x1 = 68,  # has children, has immunity
+  n1 = 158, # has children
+  x2 = 11,  # no children, has immunity
+  n2 = 70   # no children
+)
+```

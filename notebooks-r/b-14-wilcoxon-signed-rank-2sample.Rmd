@@ -1,0 +1,101 @@
+---
+title: "Wilcoxon signed rank test (two samples)"
+date: 2021-04-23
+---
+
+**aim:** Perform a **Wilcoxon signed rank test** using two samples of data.
+
+**reference:** M248 Computer book B, Activity 37 (*amended*)
+
+**data:** `lesions.csv`
+
+**description:** Numbers of local lesions appearing on each half of eight leaves, after being rubbed by two preparations of different viruses.
+
+**note:** Methodology differs to how the activity is carried out in the text.
+Here we use the two samples of data directly, rather than using a single sample of the calculated differences.
+
+## Setup
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+source("../src/r/load.r")
+library(summarytools)
+```
+
+```{r}
+# import the data
+lesions <- load_lesions()
+
+# assign local vars
+a <- lesions$Alesions
+b <- lesions$Blesions
+```
+
+## Hypotheses
+
+Two virus preparations (labelled **A** and **B**) were soaked into cheesecloth.
+The two viruses were then rubbed onto different halves of eight leaves.
+The number of local lesions appearing on each half was counted for each of the leaves.
+
+The question arises as to whether, on average, the two virus preparations tend to produce different numbers of lesions.
+Suppose that, in particular, the experimenters knew (from the way the preparations were produced) that preparation **B** was very unlikely to lead to more lesions, on average, than preparation **A.**
+Hence they wished to carry out a one-sided test with the alternative hypothesis that preparation **A** produces more lesions on average than preparation **B.**
+
+Let the hypotheses be
+
+$$
+H_{0} : m_{A} = m_{B}, \> m_{A} > m_{B}
+$$
+
+where $m_{A}, \> m_{B}$ are the underlying population medians of the number of lesions found on each half of the leaf after being coated by the two different virus preparations.
+
+## Method
+
+We will use the function `stats::wilcox()` to preform the hypothesis test.
+See the [documentation](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/wilcox.test.html).
+
+## Results
+
+### Preview the data
+
+```{r}
+head(lesions)
+```
+
+### Summarise the data
+
+```{r}
+descr(lesions, stats = "common")
+```
+
+### Visualise the data
+
+```{r}
+boxplot(a, b, horizontal = TRUE, names = c('A', 'B'))
+```
+
+### Check assumptions
+
+```{r}
+# normal probability plot of the differences
+qqnorm(a-b); qqline(a-b)
+```
+
+We note that there is a high outlier in the top-right of the plot.
+
+### Calculations
+
+```{r}
+wilcox.test(
+  x = a,
+  y = b,
+  alternative = "greater",
+  paired = TRUE
+)
+```
+
+## Discussion
+
+As the $p$-value is 0.015, there is moderate evidence against the null hypothesis.
+There is moderate evidence in favour of there being a greater population median number of lesions on the parts treated with virus A compared to B.
+
+We should be cautious though, given the outliers in the normal probability plot, a small sample size of 8 and the number of ties in the sample.

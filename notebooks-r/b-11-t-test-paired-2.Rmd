@@ -1,0 +1,93 @@
+---
+title: "Paired two-sample $t$-test"
+date: 2021-04-22
+---
+
+**aim** : Perform a paired **t-test** using two samples of data.
+
+**reference**: Computer book B, Activity 25 *(amended)*
+
+**data:** `darwn.csv`
+
+**description:** Heights of fifteen pairs of plants of the species *Zea mays*.
+Each plant had parents grown from the same seed, where one plant in each pair was the offspring of a cross-fertilisation, the other of a self-fertilisation.
+
+**note:** This is the same test at **(b-10)** but instead of taking the difference, we instead use both data in the test.
+
+## Setup
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+source("../src/r/load.r")
+library(summarytools)
+```
+
+```{r}
+# import the data
+darwin <- load_darwin()
+```
+
+```{r}
+# assign local vars
+cross <- darwin$Cross
+self <- darwin$Self
+```
+
+## Hypotheses
+
+Charles Darwin, one of the people who introduced the theory of evolution, measured the heights of fifteen pairs of plants of the species Zea mays, that is, maize or corn. Each plant had parents grown from the same seed – one plant in each pair was the offspring of a cross-fertilisation, the other of a self-fertilisation.
+The key feature of these data is that the two height measurements within each pair are not independent, since the two plants within a pair are genetically related.
+
+Let the hypotheses be
+
+$$
+H_{0} : \mu_{X} = \mu_{S}, \> \mu_{X} > \mu_{S}
+$$
+
+where $\mu_{X}, \> \mu_{S}$ are the underlying population means of the heights cross-fertilised plants and self-fertilised plants, respectively.
+
+## Method
+
+We will use the base function `t.test()` to preform the hypothesis test.
+See the [documentation](https://www.rdocumentation.org/packages/stats/versions/3.6.2/topics/t.test).
+
+## Results
+
+### Summarise the data
+
+```{r}
+descr(darwin, stats = "common")
+```
+
+### Visualise the data
+
+```{r}
+boxplot(cross, self, horizontal = TRUE, names = c("CROSS", "SELF"))
+```
+
+### Check the assumption
+
+We can see from the summary table that the ration $S_{X} / S_{S} < 3$.
+Let us use two normal probability plots to confirm the normality of both samples.
+
+```{r}
+qqnorm(cross); qqline(cross)
+```
+
+```{r}
+qqnorm(self); qqline(self)
+```
+
+### Calculations
+
+```{r}
+t.test(
+  x = cross,
+  y = self,
+  paired = TRUE
+)
+```
+
+## Discussion
+
+As the $p$-vale is less than 0.05, there is moderate evidence against the null hypothesis.
+There is thus moderate evidence that the plants differ in mean height and, since the confidence interval is approximately (0.031, 41.835), the data suggests cross-fertilised plants are taller on average than self-fertilised plants.

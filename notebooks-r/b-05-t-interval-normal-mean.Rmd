@@ -1,0 +1,70 @@
+---
+title: "Exact confidence intervals for normal means"
+date: 2021-04-21
+---
+
+**aim:** Calculate a **100(1-a)%** exact confidence interval for a normal mean.
+
+**reference:** M248 Computer book B, Activity 21
+
+**source:** `schoolgirls.csv`
+
+**description:** Height (cm) and weight (kg) of 30 eleven-year-old schoolgirls from Bradford.
+
+## Setup
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+source("../src/r/load.r")
+source("../src/r/confint.r")
+library(summarytools)
+```
+
+```{r}
+# import the sample and assign local var
+schoolgirls <- load_schoolgirls()
+height <- schoolgirls$Height
+weight <- schoolgirls$Weight
+```
+
+## About
+
+### Preview the data
+
+```{r}
+head(schoolgirls)
+```
+
+### Summarise the data
+
+```{r}
+descr(schoolgirls, stat = "common")
+```
+
+### Visualise the data
+
+```{r}
+# histogram of schoolgirl heights
+hist(height)
+```
+
+## Results
+
+### Check assumption
+
+```{r}
+# normal prob plot
+qqnorm(height, datax = TRUE); qqline(height, datax = TRUE)
+```
+
+### Calculations
+
+Return a 90% confidence interval for the height of schoolgirls.
+
+```{r}
+tconfint_mean(
+  a = 0.9,
+  x = mean(height),
+  sd = sd(height),
+  n = length(height)
+)
+```

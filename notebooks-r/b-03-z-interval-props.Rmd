@@ -1,0 +1,61 @@
+---
+title: "Large-sample confidence intervals: proportions"
+date: 2021-04-21
+---
+
+**aim:** Calculate a **100(1-a)%** approximate confidence interval for a proportion
+
+**reference:** M248 Computer book B, Activity 18
+
+**data:** `accidents.csv`
+
+**description:** Number of accidents suffered by each of 414 machinists over a period of time
+
+## Setup
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+source("../src/r/load.r")
+source("../src/r/confint.r")
+library(tidyverse)  # for filtering the data.frame
+library(summarytools)
+library(ggplot2)
+```
+
+```{r}
+# import data and assign local vars
+accidents <- load_accidents()
+
+# number of machinist who suffered at least one accident
+obs <- length(accidents[accidents$Accidents > 0,])
+# total number of works in the sample
+size <- length(accidents$Accidents)
+```
+
+## Describe
+
+### Preview the data
+
+```{r}
+head(accidents)
+```
+
+### Summarise the data
+
+```{r}
+descr(accidents, stat = "common")
+```
+
+### Visualise the data
+
+```{r}
+ggplot(data = accidents, aes(x = Accidents)) +
+  geom_bar()
+```
+
+## Results
+
+Calculate a 99% confidence interval for the proportion of workers who suffered at least one accident over the period of observation.
+
+```{r}
+zconfint_prop(0.99, obs, size)
+```

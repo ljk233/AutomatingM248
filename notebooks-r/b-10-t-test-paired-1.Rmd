@@ -1,0 +1,92 @@
+---
+title: "Paired one-sample t-test"
+date: 2021-04-22
+---
+
+**aim:**: Perform a paired one-sample **t-test** of the difference.
+
+**reference:** Computer book B, Activity 25(a)
+
+**data:** `darwn.csv`
+
+**description:** Heights of fifteen pairs of plants of the species *Zea mays*.
+Each plant had parents grown from the same seed, where one plant in each pair was the offspring of a cross-fertilisation, the other of a self-fertilisation.
+
+## Setup
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+source("../src/r/load.r")
+library(summarytools)
+```
+
+```{r}
+# import the data
+darwin <- load_darwin()
+```
+
+```{r}
+# assign local vars
+cross <- darwin$Cross
+self <- darwin$Self
+```
+
+```{r}
+# analysis of difference
+# get vector diff = cross-self
+diff <- cross - self
+```
+
+## Hypotheses
+
+Charles Darwin, one of the people who introduced the theory of evolution, measured the heights of fifteen pairs of plants of the species Zea mays, that is, maize or corn. Each plant had parents grown from the same seed – one plant in each pair was the offspring of a cross-fertilisation, the other of a self-fertilisation.
+
+Let the hypotheses be
+
+$$
+H_{0} : \mu_{D} = 0, \> \mu_{D} > 0
+$$
+
+where $\mu_{D}$ is the underlying population mean difference between the heights of paired plants.
+
+## Method
+
+We will use the base function `stats@@t.test()` to preform the hypothesis test.
+See the [documentation](https://www.rdocumentation.org/packages/stats/versions/3.6.2/topics/t.test).
+
+## Results
+
+### Summarise the data
+
+```{r}
+descr(diff, stats = "common")
+```
+
+### Visualise the data
+
+```{r}
+# use boxplot due to large spread and small size
+boxplot(diff, horizontal = TRUE)
+```
+
+We will use a normal probability plot to confirm the normality of the sample and so justify using a **t-test.**
+
+```{r}
+qqnorm(diff); qqline(diff)
+```
+
+### Calculations
+
+Perform the **t**-test.
+
+```{r}
+t.test(
+  x = diff,
+  mu = 0,
+  sigma.x = sd(diff)
+)
+```
+
+## Discussion
+
+As the $p$-vale is less than 0.05, there is moderate evidence against the null hypothesis.
+There is thus moderate evidence that the plants differ in mean height and, since $\overline{D}$ is 20.93, the data suggests cross-fertilised plants are taller on average than self-fertilised plants.
