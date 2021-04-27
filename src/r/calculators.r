@@ -165,3 +165,19 @@ calc_norm_approx_mann_whit <- function(u, nA, nB) {
   z <- (u-Eu)/sqrt(Vu)
   return (c(z, Eu, Vu))
 }
+
+
+calc_norm_approx_wilcoxon <- function(w, n) {
+  #' @description   returns the parameters of the normal approx of a
+  #'                wilcoxon sign rank test, including the z-value.
+  #'
+  #' @param w       calculated test statistic
+  #' @param n       sample size
+  #' 
+  #' @return a vector (z, Ew, Vw)
+  
+  Ew <- n*(n + 1)/4
+  Vw <- (n*(n+1)*(2*n + 1))/24
+  z <- (w-Ew)/sqrt(Vw)
+  return (c(z, Ew, Vw))
+}
