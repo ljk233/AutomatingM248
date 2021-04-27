@@ -78,6 +78,62 @@ def darwin() -> pd.DataFrame:
     return _load("darwin")
 
 
+def movements() -> pd.DataFrame:
+    """
+    Returns the data in movements.csv as a pandas DataFrame.
+    """
+
+    return _load("movements")
+
+
+def lesions() -> pd.DataFrame:
+    """
+    Returns the data in lesions.csv as a pandas DataFrame.
+    """
+
+    return _load("lesions")
+
+
+def dopamine() -> pd.DataFrame:
+    """
+    Returns the data in dopamine.csv as a pandas DataFrame.
+    """
+
+    return _load("dopamine")
+
+
+def coal() -> pd.DataFrame:
+    """
+    Returns the data in coal.csv as a pandas DataFrame.
+    """
+
+    return _load("coal")
+
+
+def osa() -> pd.DataFrame:
+    """
+    Returns the data in osa.csv as a pandas DataFrame.
+    """
+
+    return _load("osa")
+
+
+def uniform_goals() -> pd.DataFrame:
+    """
+    Returns the data in uniform_goals.csv as a pandas DataFrame.
+    """
+
+    return _load("uniform_goals")
+
+
+def cholesterol() -> pd.DataFrame:
+    """
+    Returns the data in cholesterol.csv as a pandas DataFrame.
+    """
+
+    return _load("cholesterol")
+
+
 class Data():
     """
     A class of static methods that returns a specific CSV data file in
@@ -130,13 +186,6 @@ class Data():
 
         return Data.load("distance")
 
-    def load_coal() -> pd.DataFrame:
-        """
-        Returns the data in coal.csv as a pandas DataFrame.
-        """
-
-        return Data.load("coal")
-
     def load_goals() -> pd.DataFrame:
         """
         Returns the data in goals.csv as a pandas DataFrame.
@@ -150,45 +199,3 @@ class Data():
         """
 
         return Data.load("snoring")
-
-    def load_movements() -> pd.DataFrame:
-        """
-        Returns the data in movements.csv as a pandas DataFrame.
-        """
-
-        return Data.load("movements")
-
-    def load_lesions() -> pd.DataFrame:
-        """
-        Returns the data in lesions.csv as a pandas DataFrame.
-        """
-
-        return Data.load("lesions")
-
-    def load_dopamine() -> pd.DataFrame:
-        """
-        Returns the data in dopamine.csv as a pandas DataFrame.
-        """
-
-        return Data.load("dopamine")
-
-    def load_osa() -> pd.DataFrame:
-        """
-        Returns the data in osa.csv as a pandas DataFrame.
-        """
-
-        return Data.load("osa")
-
-    def load_uniform_goals() -> pd.DataFrame:
-        """
-        Returns the data in uniform_goals.csv as a pandas DataFrame.
-        """
-
-        return Data.load("uniform_goals")
-
-    def load_cholesterol() -> pd.DataFrame:
-        """
-        Returns the data in cholesterol.csv as a pandas DataFrame.
-        """
-
-        return Data.load("cholesterol")
