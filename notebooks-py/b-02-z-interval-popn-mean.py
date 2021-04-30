@@ -1,51 +1,64 @@
+# ---
+# jupyter:
+#   jupytext:
+#     formats: ipynb,py:percent
+#     text_representation:
+#       extension: .py
+#       format_name: percent
+#       format_version: '1.3'
+#       jupytext_version: 1.11.1
+#   kernelspec:
+#     display_name: Python 3
+#     language: python
+#     name: python3
+# ---
 
-"""
-Large-sample approximate confidence intervals for population means
-    See <> for the full write-up of the report in r.
-
-date
-: 2021-04-16
-
-reference
-: Computer book B, Activity 15
-
-desc
-: Calculate large-sample confidence intervals for a population mean
-from a sample of data
-
-data
-: glass-fibres.csv
-"""
-
-###
-# Setup
+# %% [markdown]
+# # Large-sample confidence intervals: population mean
 #
+# date: 2021-04-16
+#
+# aim: Calculate a 100(1-a)% approximate confidence interval
+# for a population mean
+#
+# reference: M248 Computer book B, Activity 15
+#
+# data: glass-fibres.csv
+#
+# description: Strengths of glass-fibres of length 1.5cm
+#
+# module: `statsmodels`
 
-from setup import load
+# %% [markdown]
+# ## Setup
+
+# %%
+# import the packages
+from __future__ import annotations
+from src import load
 from statsmodels.stats.weightstats import zconfint
 import seaborn as sns
-import matplotlib,pyplot as plt
+import matplotlib.pyplot as plt
 
+# %%
 # import the data and assign local var
 fibres = load.glass_fibres()
-str = fibres["Strength"]
 
-###
-# About
+# %% [markdown]
+# ## Visualise
+
+# %%
+sns.histplot(
+    data=fibres,
+    x="Strength",
+    binwidth=0.2,
+    color="cornflowerblue")
+plt.show()
+
+# %% [markdown]
+# ## Calculate a 100(1-a)% confidence interval
 #
+# Note that param=`a` should be the alpha in 100(1-alpha)%
 
-# preview the data
-fibres.head()
-
-# summarise the data
-str.describe()
-
-# visualise the data
-sns.histplot(x=str, binwidth=0.2)
-
-###
-# Results
-#
-
-# 90%CI: population mean
-zconfint(x1=str, alpha=0.1)
+# %%
+zconfint(x1=fibres["Strength"], alpha=0.1)
