@@ -50,8 +50,7 @@ See the [documentation](https://www.rdocumentation.org/packages/stats/versions/3
   x = 68,    # successes
   n = 254,   # trials
   p = 0.25,  # p0
-  correct = FALSE,
-))
+  correct = FALSE))
 ```
 
 ## Discussion
