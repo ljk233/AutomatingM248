@@ -8,7 +8,8 @@
 #       format_version: '1.3'
 #       jupytext_version: 1.11.1
 #   kernelspec:
-#     display_name: Python 3.8.3 64-bit
+#     display_name: Python 3.8.2 64-bit
+#     language: python
 #     name: python38264bit42cc30f2071844968108c09d90e27cee
 # ---
 
