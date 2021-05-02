@@ -1,19 +1,9 @@
 AUTOM248.code-workspace
-*.pyc
-.Rproj.user
-site/*
-_archive/
-nb/r/
-nb/py/
-nb/data/
 
-*/.ipynb_checkpoints/
-python/.ipynb_checkpoints/
-r/.ipynb_checkpoints/
-comp_book/util/.ipynb_checkpoints/
 */.ipynb_checkpoints/*
-projects/prem_league/notebooks/.ipynb_checkpoints/
-projects/prem_league/src/.ipynb_checkpoints/*.py
-notebooks-r/rsconnect/*
+*/*/.ipynb_checkpoints/*
+*/__pycache__/*
+*/*/__pycache__/*
+*/rsconnect/*
 .Rhistory
 projects/
