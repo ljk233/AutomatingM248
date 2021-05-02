@@ -276,7 +276,7 @@ pnorm(500, 502, sqrt(0.625))
 
 ### q.18
 
-****
+**C**
 *Unbiased estimators (HB p.13)*
 If $E(X_{1}) = \theta$, $E(X_{2}) = 3 \theta$, and $E(X_{3}) = 5 \theta$, then an unbiased estimator for $/theta$ is such that
 
@@ -339,7 +339,7 @@ Therefore the degrees of freedom is $7-1-1=5$.
 ### q.22
 
 **E.**
-Interpreting $p$-values (HB p.18)
+*Interpreting $p$-values (HB p.18)*
 
 There is little or no evidence against the Poisson model fitting these data. 
 
@@ -441,7 +441,7 @@ $$
 *Binomial distribution (HB p.8)*
 
 Let $X$ be a discrete random variable that movels whether a patient reacts unfavourably to a certain treatment.
-Then $X$ is modelled by the binomial distribution, $X \sim B(n,p)$, where $n=12$ is the sample size and $p=0.03$ is the probability that a patiet reacts unfavourably to the treatment, so $X \sim B(12,0.03)$.
+Then $X$ is modelled by the binomial distribution, $X \sim B(n,p)$, where $n=12$ is the sample size and $p=0.03$ is the probability that a patient reacts unfavourably to the treatment, so $X \sim B(12,0.03)$.
 
 The probability $P(X<2) = p(0) + p(1)$ is given by
 
@@ -798,7 +798,7 @@ calc_norm_approx_wilcoxon(40, 9)
 
 ### (c)
 
-*Normal approximation to the null distribution of the Wilcoxon test statistic (HB p.20) and Interpreting $p$-values (HB p.18)*
+*Normal approximation to the null distribution of the Wilcoxon test statistic (HB p.20) and ==Missing== (HB p.18)*
 
 In this scenario, the observed test statist is $w_{+} = 40$, so the corresponding observed value of $Z$ is
 
