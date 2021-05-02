@@ -11,7 +11,7 @@ nb/data/
 python/.ipynb_checkpoints/
 r/.ipynb_checkpoints/
 comp_book/util/.ipynb_checkpoints/
-comp_book/.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
 projects/prem_league/notebooks/.ipynb_checkpoints/
 projects/prem_league/src/.ipynb_checkpoints/*.py
 notebooks-r/rsconnect/*
