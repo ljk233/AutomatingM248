@@ -73,8 +73,7 @@ BSDA::z.test(
   x = rf,
   mu = 43.8,
   sigma.x = sd(rf),
-  alternative = "greater"
-)
+  alternative = "greater")
 ```
 
 ## Discussion

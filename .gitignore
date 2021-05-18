@@ -7,3 +7,7 @@ AUTOM248.code-workspace
 */rsconnect/*
 .Rhistory
 projects/
+
+# temporary exclusions
+
+.Rproj.user
