@@ -8,7 +8,7 @@
 #       format_version: '1.3'
 #       jupytext_version: 1.11.1
 #   kernelspec:
-#     display_name: Python 3
+#     display_name: Python 3.8
 #     language: python
 #     name: python3
 # ---
@@ -66,7 +66,7 @@ plt.show()
 chisquare(f_obs=obs)
 
 # %% [markdown]
-# #### 2.4 Plot the results of the test
+# ### 2.4 Plot the results of the test
 #
 # Plot a side-by-side bar chart showing the **observed** and **expected** number of goals.
 #
