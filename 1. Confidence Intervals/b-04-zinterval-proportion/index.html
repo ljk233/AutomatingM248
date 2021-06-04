@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Large-sample confidence intervals for a proportion - FinishingM248</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Large-sample confidence intervals for a proportion";
+    var mkdocs_page_input_path = "1. Confidence Intervals\\b-04-zinterval-proportion.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> FinishingM248</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">1. Confidence Intervals</span></p>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Large-sample confidence intervals for a proportion</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#summary">Summary</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#method">Method</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#results">Results</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#references">References</a>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">2. Hypothesis Testing</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../2.%20Hypothesis%20Testing/01_byzantine_coins/">Debasement of silver coins during the late Byzantine Empire</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Past Paper Solutions</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../Past%20Paper%20Solutions/m248-201806/">M248 June 2018</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../Past%20Paper%20Solutions/m248-201906/">M248 June 2019</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">FinishingM248</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>1. Confidence Intervals &raquo;</li>
+        
+      
+    
+    <li>Large-sample confidence intervals for a proportion</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="large-sample-confidence-intervals-for-a-proportion">Large-sample confidence intervals for a proportion</h1>
+<h2 id="summary">Summary</h2>
+<p>The aim of this notebook is to produce a large sample approximate 99% confidence interval for the proportion of machinists who experienced at least one accident over a period of time.
+The confidence interval was calculated to be (0.228, 0.342).</p>
+<h2 id="introduction">Introduction</h2>
+<p>The report is concerned with producing an interval estimate for the proportion of machinists who suffered at least one accident over a period of time.
+The data is historical, and constists of a single data field that contains the number of accidents suffered by each of the 414 machinists over the period of observation.
+The data was provided by M248: Analysing data, who in turn sourced it from Greenwood, M. and Yue, G.U. (1920).</p>
+<h2 id="method">Method</h2>
+<p>An estimate of the proportion of machinists who suffered an accident was calculated.
+A normal approximated on the binomial was then used to calculate a large sample approximate 99% confidence interval for the proportion.
+We can use a normal approximation given the sample size (<span class="arithmatex">\(n=\)</span>414).
+All calculations were done in Python, using the following packages: <code>pandas</code>, <code>statsmodels</code>, <code>seaborn</code> (visualisations), and <code>matplotlib</code> (visualisations).</p>
+<h2 id="results">Results</h2>
+<h3 id="setup-the-notebook">Setup the notebook</h3>
+<pre><code class="language-python"># import the packages
+from src import load
+from statsmodels.stats.proportion import proportion_confint
+import seaborn as sns
+import matplotlib.pyplot as plt
+</code></pre>
+<pre><code class="language-python"># set the Seaborn theme
+sns.set_theme()
+</code></pre>
+<pre><code class="language-python"># load the data
+accidents = load.accidents()
+</code></pre>
+<h3 id="visualise-the-data">Visualise the data</h3>
+<pre><code class="language-python">sns.countplot(data=accidents, x=&quot;Accidents&quot;)
+plt.show()
+</code></pre>
+<p><img alt="png" src="../output_10_0.png" /></p>
+<h3 id="return-the-z-interval">Return the <span class="arithmatex">\(z\)</span>-interval</h3>
+<pre><code class="language-python"># declare the parameters
+x = accidents.query('Accidents != 0').index.size
+n = accidents.index.size
+</code></pre>
+<pre><code class="language-python"># get the estimate proportion
+x/n
+</code></pre>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>0.28502415458937197
+</code></pre></div>
+</td></tr></table>
+<pre><code class="language-python"># return the confidence interval
+proportion_confint(count=x, nobs=n, alpha=0.01)
+</code></pre>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>(0.22787583995834104, 0.3421724692204029)
+</code></pre></div>
+</td></tr></table>
+<h2 id="references">References</h2>
+<p>Greenwood, M. and Yue, G.U. (1920). 'An inquiry into the nature of frequency distributions representative of happening with the particular reference to the occurrence of multiple attacks of disease or of repeated accidents', <em>Journal of the Royal Statistics Society</em>, vol. 83, no. 2, pp. 255-79.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../2.%20Hypothesis%20Testing/01_byzantine_coins/" class="btn btn-neutral float-right" title="Debasement of silver coins during the late Byzantine Empire">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../.." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../.." style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../../2.%20Hypothesis%20Testing/01_byzantine_coins/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../javascripts/config.js" defer></script>
+      <script src="https://polyfill.io/v3/polyfill.min.js?features=es6" defer></script>
+      <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

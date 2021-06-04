@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>M248 June 2019 - FinishingM248</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "M248 June 2019";
+    var mkdocs_page_input_path = "Past Paper Solutions\\m248-201906.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> FinishingM248</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">1. Confidence Intervals</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../1.%20Confidence%20Intervals/b-04-zinterval-proportion/">Large-sample confidence intervals for a proportion</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">2. Hypothesis Testing</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../2.%20Hypothesis%20Testing/01_byzantine_coins/">Debasement of silver coins during the late Byzantine Empire</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Past Paper Solutions</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../m248-201806/">M248 June 2018</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">M248 June 2019</a>
+    <ul class="current">
+    </ul>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">FinishingM248</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Past Paper Solutions &raquo;</li>
+        
+      
+    
+    <li>M248 June 2019</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="section-a">Section A</h2>
+<h3 id="q01">q.01</h3>
+<p><strong>E.</strong>
+<em>Checking the validity of a probability function (HB p.7) : discrete</em></p>
+<p>A. No, <span class="arithmatex">\(\sum x \neq 1\)</span></p>
+<p>B. No, <span class="arithmatex">\(p(2) \leq 0\)</span></p>
+<p>C. No, <span class="arithmatex">\(p(2) \leq 0\)</span></p>
+<p>D. No, <span class="arithmatex">\(\sum x \neq 1\)</span></p>
+<p>E. Yes, satisfies both properties.</p>
+<p>F. No, <span class="arithmatex">\(\sum x \neq 1\)</span></p>
+<h3 id="q02">q.02</h3>
+<p><strong>C.</strong>
+<em>Calculating probabilities using a probability function (HB p.7) : p.d.f.</em></p>
+<p>The probability <span class="arithmatex">\(P(2 \leq X \leq 4)\)</span> is given by</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    P(2 \leq X \leq 4) = \int_{2}^{4} \frac{5}{4x^{2}} \&gt; dx &amp;= \frac{5}{4} \int_{2}^{4} x^{-2} \&gt; dx \\
+    &amp;= \frac{5}{4} \bigg[-x^{-1} \bigg]_{2}^{4} \\
+    &amp;= -\frac{5}{4} \bigg(\frac{1}{4} - \frac{1}{2} \bigg) \\
+    &amp;= \frac{5}{16} \\
+\end{aligned}
+\]</div>
+<h3 id="q03">q.03</h3>
+<p><strong>A.</strong>
+<em>Normalising constants (Book A, p.111)</em></p>
+<p>Normalising constant <span class="arithmatex">\(K\)</span> is given by</p>
+<div class="arithmatex">\[
+    1 = \int_{-1}^{1} \frac{1}{K} \bigg( 1 + \frac{x}{2} \bigg) \&gt; dx
+      = \frac{1}{K} \int_{-1}^{1} 1 + \frac{x}{2} \&gt; dx.
+\]</div>
+<p>Therefore,</p>
+<div class="arithmatex">\[
+K = \int_{-1}^{1} 1 + \frac{x}{2} \&gt; dx
+  = \bigg[ x + \frac{1}{2} \bigg(\frac{x^{2}}{2} \bigg) \bigg]_{-1}^{1}
+  = \bigg\{ 1 + \frac{1}{4} (1^{2}) - \bigg( -1 + \frac{1}{4} (-1)^{2} \bigg) \bigg\}
+  = 2
+\]</div>
+<h3 id="q04">q.04</h3>
+<p><strong>E.</strong>
+<em>Calculating probabilities using the c.d.f. : discrete</em></p>
+<p>The c.d.f. of <span class="arithmatex">\(X\)</span> at <span class="arithmatex">\(x=3\)</span> is given by</p>
+<div class="arithmatex">\[
+F(x=3) = P(X \leq 3) = p(1) + p(2) + p(3) = 0.1 + 0.3 + 0.2 = 0.6.
+\]</div>
+<h3 id="q05">q.05</h3>
+<p><strong>E.</strong>
+<em>Poisson distribution (HB p.8)</em></p>
+<p>The <span class="arithmatex">\(P(X&gt;2) = 1 - P(X \leq 2)\)</span> is given by,</p>
+<div class="arithmatex">\[
+\begin{aligned}
+1 - P(X \leq 2) &amp;= 1 - p(0) + p(1) + p(2) \\
+  &amp;= 1 - \sum_{i=0}^{2} e^{-\mu} \bigg( \frac{\mu^{x_{i}}}{x_{i}!} \bigg) \\
+  &amp;= 1 - e^{-\mu} \sum_{i=0}^{2} \bigg( \frac{\mu^{x_{i}}}{x_{i}!} \bigg) \\
+  &amp;= 1 - e^{-0.4} \bigg( \frac{0.4^{0}}{0!} + \frac{0.4^{1}}{1!} + \frac{0.4^{2}}{2!} \bigg) \\
+  &amp;= 1 - 1.48 e^{-0.4}.
+\end{aligned}
+\]</div>
+<h3 id="q06">q.06</h3>
+<p><strong>F.</strong>
+<em>Mean of a linear function of rvs (HB p.9)</em></p>
+<p>For a random variable <span class="arithmatex">\(Y=-2-2X\)</span>, then</p>
+<div class="arithmatex">\[
+E(Y) = aE(X) + b,
+\]</div>
+<p>where <span class="arithmatex">\(E(X) = 10\)</span>, <span class="arithmatex">\(a = -2\)</span>, and <span class="arithmatex">\(b=-2\)</span>.
+Therefore,</p>
+<div class="arithmatex">\[
+E(Y) = -2 (10) + (-2) = -20 - 2 = -22.
+\]</div>
+<h3 id="q07">q.07</h3>
+<p><strong>E.</strong>
+<em>Variance of a linear function of rvs (HB p.9)</em></p>
+<p>For a random variable <span class="arithmatex">\(Y=-2-2X\)</span>, then</p>
+<div class="arithmatex">\[
+S(Y) = \sqrt{V(Y)} = \sqrt{a^{2} V(X)} = |a| \sqrt{V(X)},
+\]</div>
+<p>where <span class="arithmatex">\(V(X) = 9\)</span> and <span class="arithmatex">\(a = -2\)</span>.
+Therefore</p>
+<div class="arithmatex">\[
+S(Y) = |-2| \sqrt{9} = 6.
+\]</div>
+<h3 id="q08">q.08</h3>
+<p><strong>B.</strong>
+<em>Poisson approximation of rare events (HB p.10)</em></p>
+<p>It is estimated that <span class="arithmatex">\(p=1/420\)</span> suffer from the disease and <span class="arithmatex">\(n=2100\)</span> employees work for the company.
+Therefore, as <span class="arithmatex">\(n \geq 50\)</span> and <span class="arithmatex">\(p \leq 0.05\)</span>, the approximate number of employees who suffer from the disease at the company will be distributed</p>
+<div class="arithmatex">\[
+B \bigg( 2100, \frac{1}{420} \bigg)
+  \approx \text{Poisson} (np)
+  \sim \text{Poisson} (5)
+\]</div>
+<h3 id="q09">q.09</h3>
+<p><strong>C.</strong>
+<em>Poisson process (HB p.10) and Poisson distribution (HB p.8)</em></p>
+<p>Let <span class="arithmatex">\(X\)</span> model the number of email arriving in the office per hour.
+Then <span class="arithmatex">\(X \sim \text{Poisson}(\mu)\)</span>, where <span class="arithmatex">\(\mu = 3\)</span> is the average number of emails received in an hour.</p>
+<p>The probability <span class="arithmatex">\(P(X=4)\)</span> is given by</p>
+<div class="arithmatex">\[
+\begin{aligned}
+  p(4) = e^{-3} \bigg( \frac{3^{4}}{4!} \bigg) \simeq 0.168.
+\end{aligned}
+\]</div>
+<h3 id="q10">q.10</h3>
+<p><strong>B.</strong>
+<em>Poisson process (HB p.10) and Exponential distribution (HB p.10)</em></p>
+<p>Let <span class="arithmatex">\(T\)</span> model the waiting time between emails arriving in the office.
+Then <span class="arithmatex">\(T \sim M(\lambda)\)</span>, where <span class="arithmatex">\(\lambda = 3\)</span> is the average number of emails received in an hour.</p>
+<p>Fifteen minutes is <span class="arithmatex">\(1/4\)</span> hours, so <span class="arithmatex">\(P(T &lt; 1/4)\)</span> is given by</p>
+<div class="arithmatex">\[
+\begin{aligned}
+  P \bigg(T \leq \frac{1}{4} \bigg) = F\bigg(\frac{1}{4}\bigg) = 1 - e^{-3 \big( \frac{1}{4} \big)} \simeq 0.528.
+\end{aligned}
+\]</div>
+<h3 id="q11">q.11</h3>
+<p><strong>F.</strong>
+<em>Poisson process (HB p.10)</em></p>
+<p>The number of emails that will arrive in 6 hours is distributed <span class="arithmatex">\(\text{Poisson}(\lambda t)\)</span>, where <span class="arithmatex">\(\lambda = 3, t=6\)</span>.
+So <span class="arithmatex">\(\text{Poisson}(18)\)</span>.</p>
+<h3 id="q12">q.12</h3>
+<p><em>Bernoulli process (HB p.10) and Exponential distribution (HB p.10)</em></p>
+<p>B. <strong>False</strong>, in a <strong>Bernoulli</strong> process, events occur in discrete trials.</p>
+<p>F. <strong>False</strong>, if <span class="arithmatex">\(X\)</span> has an <em>exponential distribution</em> then <span class="arithmatex">\(X \sim M(\lambda)\)</span>, and so <span class="arithmatex">\(E(X) = 1/\lambda\)</span>.</p>
+<h3 id="q13">q.13</h3>
+<p><strong>C.</strong>
+<em>Population quantiles rv (HB p.11) : continuous</em></p>
+<p>The <span class="arithmatex">\(\alpha\)</span>-quantile of a continuous rv <span class="arithmatex">\(X\)</span> with c.d.f. <span class="arithmatex">\(F(X)\)</span> is defined as <span class="arithmatex">\(F(x) = \alpha\)</span>.</p>
+<p>If <span class="arithmatex">\(F(x) = 2 - 10/x\)</span> and <span class="arithmatex">\(\alpha = 1/2\)</span>, then</p>
+<div class="arithmatex">\[
+\begin{aligned}
+  F(x) = \alpha \to 2 - \frac{10}{x} &amp;= \frac{1}{2} \\
+    2 - \frac{1}{2} &amp;= \frac{10}{x} \\
+    \frac{3}{2} &amp;= \frac{10}{x} \\
+    3x &amp;= 20 \\
+    x &amp;= \frac{20}{3}.
+\end{aligned}
+\]</div>
+<h3 id="q14">q.14</h3>
+<p><strong>E.</strong>
+<em>Population quantiles of a discrete rv (HB p.11)</em></p>
+<p>The smallest value of <span class="arithmatex">\(x \in X\)</span> to satisfy <span class="arithmatex">\(F(X) = q_{U} = 3/4\)</span> is <span class="arithmatex">\(x=5\)</span>.</p>
+<h3 id="q15">q.15</h3>
+<p><strong>A.</strong>
+<em>Difference between two independent normal rvs (HB p.11)</em></p>
+<p>If <span class="arithmatex">\(X \sim N(4,3)\)</span>, <span class="arithmatex">\(Y \sim N(2,2)\)</span>, then <span class="arithmatex">\(U = X - Y\)</span> will also be distributed normally with parameters:</p>
+<div class="arithmatex">\[
+E(U) = E(X-Y) = E(X) - E(Y) = 4 - 2 = 2,
+\]</div>
+<p>and</p>
+<div class="arithmatex">\[
+V(U) = V(X-Y) = V(X) + V(Y) = 3 + 2 = 5.
+\]</div>
+<p>So <span class="arithmatex">\(U = X - Y \sim N(2, 5)\)</span>.</p>
+<h3 id="q16">q.16</h3>
+<p><strong>D.</strong>
+<em>Probabilities for a normal distribution (HB p.12)</em></p>
+<p>If <span class="arithmatex">\(X \sim N(22, 36)\)</span>, then the probability <span class="arithmatex">\(P(X &gt; 25)\)</span> is given by</p>
+<div class="arithmatex">\[
+\begin{aligned}
+P(X &gt; 25) &amp;= 1 - P\bigg(Z &lt; \frac{25-22}{\sqrt{36}} \bigg) \\
+  &amp;= 1 - P\bigg(Z &lt; \frac{1}{2} \bigg) \\
+  &amp;= 1 - \Phi(0.50) \\
+  &amp;\simeq 1 - 0.6915 = 0.3085.
+\end{aligned}
+\]</div>
+<h3 id="q17">q.17</h3>
+<p><strong>F.</strong>
+<em>Quantiles of a normal distribution (HB p.12)</em></p>
+<p>The volume of the container (in ml) that ensures overflow will only occur 1% of the time corresponds to the 0.99-quantile of the distribution of <span class="arithmatex">\(X \sim N(1748.48, 20^{2})\)</span>, such that</p>
+<div class="arithmatex">\[
+x = \sigma q_{0.99} + \mu,
+\]</div>
+<p>where <span class="arithmatex">\(q_{0.99} = 2.326\)</span> is the 0.99-quantile of the standard normal distribution.</p>
+<p>Therefore,</p>
+<div class="arithmatex">\[
+x = 20 (2.326) + 1748.48 = 1795.00.
+\]</div>
+<h3 id="q18">q.18</h3>
+<p><strong>A.</strong>
+<em>Distribution of the mean (HB p.12) and Probabilities for a normal distribution (HB p.12)</em></p>
+<p>If <span class="arithmatex">\(X \sim N(10000, 500^{2})\)</span>, then <span class="arithmatex">\(\overline{X}_{50}\)</span> will be distributed</p>
+<div class="arithmatex">\[
+E(\overline{X}_{50}) = \mu = 10000,
+\]</div>
+<p>and</p>
+<div class="arithmatex">\[
+V(\overline{X}_{50}) = \frac{\sigma^{2}}{n} = \frac{500^{2}}{50} = 5000.
+\]</div>
+<p>Therefore the probability <span class="arithmatex">\(P(\overline{X}_{50} &lt; 9900)\)</span> will be given by</p>
+<div class="arithmatex">\[
+\begin{aligned}
+  P(X &lt; 9900) &amp;= 1 - P \bigg( Z &lt; \frac{9900-10000}{\sqrt{5000}} \bigg) \\
+    &amp;= P\bigg(Z &lt; -\sqrt{2} \bigg) \\
+    &amp;\simeq \Phi(-1.41) \\
+    &amp;= 1 - \Phi(1.41) \\
+    &amp;= 1 - 0.9207 = 0.0793.
+\end{aligned}
+\]</div>
+<h3 id="q19">q.19</h3>
+<p><strong>A.</strong>
+<em>Mean of an unbiased estimator (HB p.13)</em></p>
+<p>If <span class="arithmatex">\(E(X_{1}) = \theta\)</span>, <span class="arithmatex">\(E(X_{2}) = 2\theta\)</span>, and <span class="arithmatex">\(E(X_{3}) = 6\theta\)</span>, then an unbiased estimator for <span class="arithmatex">\(\theta\)</span> is such that <span class="arithmatex">\(E(\widehat \theta) = \theta\)</span>.</p>
+<p>Looking at option A,</p>
+<div class="arithmatex">\[
+\begin{aligned}
+  E(\widehat \theta) &amp;= E\bigg\{ \frac{1}{10}(2 X_{1} + X_{2} + X_{3}) \bigg\} \\
+    &amp;= \frac{1}{10} E\bigg\{ (2 X_{1} + X_{2} + X_{3}) \bigg\} \\
+    &amp;= \frac{1}{10} \{ E (2 X_{1}) + E (X_{2}) + E (X_{3}) \} \\
+    &amp;= \frac{1}{10} \{ 2 E (X_{1}) + E (X_{2}) + E (X_{3}) \} \\
+    &amp;= \frac{1}{10} \{ 2 \theta + 2 \theta + 6 \theta \} \\
+    &amp;= \frac{1}{10} \{ 10 \theta \} \\
+    &amp;= \theta.
+\end{aligned}
+\]</div>
+<h3 id="q20">q.20</h3>
+<p><strong>C.</strong>
+<em>Exact CI for a normal mean (HB p.15)</em></p>
+<p>The upper limit of an exact 99% confidence interval for the mean <span class="arithmatex">\(\mu^{+}\)</span> is given by</p>
+<div class="arithmatex">\[
+\mu^{+} = \overline{x} + t \frac{s}{\sqrt{n}},
+\]</div>
+<p>where <span class="arithmatex">\(t\)</span> is the <span class="arithmatex">\((1-(\alpha/2))\)</span>-quantile of <span class="arithmatex">\(t(n-1)\)</span>.</p>
+<p>Here we have <span class="arithmatex">\(\overline{x}=112.5\)</span>, <span class="arithmatex">\(n=10\)</span>, and <span class="arithmatex">\(s=35.1\)</span>.
+The value <span class="arithmatex">\(t=3.250\)</span> is the <span class="arithmatex">\(0.995\)</span>-quantile of the <span class="arithmatex">\(t(9)\)</span> distribution.
+So the upper limit is given by</p>
+<div class="arithmatex">\[
+\begin{aligned}
+  \mu^{+} = 112.5 + 3.250 \bigg( \frac{35.1}{\sqrt{10}} \bigg) \simeq 148.6
+\end{aligned}
+\]</div>
+<h3 id="q21">q.21</h3>
+<p><strong>C and F.</strong>
+<em>Anatomy of a hypothesis test (HB p.17) and <span class="arithmatex">\(z\)</span>-test (HB p.17)</em></p>
+<p>C. True, as the significance level decreases, the rejection region increases.</p>
+<p>F. True</p>
+<h3 id="q22">q.22</h3>
+<p><strong>B.</strong>
+<em>Calculating the test statistic for a <span class="arithmatex">\(z\)</span>-test (HB p.17)</em></p>
+<p>The test statistic is</p>
+<div class="arithmatex">\[
+  Z = \frac{\overline{X} - \mu_{0}}{S/\sqrt{n}} = \frac{434.2 - 433}{1.1/\sqrt{36}} \simeq 6.55.
+\]</div>
+<h3 id="q23">q.23</h3>
+<p><strong>D.</strong>
+<em>Calculating the power of a test (HB p.18)</em></p>
+<p>The power of this two-sided test with a 5% significance level will be</p>
+<div class="arithmatex">\[
+1 - \Phi \bigg( q_{1-(\alpha/2)} - \frac{d}{\sigma/\sqrt{n}} \bigg)
+\]</div>
+<p>where <span class="arithmatex">\(q_{1-(\alpha/2)} = q_{0.975} = 1.960\)</span>, <span class="arithmatex">\(d=0.6\)</span>, <span class="arithmatex">\(\sigma=4.2\)</span>, and <span class="arithmatex">\(n=196\)</span>.
+Therefore,</p>
+<div class="arithmatex">\[
+\begin{aligned}
+ 1 - \Phi \bigg( 1.960 - \frac{0.6}{4.2/\sqrt{196}} \bigg)
+  &amp;\simeq 1 - \Phi (-0.4) \\
+  &amp;= 1 - (1 - \Phi (0.4) \\
+  &amp;= \Phi (0.4) \\
+  &amp;= 0.5160.
+\end{aligned}
+\]</div>
+<h3 id="q24">q.24</h3>
+<p><strong>C.</strong>
+<em>Chi-squared goodness-of-fit test (HB p.21)</em></p>
+<p>The degrees of freedom of a <strong>chi-squared</strong> goodness-of-fit test is <span class="arithmatex">\(k-p-1\)</span>, where <span class="arithmatex">\(k=4\)</span> is the number of categories, and <span class="arithmatex">\(p=0\)</span> is the number of estimated parameters.</p>
+<p>Therefore the degrees of freedom is <span class="arithmatex">\(4-0-1=3\)</span>.</p>
+<h3 id="q25">q.25</h3>
+<p><strong>F.</strong>
+<em>Chi-squared goodness-of-fit test (HB p.21)</em></p>
+<p>The <strong>chi-squared</strong> test statistic is</p>
+<div class="arithmatex">\[
+\chi^{2} = \sum\frac{(O_{i} - E{i})^{2}}{E_i},
+\]</div>
+<p>so</p>
+<div class="arithmatex">\[
+\chi^{2} = \frac{4.1^{2}}{106.9} + \dots + \frac{(-3.9)^{2}}{11.9} \simeq 1.53.
+\]</div>
+<h3 id="q26">q.26</h3>
+<p><strong>B.</strong>
+<em>Least squares estimate (HB 22) : intercept</em></p>
+<p>The least squares estimate of <span class="arithmatex">\(\beta\)</span> is</p>
+<div class="arithmatex">\[
+\beta = \frac{S_{xy}}{S_{xx}} = \frac{962.35}{457.44} = 2.10377 \ldots
+\]</div>
+<p>Therefore, the least squares estimate of the intercept, <span class="arithmatex">\(\alpha\)</span>, is</p>
+<div class="arithmatex">\[
+\alpha = 31.96 − 2.10377 (12.34) \simeq 6.00.
+\]</div>
+<h3 id="q27">q.27</h3>
+<p><strong>A and E.</strong>
+<em>Hypothesis test of <span class="arithmatex">\(\widehat{\beta}\)</span> (HB p.22)</em></p>
+<h3 id="q28">q.28</h3>
+<p><strong>A and F.</strong>
+<em>Transformations (HB p.23) : skew data</em></p>
+<p>The data is left skew, so we go up the ladder of powers.</p>
+<h3 id="q29">q.29</h3>
+<p><strong>A.</strong>
+<em>Using a fitted model (HB p.21)</em></p>
+<p>The fitted model is <span class="arithmatex">\(\log{y} = 0.423 + 0.0325 x\)</span>, so when <span class="arithmatex">\(x=30\)</span>,</p>
+<div class="arithmatex">\[
+y = e^{0.423 + 0.0325(30)} = e^{1.398} = 4.047.
+\]</div>
+<h2 id="section-b">Section B</h2>
+<h3 id="q30">q.30</h3>
+<p><em>Finding the c.d.f. of a rv : continuous</em></p>
+<p>If <span class="arithmatex">\(f(x) = \frac{1}{78} (6x^{2} + 2x + 5)\)</span>, where <span class="arithmatex">\(x \in (0,3)\)</span>, then the <span class="arithmatex">\(F(x)\)</span> will be,</p>
+<div class="arithmatex">\[
+\begin{aligned}
+F(x) = \int_{0}^{x} \frac{1}{78} (6y^{2} + 2x + 5) \&gt; dy
+  &amp;= \frac{1}{78} \bigg[ \frac{6}{3} y^{3} + \frac{2}{2} y^{2} + 5y \bigg]_{0}^{x} \\
+  &amp;= \frac{1}{78} \bigg[ 2 y^{3} + y^{2} + 5y \bigg]_{0}^{x} \\
+  &amp;= \frac{1}{78} ( 2 x^{3} + x^{2} + 5x - (0 + 0 + 0)) \\
+  &amp;= \frac{1}{78} (2 x^{3} + x^{2} + 5x).
+\end{aligned}
+\]</div>
+<h3 id="q31">q.31</h3>
+<p><em>Calculating probabilities using the c.d.f. (HB p.7) : continuous</em></p>
+<p>If <span class="arithmatex">\(F(x) = \frac{1}{80} (x^{2} + x^{3})\)</span>, then <span class="arithmatex">\(P(1 \leq X \leq 2) = F(2) - F(1)\)</span> is given by</p>
+<div class="arithmatex">\[
+\begin{aligned}
+F(2) - F(1) &amp;= \frac{1}{80} (2^{2} + 2^{3}) - \frac{1}{80} (1^{2} + 1^{3}) \\
+  &amp;= \frac{1}{80} (10) \\
+  &amp;= \frac{1}{8}.
+\end{aligned}
+\]</div>
+<h3 id="q32">q.32</h3>
+<h4 id="a">(a)</h4>
+<p><em>Geometric distribution (HB p.8)</em></p>
+<p>Let <span class="arithmatex">\(X\)</span> be a discrete rv that represents the number of people who need to pass through the metal detector until the next to activate it.
+Then <span class="arithmatex">\(X\)</span> is modelled by the geometric distribution, <span class="arithmatex">\(X \sim G(p)\)</span>, where <span class="arithmatex">\(p=0.2\)</span> is the probability that an individual activates the metal detector, so <span class="arithmatex">\(X \sim G(0.4)\)</span>.</p>
+<p>The probability <span class="arithmatex">\(P(X=4)\)</span> is given by</p>
+<div class="arithmatex">\[
+\begin{aligned}
+  P(X=4) = (1-p)^{y-1} p = 0.8^{3} 0.2 = 0.1024.
+\end{aligned}
+\]</div>
+<h4 id="b">(b)</h4>
+<p><em>Binomial distribution (HB p.8)</em></p>
+<p>Let <span class="arithmatex">\(Y\)</span> be a discrete rv that represents the number of people that passes through the metal detector.
+Then <span class="arithmatex">\(Y\)</span> is modelled by the binomial distribution, <span class="arithmatex">\(Y \sim B(n,p)\)</span>, where <span class="arithmatex">\(n=10\)</span> is the sample size and <span class="arithmatex">\(p=0.2\)</span> is the probability that an individual sets off the metal detector, so <span class="arithmatex">\(Y \sim B(10,0.2)\)</span>.</p>
+<p>The probability <span class="arithmatex">\(P(Y=3)\)</span> is given by</p>
+<div class="arithmatex">\[
+\begin{aligned}
+  P(Y=3) = \binom{n}{y} p^y (1-p)^{n-y} = \binom{10}{3} 0.2^{3} (0.8)^{7} \simeq 0.2013.
+\end{aligned}
+\]</div>
+<h3 id="q33">q.33</h3>
+<h4 id="a_1">(a)</h4>
+<p><em>Mean of a rv (HB p.9) : continuous</em></p>
+<p>The expected value <span class="arithmatex">\(E(X)\)</span> of a continuous random variable <span class="arithmatex">\(X\)</span> is defined as</p>
+<div class="arithmatex">\[
+E(X) = \int_{L}^{U} x \&gt; f(x) \&gt; dx, \hspace{3mm} x \in (L, U).
+\]</div>
+<p>Therefore,</p>
+<div class="arithmatex">\[
+\begin{aligned}
+  E(X) = \int_{0}^{1} x \frac{3}{2} (1 - x^{2}) &amp;= \frac{3}{2} \int_{0}^{1} x - x^{3} \&gt; dx \\
+    &amp;= \frac{3}{2} \bigg[ \frac{1}{2} x^{2} - \frac{1}{4} x^{4} \bigg]_{0}^{1} \\
+    &amp;= \frac{3}{2} \bigg\{ \frac{1}{2} (1)^{2} - \frac{1}{4} (1)^{4} - \bigg( \frac{1}{2} (0)^{2} - \frac{1}{4} (0)^{4} \bigg) \bigg\} \\
+    &amp;= \frac{3}{2} \bigg\{ \frac{1}{4} \bigg\} \\
+    &amp;= \frac{3}{8}. \\
+\end{aligned}
+\]</div>
+<p>Hence, <span class="arithmatex">\(E(X)=3/8\)</span>.</p>
+<h4 id="b_1">(b)</h4>
+<p><em>Variance of a rv (HB p.9) : continuous</em></p>
+<p>The <span class="arithmatex">\(E(X^{2})\)</span> of a continuous random variable <span class="arithmatex">\(X\)</span> is defined as</p>
+<div class="arithmatex">\[
+E(X^{2}) = \int_{L}^{U} x^{2} \&gt; f(x) \&gt; dx, \hspace{3mm} x \in (L, U).
+\]</div>
+<p>Therefore,</p>
+<div class="arithmatex">\[
+\begin{aligned}
+  E(X^{2}) = \int_{0}^{1} x^{2} \frac{3}{2} (1 - x^{2}) &amp;= \frac{3}{2} \int_{0}^{1} x^{2} - x^{4} \&gt; dx \\
+    &amp;= \frac{3}{2} \bigg[ \frac{1}{3} x^{3} - \frac{1}{5} x^{5} \bigg]_{0}^{1} \\
+    &amp;= \frac{3}{2} \bigg\{ \frac{1}{3} (1)^{3}- \frac{1}{5} (1)^{5} - \bigg( \frac{1}{3} (0)^{3} - \frac{1}{5} (0)^{5} \bigg) \bigg\} \\
+    &amp;= \frac{3}{2} \bigg( \frac{1}{15} \bigg) \\
+    &amp;= \frac{1}{5}. \\
+\end{aligned}
+\]</div>
+<p>Hence, <span class="arithmatex">\(E(X^{2})=1/5\)</span>.</p>
+<h4 id="c">(c)</h4>
+<p><em>Variance of a rv (HB p.9) : continuous</em></p>
+<p>The variance <span class="arithmatex">\(V(X)\)</span> of a continuous random variable <span class="arithmatex">\(X\)</span> is defined as</p>
+<div class="arithmatex">\[
+V(X) = E\{ (X-\mu)^{2} \} = E(X^{2}) - E(X)^{2}
+\]</div>
+<p>We know that <span class="arithmatex">\(E(X) = 3/5\)</span>, <span class="arithmatex">\(E(X^{2})=1/5\)</span>, so</p>
+<div class="arithmatex">\[
+V(X) = \frac{1}{5} - \bigg( \frac{3}{8} \bigg)^{2}
+  = \frac{1}{5} - \frac{9}{64} = \frac{19}{320} \simeq 0.0594.
+\]</div>
+<p>Therefore, <span class="arithmatex">\(V(X)=19/320 \simeq 0.0594\)</span>, rounded to 3sf.</p>
+<h3 id="q34">q.34</h3>
+<h4 id="a_2">(a)</h4>
+<p><em>Finding the likelihood function of a sample (HB p.13) : discrete</em></p>
+<p>Using the p.m.f. of a geometric distribution, if <span class="arithmatex">\(p(x_{i}; \theta) = \theta(1-\theta)^{x_{i}-1}\)</span>, then the likelihood of <span class="arithmatex">\(\theta\)</span>, <span class="arithmatex">\(L(\theta)\)</span>, will be</p>
+<div class="arithmatex">\[
+\begin{aligned}
+  L(\theta) = \prod_{i=1}^{4} p(x_{i}; \theta) &amp;= \theta(1-\theta)^{x_{1}-1} \times \theta(1-\theta)^{x_{2}-1} \times \theta(1-\theta)^{x_{3}-1} \times \theta(1-\theta)^{x_{4}-1} \\
+    &amp;= \theta(1-\theta)^{5-1} \times \theta(1-\theta)^{2-1} \times \theta(1-\theta)^{5-1} \times \theta(1-\theta)^{1-1} \\
+    &amp;= \theta \times \theta \times \theta \times \theta \times (1-\theta)^{4} \times (1-\theta)^{1} \times (1-\theta)^{4} \times (1-\theta)^{0} \\
+    &amp;= \theta^{4}  \times (1-\theta)^{4 + 1 + 4 + 0} \\
+    &amp;= (1-\theta)^{9} \theta^{4}. \\
+\end{aligned}
+\]</div>
+<h4 id="b_2">(b)</h4>
+<p><em>Finding the MLE of an estimator (HB p.13)</em></p>
+<p>If <span class="arithmatex">\(L(\theta) = (1-\theta)^{9} \theta^{4}\)</span> then, by the <strong>product rule</strong>, <span class="arithmatex">\(L'(\theta)\)</span> will be given by</p>
+<div class="arithmatex">\[
+\begin{aligned}
+  L'(\theta) &amp;= (1-\theta)^{9} \times 4 \theta^{3} + (-1) (9) (1-\theta)^{8} \theta^{4} \\
+    &amp;= 4 \theta^{3} (1-\theta)^{9} - 9 \theta^{4}  (1-\theta)^{8} \\
+    &amp;= \theta^{3} (1-\theta)^{8} ( 4 (1-\theta) - 9 \theta ) \\
+    &amp;= \theta^{3} (1-\theta)^{8} ( 4 - 4 \theta - 9 \theta ) \\
+    &amp;= (1-\theta)^{8} \theta^{3} ( 4 - 13 \theta ) \\
+\end{aligned}
+\]</div>
+<p>This matches the expression given in the question.</p>
+<h4 id="c_1">(c)</h4>
+<p><em>Finding the MLE of an estimator (HB p.13)</em></p>
+<p>The MLE of <span class="arithmatex">\(\theta\)</span>, <span class="arithmatex">\(\widehat \theta\)</span>, is the solution to</p>
+<div class="arithmatex">\[
+L'(\theta) = (1-\theta)^{8} \theta^{3} ( 4 - 13 \theta ) = 0.
+\]</div>
+<p>Given the range of <span class="arithmatex">\(\theta &gt; 0\)</span>, then <span class="arithmatex">\(\theta^{3}(1-\theta)^{8} &gt; 0\)</span>, so this reduces to solving</p>
+<div class="arithmatex">\[
+\begin{aligned}
+  0 &amp;= 4 - 13 \theta \\
+  13 \&gt; \theta  &amp;= 4 \\
+  \theta  &amp;= \frac{4}{13} \simeq 0.3077.
+\end{aligned}
+\]</div>
+<p>So <span class="arithmatex">\(\widehat \theta \simeq 0.3077\)</span>.</p>
+<h3 id="q35">q.35</h3>
+<h4 id="a_3">(a)</h4>
+<p><em>CI for the difference between two proportions (HB p.15)</em></p>
+<p>Let <span class="arithmatex">\(n_{1} = 100, x_{1} = 33\)</span> represent the sample from 2010, and <span class="arithmatex">\(n_{2} = 150, x_{2} = 54\)</span> represent the sample from 2013.
+Then the point estimate of the difference <span class="arithmatex">\(\widehat d\)</span> between the two samples is</p>
+<div class="arithmatex">\[
+\widehat d = p_{1} - p_{2} = \frac{33}{100} - \frac{54}{150} = 0.33 - 0.36 = -0.03.
+\]</div>
+<p>Therefore, an approximate <em>95%</em> confidence interval for the population difference,
+<span class="arithmatex">\((d^{-}, d^{+})\)</span>, is given by</p>
+<div class="arithmatex">\[
+\begin{aligned}
+d^{-} &amp;= -0.03 - 1.96 \sqrt{ \frac{0.33(0.67)}{100} + \frac{0.36(0.64)}{150} }
+  \simeq -0.15, \\
+d^{+} &amp;= -0.03 + 1.96 \sqrt{ \frac{0.33(0.67)}{100} + \frac{0.36(0.64)}{150} } \simeq 0.09.
+\end{aligned}
+\]</div>
+<p>Therefore, a realised approximate 95% confidence interval for this scenario would be <span class="arithmatex">\((-0.15, 0.09)\)</span>.</p>
+<h4 id="b_3">(b)</h4>
+<p><em>Repeated experiments interpretation of confidence intervals (HB p.14)</em></p>
+<p>If this entire trial was repeated independently a large number of times, and on each occasion a 95% confidence interval for the difference between proportions were calculated, then about 95% of these intervals would contain the population value for the difference between the proportion of individuals that thought cannabis should be legalised in 2010 and the proportion of individuals that thought cannabis should be legalised in 2013.</p>
+<h4 id="c_2">(c)</h4>
+<p><em>Interpreting confidence intervals (M248 Unit 8, activity 14)</em></p>
+<p>The approximate 95% confidence interval found was <span class="arithmatex">\((-0.15, 0.09)\)</span>.
+Given this interval contains <span class="arithmatex">\(0\)</span>, it suggests that there is no difference in the proportion of individuals that thought cannabis should be legalised between 2010 and 2013.</p>
+<h3 id="q36">q.36</h3>
+<h4 id="a_4">(a)</h4>
+<p><em>The Wilcoxon signed rank test (HB p.19)</em></p>
+<p>Let <span class="arithmatex">\(m\)</span> denote the underlying population median difference in aluminium concentrations between August and November.
+This is a two-sided test so the hypotheses are</p>
+<div class="arithmatex">\[
+H_{0} : m = 0, \&gt;  H_{1} : m \neq 0
+\]</div>
+<h4 id="b_4">(b)</h4>
+<p><em>The Wilcoxon signed rank test (HB p.19)</em></p>
+<table>
+<thead>
+<tr>
+<th>Tree</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+<th>9</th>
+<th>10</th>
+<th>11</th>
+<th>12</th>
+<th>13</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Difference</td>
+<td>12.0</td>
+<td>12.3</td>
+<td>3.1</td>
+<td>7.2</td>
+<td>5.3</td>
+<td>1.0</td>
+<td>6.3</td>
+<td>0.0</td>
+<td>−2.2</td>
+<td>23.4</td>
+<td>2.0</td>
+<td>−1.2</td>
+<td>−5.6</td>
+</tr>
+<tr>
+<td>Sign of diff</td>
+<td>+</td>
+<td>+</td>
+<td>+</td>
+<td>+</td>
+<td>+</td>
+<td>+</td>
+<td>+</td>
+<td></td>
+<td>-</td>
+<td>+</td>
+<td>+</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Abs value of diff</td>
+<td>12.0</td>
+<td>12.3</td>
+<td>3.1</td>
+<td>7.2</td>
+<td>5.3</td>
+<td>1.0</td>
+<td>6.3</td>
+<td>0.0</td>
+<td>2.2</td>
+<td>23.4</td>
+<td>2.0</td>
+<td>1.2</td>
+<td>5.6</td>
+</tr>
+<tr>
+<td>Rank of abs value of diff</td>
+<td>10</td>
+<td>11</td>
+<td>5</td>
+<td>9</td>
+<td>6</td>
+<td>1</td>
+<td>8</td>
+<td></td>
+<td>4</td>
+<td>12</td>
+<td>3</td>
+<td>2</td>
+<td>7</td>
+</tr>
+</tbody>
+</table>
+<p>The value of the test statistic is the sum of the ranks of the positivie differences, so</p>
+<div class="arithmatex">\[
+w_{+} = 10 + 11 + 5 + 9 + 6 + 1 + 8 + 12 + 3 = 65.
+\]</div>
+<h4 id="c_3">(c)</h4>
+<p><em>Normal approximation of the Wilcoxon test statistic (HB p.20)</em></p>
+<p>Under the null hypothesis, for a sample of size <span class="arithmatex">\(12\)</span> (excluding the zero difference), the Wilcoxon signed rank test statistic <span class="arithmatex">\(W_{+}\)</span> has mean,</p>
+<div class="arithmatex">\[
+\begin{aligned}
+  E(W_{+}) = \frac{n(n+1)}{4} = \frac{12(13)}{4} = 39,
+\end{aligned}
+\]</div>
+<p>and variance,</p>
+<div class="arithmatex">\[
+\begin{aligned}
+  V(W_{+}) = \frac{n(n+1)(2n+1)}{24} = \frac{12(13)(25)}{24} = 162.5.
+\end{aligned}
+\]</div>
+<h4 id="d">(d)</h4>
+<p><em>Normal approximation of the Wilcoxon test statistic (HB p.20) and Interpreting <span class="arithmatex">\(p\)</span>-values (HB p.18)</em></p>
+<p>In this scenario, the observed sum of ranks for the positive differences is <span class="arithmatex">\(w_{+} = 65\)</span>, so the corresponding observed value of <span class="arithmatex">\(Z\)</span> is</p>
+<div class="arithmatex">\[
+Z = \frac{w_{+} - E(W_{+})}{\sqrt{V(W_{+})}} = \frac{65-39}{\sqrt{162.5}} = 2.0396 \ldots \simeq 2.04.
+\]</div>
+<p>Using the table of probabilities of the standard normal distribution in the handbook gives</p>
+<div class="arithmatex">\[
+P(Z \geq 2.04) = 1 - P(Z \leq 2.04) = 1 - 0.9793 = 0.0207.
+\]</div>
+<p>So, according to the approximation, the probability of obtaining a Wilcoxon signed rank test statistic of <span class="arithmatex">\(65\)</span> or greater is approximately <span class="arithmatex">\(0.0207\)</span>.
+For a two-sided test, the <span class="arithmatex">\(p\)</span>-value is double this, so</p>
+<div class="arithmatex">\[
+P(Z \leq -2.04) + P(Z \geq 2.04) = 2 P(Z \geq 2.04) = 0.0414.
+\]</div>
+<p>Given that <span class="arithmatex">\(p=0.0414\)</span>, there is moderate against the null hypothesis that there is no difference in aluminium concentrations in the wood of trees between August and November.
+The test statistic is greater than zero, so it suggests that the population median difference in aluminium concentrations between August and November is greater than zero, suggesting that there is an increase in Aluminium concentrations.</p>
+<h3 id="q37">q.37</h3>
+<h4 id="a_5">(a)</h4>
+<p><em>Interpreting the regression coefficients in multiple linear regression</em></p>
+<p>If the value of the percentage of individuals who earned $3500 or more for each occupation increased (<span class="arithmatex">\(x_{1}\)</span>) by one percentage point and the value of the percentage of individuals who were high school graduates (<span class="arithmatex">\(x_{2}\)</span>) remains fixed, then the measure of prestige for each occupation would be expected to rise by 0.599</p>
+<h4 id="b_5">(b)</h4>
+<p><em>Using a fitted model (HB p.22) to find the residual value</em></p>
+<p>Using the fitted model, a small company with <span class="arithmatex">\(x_{1} = 8\)</span> and <span class="arithmatex">\(x_{2} = 64\)</span> is predicted to have annual profits (in £100,000s)</p>
+<div class="arithmatex">\[y = 0.930 - 0.3662 (8) + 0.03543 (64) \simeq 0.268.\]</div>
+<p>Given the actual value was <span class="arithmatex">\(y=0.292\)</span>, this gives a residual value of</p>
+<div class="arithmatex">\[
+w = 0.292 - 0.268 = 0.024.
+\]</div>
+<h3 id="q38">q.38</h3>
+<p>==Not answered==</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../m248-201806/" class="btn btn-neutral" title="M248 June 2018"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../m248-201806/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../javascripts/config.js" defer></script>
+      <script src="https://polyfill.io/v3/polyfill.min.js?features=es6" defer></script>
+      <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
