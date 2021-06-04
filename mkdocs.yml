@@ -1,17 +1,11 @@
 site_name: FinishingM248
 theme:
-  name: material
-  features:
-    - navigation.sections
+  name: readthedocs
 
 markdown_extensions:
   - def_list
   - pymdownx.arithmatex:
       generic: true
-  - pymdownx.highlight:
-      linenums: true
-  - pymdownx.superfences
-  - admonition
   - toc:
       toc_depth: 2
 
