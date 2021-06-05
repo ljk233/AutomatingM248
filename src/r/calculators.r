@@ -112,7 +112,7 @@ calc_conf_int_beta <- function(ci, b, n, Sxx, sd = NULL, var = NULL) {
 
   qa <- (ci + (1 - ci)/2)  # transform ci to quantile
     
-  t <- qt(qa, n-1)
+  t <- qt(qa, n-2)
 
   return (
     c(b - t*ese, b + t*ese)
