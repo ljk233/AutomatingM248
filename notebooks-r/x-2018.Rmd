@@ -556,27 +556,25 @@ $$
 \widehat{\beta} \pm t \frac{s}{\sqrt{S_{xx}}}.
 $$
 
-We know that $\widehat{\beta} = 0.76 \> s^{2} = 91.5, \> S_{xx} = 574.29$, and $t\simeq 2.086$ is the $0.975$-quantile of $t(20)$.
+We know that $\widehat{\beta} = 0.76 \> s^{2} = 91.5, \> S_{xx} = 574.29$, and $t\simeq 2.086$ is the $0.975$-quantile of $t(n-2)=t(19)$.
 So,
 
 $$
-\beta^{-} = 0.76 - 2.086 \bigg( \sqrt{\frac{91.5}{574.24}} \bigg) \simeq -0.072,
+\beta^{-} = 0.76 - 2.093 \sqrt{\frac{91.5}{574.24}} \simeq -0.075,
 $$
 
 and
 
 $$
-\beta^{+} = 0.76 + 2.086 \bigg( \sqrt{\frac{91.5}{574.24}} \bigg) \simeq 1.593.
+\beta^{+} = 0.76 + 2.093 \sqrt{\frac{91.5}{574.24}} \simeq 1.595.
 $$
 
-Therefore $(-0.072, 1.593) \approx (-0.08, 1.60)$.
+Therefore $(-0.075, 1.595) \simeq (-0.08, 1.60)$.
 
 ```{r q.28}
 calc_conf_int_beta(
   ci = 0.95, b = 0.76, n = 21, Sxx = 574.24, var = 91.5)
 ```
-
-    ## Small error due to rounding
 
 ### q.29
 
