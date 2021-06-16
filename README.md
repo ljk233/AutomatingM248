@@ -17,8 +17,9 @@ The repo got away from me in the end, so I plan to archive it soon after some mo
   - [x] `data`
   - [X] `docs`
   - [X] `finishingM248`
-  - [ ] `md`
-  - [ ] `src`
+  - [X] `md`
+  - [X] (rename) `notebooks-py`
+  - [X] `src`
 - [ ] Archive Book A notebooks
   - These aren't particularly that interesting, and do a good job cluttering the folder
   - Move to sub-folder
