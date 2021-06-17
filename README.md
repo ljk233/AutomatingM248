@@ -9,22 +9,28 @@ A collection of notes and examples take from **M248: Analysing Data**.
 ## 2021-06-16
 
 Well that's the module completed.
-The repo got away from me in the end, so I plan to archive it soon after some more refactoring for posterities sake.
+The repo got away from me in the end, so I plan to archive it soon.
+I think it's because it turned into a guide on how to use the packages, rather than any meaningful statistics, which I guess isn't that interesting.
 
 ### TODO
 
-- [ ] Tidy-up folders
+- [X] Tidy-up folders
   - [x] `data`
   - [X] `docs`
   - [X] `finishingM248`
   - [X] `md`
-  - [X] (rename) `notebooks-py`
+  - [X] (rename) `notebooks-py` -> `notebooks`
   - [X] `src`
-- [ ] Archive Book A notebooks
-  - These aren't particularly that interesting, and do a good job cluttering the folder
-  - Move to sub-folder
-  - Refresh any path declarations
 - [ ] Refactor notebooks
+  - **Visualisations**
+    - [X] bar chart 1
+    - [X] bar chart 2
+    - [X] frequency histogram
+    - [X] boxplot
+    - [X] side-by-side bar chart
+    - [X] unit area histogram
+    - [X] comparative boxplots
+    - [X] scatterplot
   - **Confidence intervals**
     - [ ] **z**-interval: mean
     - [ ] **z**-interval: proportion
